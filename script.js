@@ -914,7 +914,7 @@ let matchingState = {
 };
 
 function selectMatchLeft(key, element) {
-  // Reset border seleksi sebelumnya di kolom kiri
+  // Reset border seleksi sebelumnya di daftar rumus
   document.querySelectorAll('.match-item-btn').forEach(btn => {
     btn.classList.remove('selected');
   });
@@ -925,18 +925,38 @@ function selectMatchLeft(key, element) {
 
   const feedback = document.getElementById('matchingFeedback');
   if (feedback) {
-    feedback.innerHTML = `👉 Kamu memilih rumus <strong>${key}</strong>. Sekarang klik fungsi yang tepat di kolom kanan!`;
+    feedback.innerHTML = `👉 Rumus <strong>${key}</strong> dipilih. Sekarang tentukan fungsi yang cocok pada daftar fungsi!`;
     feedback.style.color = 'var(--accent-blue)';
   }
 }
 
 function selectMatchRight(targetKey, element) {
   if (!matchingState.selectedLeftKey) {
-    alert('Silakan klik salah satu nama rumus di kolom kiri terlebih dahulu!');
+    alert('Silakan pilih salah satu nama rumus terlebih dahulu!');
     return;
   }
 
   const leftKey = matchingState.selectedLeftKey;
+
+  // Jika rumus ini sebelumnya sudah punya pasangan, bersihkan elemen fungsi lama
+  const prevTarget = matchingState.userPairs[leftKey];
+  if (prevTarget) {
+    const prevRightEl = document.querySelector(`.match-desc-btn[data-target="${prevTarget}"]`);
+    if (prevRightEl) {
+      prevRightEl.classList.remove('paired');
+    }
+  }
+
+  // Jika fungsi ini sudah pernah dipilih oleh rumus lain, bersihkan rumus lain tersebut
+  for (const k in matchingState.userPairs) {
+    if (matchingState.userPairs[k] === targetKey && k !== leftKey) {
+      delete matchingState.userPairs[k];
+      const otherLeftEl = document.querySelector(`.match-item-btn[data-key="${k}"]`);
+      if (otherLeftEl) {
+        otherLeftEl.classList.remove('paired');
+      }
+    }
+  }
 
   // Simpan pasangan siswa
   matchingState.userPairs[leftKey] = targetKey;
@@ -944,13 +964,14 @@ function selectMatchRight(targetKey, element) {
   // Visual feedback: beri tanda warna bahwa sudah terpasang
   if (matchingState.selectedLeftElement) {
     matchingState.selectedLeftElement.classList.remove('selected');
-    matchingState.selectedLeftElement.style.borderColor = 'var(--accent-blue)';
+    matchingState.selectedLeftElement.classList.add('paired');
   }
-  element.style.borderColor = 'var(--accent-blue)';
+  element.classList.add('paired');
 
   const feedback = document.getElementById('matchingFeedback');
   if (feedback) {
-    feedback.innerHTML = `✅ Rumus <strong>${leftKey}</strong> berhasil dipasangkan! Klik <strong>Periksa</strong> jika sudah selesai semua.`;
+    const pairedCount = Object.keys(matchingState.userPairs).length;
+    feedback.innerHTML = `✅ Rumus <strong>${leftKey}</strong> dipasangkan (${pairedCount}/10). Lanjutkan atau klik <strong>Periksa</strong> jika sudah selesai!`;
     feedback.style.color = 'var(--excel-green-dark)';
   }
 
@@ -972,20 +993,20 @@ function checkMatchingAnswers() {
       correctCount++;
       if (leftEl) {
         leftEl.classList.add('correct');
-        leftEl.classList.remove('wrong');
+        leftEl.classList.remove('wrong', 'paired');
       }
       if (rightEl) {
         rightEl.classList.add('correct');
-        rightEl.classList.remove('wrong');
+        rightEl.classList.remove('wrong', 'paired');
       }
     } else if (matchedWith) {
       if (leftEl) {
         leftEl.classList.add('wrong');
-        leftEl.classList.remove('correct');
+        leftEl.classList.remove('correct', 'paired');
       }
       if (rightEl) {
         rightEl.classList.add('wrong');
-        rightEl.classList.remove('correct');
+        rightEl.classList.remove('correct', 'paired');
       }
     }
   });
@@ -1016,8 +1037,8 @@ function resetMatchingActivity() {
   };
 
   document.querySelectorAll('.match-item-btn, .match-desc-btn').forEach(btn => {
-    btn.classList.remove('selected', 'correct', 'wrong');
-    btn.style.borderColor = '#cbd5e1';
+    btn.classList.remove('selected', 'correct', 'wrong', 'paired');
+    btn.style.borderColor = '';
   });
 
   const scoreText = document.getElementById('matchingScoreText');

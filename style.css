@@ -1971,20 +1971,36 @@ button {
   border-bottom: 1px solid #e2e8f0;
 }
 
+.akt-header-info {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.akt-header-info h3 {
+  font-size: 1.3rem;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+
 .akt-instruksi {
   font-size: 0.95rem;
   color: var(--text-normal);
-  margin-top: 4px;
+  line-height: 1.6;
 }
 
 .akt-score-badge, .akt-progress-badge {
   background-color: #f8fafc;
-  border: 1px solid #cbd5e1;
-  padding: 8px 16px;
+  border: 1.5px solid #cbd5e1;
+  padding: 8px 18px;
   border-radius: 30px;
   font-size: 0.9rem;
   font-weight: 700;
   white-space: nowrap;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .akt-score-badge strong {
@@ -2054,6 +2070,19 @@ button {
 .match-desc-btn.selected {
   border-color: var(--accent-blue);
   background-color: var(--accent-blue-light);
+}
+
+.match-item-btn.paired, .match-desc-btn.paired {
+  border-color: var(--accent-blue) !important;
+  background-color: #f0f7ff !important;
+  color: #0369a1 !important;
+}
+
+.match-item-btn.paired .match-letter,
+.match-desc-btn.paired .match-number {
+  background-color: var(--accent-blue) !important;
+  color: #ffffff !important;
+  border-color: var(--accent-blue) !important;
 }
 
 .match-item-btn.correct, .match-desc-btn.correct {
@@ -2909,8 +2938,48 @@ button {
     font-size: 1rem;
   }
 
+  /* Responsive Header Aktivitas Tablet & HP */
+  .akt-header-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+  }
+
+  .akt-header-bar > div:first-child,
+  .akt-header-info {
+    width: 100%;
+  }
+
+  .akt-header-bar h3,
+  .akt-header-info h3 {
+    font-size: 1.2rem;
+    line-height: 1.4;
+  }
+
+  .akt-instruksi {
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .akt-score-badge, .akt-progress-badge {
+    align-self: flex-start;
+  }
+
   .matching-container {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  #matchingLeftCol {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  #matchingLeftCol .col-title {
+    grid-column: 1 / -1;
   }
 
   .sc-options-grid {
@@ -2923,6 +2992,98 @@ button {
 }
 
 @media (max-width: 600px) {
+  /* Mobile padding & compact layout for activities */
+  .card-white {
+    padding: 18px 14px;
+  }
+
+  .sub-nav-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .sub-tab-btn {
+    padding: 9px 8px;
+    font-size: 0.82rem;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .akt-header-bar {
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+  }
+
+  .akt-header-bar h3,
+  .akt-header-info h3 {
+    font-size: 1.08rem;
+    line-height: 1.35;
+  }
+
+  .akt-instruksi {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .akt-score-badge, .akt-progress-badge {
+    padding: 6px 12px;
+    font-size: 0.82rem;
+  }
+
+  .akt-score-badge strong {
+    font-size: 0.95rem;
+  }
+
+  #matchingLeftCol {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .match-item-btn {
+    padding: 9px 10px;
+    gap: 8px;
+    font-size: 0.85rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .match-desc-btn {
+    padding: 10px 12px;
+    gap: 10px;
+    font-size: 0.86rem;
+    line-height: 1.45;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+  }
+
+  .match-letter, .match-number {
+    width: 24px;
+    height: 24px;
+    font-size: 0.78rem;
+  }
+
+  .matching-actions-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .matching-actions-bar .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 11px 16px;
+    font-size: 0.92rem;
+  }
+
+  .feedback-msg {
+    text-align: center;
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+
   .hero-title {
     font-size: 2.1rem;
   }
