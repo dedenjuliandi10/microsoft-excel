@@ -1,0 +1,2237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Excel Dasar dan Rumus - Media Pembelajaran Informatika SMP/MTs</title>
+  <!-- Google Fonts: Nunito, Poppins & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <!-- File CSS Terpisah Wajib -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ======================================================= -->
+  <!-- HEADER & NAVBAR UTAMA (6 MENU WAJIB)                     -->
+  <!-- ======================================================= -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-logo" onclick="navigateTo('beranda')">
+        <div class="logo-badge">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="6" fill="#107C41"/>
+            <path d="M6 7H18V17H6V7Z" fill="white" fill-opacity="0.2"/>
+            <path d="M7.5 8.5L11.5 15.5M11.5 8.5L7.5 15.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <rect x="13.5" y="8.5" width="4" height="2" rx="0.5" fill="white"/>
+            <rect x="13.5" y="12" width="4" height="2" rx="0.5" fill="white"/>
+            <rect x="13.5" y="15.5" width="4" height="2" rx="0.5" fill="white"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-subject">Informatika SMP/MTs Kelas VIII</span>
+          <span class="brand-title">Excel Dasar &amp; Rumus</span>
+        </div>
+      </div>
+
+      <!-- PROGRESS BELAJAR GLOBAL DENGAN TOMBOL RESET -->
+      <div class="header-progress-wrap" title="Progres Capaian Belajar Kamu">
+        <div class="progress-labels">
+          <span class="progress-title">⚡ Progres</span>
+          <span class="progress-percent" id="globalProgressText">0%</span>
+          <button class="btn-reset-header" onclick="resetAllProgress()" title="Klik untuk Mereset Progres Belajar ke 0%">
+            🔄 Reset
+          </button>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="globalProgressBar" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- TOMBOL HAMBURGER RESPONSIF -->
+      <button class="menu-toggle" id="menuToggleBtn" aria-label="Buka Menu Navigasi" onclick="toggleMobileNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- 6 MENU NAVIGASI UTAMA -->
+      <nav class="main-nav" id="mainNavbar">
+        <ul class="nav-list">
+          <li>
+            <button class="nav-link active" data-target="beranda" onclick="navigateTo('beranda')">
+              <span class="nav-icon">🏠</span>
+              <span class="nav-text">Beranda</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-link" data-target="materi" onclick="navigateTo('materi')">
+              <span class="nav-icon">📚</span>
+              <span class="nav-text">Materi</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-link" data-target="rumus" onclick="navigateTo('rumus')">
+              <span class="nav-icon">🧮</span>
+              <span class="nav-text">Rumus Excel</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-link" data-target="aktivitas" onclick="navigateTo('aktivitas')">
+              <span class="nav-icon">🎮</span>
+              <span class="nav-text">Aktivitas</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-link" data-target="kuis" onclick="navigateTo('kuis')">
+              <span class="nav-icon">📝</span>
+              <span class="nav-text">Kuis</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-link" data-target="rangkuman" onclick="navigateTo('rangkuman')">
+              <span class="nav-icon">💡</span>
+              <span class="nav-text">Rangkuman</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======================================================= -->
+  <!-- MAIN CONTAINER (SINGLE-PAGE ARCHITECTURE)               -->
+  <!-- ======================================================= -->
+  <main class="main-container">
+
+    <!-- ===================================================== -->
+    <!-- 1. MENU BERANDA                                        -->
+    <!-- ===================================================== -->
+    <section id="beranda" class="content-section active">
+      <!-- HERO BANNER -->
+      <div class="hero-card">
+        <div class="hero-content">
+          <div class="badge-tag">INFORMATIKA KELAS VIII • PENGOLAHAN DATA</div>
+          <h1 class="hero-title">Excel Dasar dan Rumus</h1>
+          <p class="hero-subtitle">
+            Belajar mengolah data dengan rumus Excel secara mudah, interaktif, dan menyenangkan.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="navigateTo('materi')">
+              <span>🚀 Mulai Belajar</span>
+            </button>
+            <button class="btn btn-outline" onclick="navigateTo('aktivitas')">
+              <span>🎮 Mulai Aktivitas</span>
+            </button>
+          </div>
+          <div class="hero-meta-badges">
+            <span class="pill-badge">🟢 10 Rumus Utama</span>
+            <span class="pill-badge">🎯 4 Aktivitas Interaktif</span>
+            <span class="pill-badge">🏆 Kuis Uji Pemahaman</span>
+          </div>
+        </div>
+
+        <!-- ILUSTRASI SISWA & SPREADSHEET -->
+        <div class="hero-illustration">
+          <div class="illustration-board">
+            <div class="floating-tag tag-top">✨ =SUM(B2:B6) = 400</div>
+            <div class="floating-tag tag-bottom">📊 Analisis Data Cepat</div>
+
+            <!-- SVG Siswa SMP & Laptop Spreadsheet -->
+            <svg viewBox="0 0 460 340" class="hero-svg" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="laptopGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#107c41"/>
+                  <stop offset="100%" stop-color="#0b5a2e"/>
+                </linearGradient>
+                <linearGradient id="screenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#ffffff"/>
+                  <stop offset="100%" stop-color="#f3f9f4"/>
+                </linearGradient>
+                <linearGradient id="deskGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#e2e8f0"/>
+                  <stop offset="100%" stop-color="#cbd5e1"/>
+                </linearGradient>
+              </defs>
+
+              <!-- Meja Belajar -->
+              <rect x="20" y="270" width="420" height="18" rx="9" fill="url(#deskGrad)" />
+              <rect x="50" y="288" width="16" height="45" rx="4" fill="#94a3b8" />
+              <rect x="394" y="288" width="16" height="45" rx="4" fill="#94a3b8" />
+
+              <!-- Monitor / Laptop -->
+              <rect x="100" y="90" width="260" height="165" rx="12" fill="#1e293b" />
+              <rect x="110" y="100" width="240" height="145" rx="8" fill="url(#screenGrad)" />
+              <!-- Dudukan Laptop -->
+              <path d="M190 255 L270 255 L285 272 L175 272 Z" fill="#64748b" />
+
+              <!-- Header Aplikasi Excel di Layar -->
+              <rect x="110" y="100" width="240" height="24" rx="6" fill="url(#laptopGrad)" />
+              <circle cx="124" cy="112" r="4" fill="#ef4444" />
+              <circle cx="136" cy="112" r="4" fill="#f59e0b" />
+              <circle cx="148" cy="112" r="4" fill="#10b981" />
+              <text x="175" y="116" font-family="'Nunito', sans-serif" font-size="10" font-weight="700" fill="#ffffff">Buku1.xlsx - Excel SMP</text>
+
+              <!-- Formula Bar di Layar -->
+              <rect x="115" y="128" width="30" height="14" rx="3" fill="#e2e8f0"/>
+              <text x="122" y="139" font-family="monospace" font-size="9" font-weight="700" fill="#107c41">fx</text>
+              <rect x="148" y="128" width="197" height="14" rx="3" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+              <text x="153" y="139" font-family="monospace" font-size="9" fill="#0f172a">=SUM(C2:C5)</text>
+
+              <!-- Grid Spreadsheet Mini -->
+              <!-- Baris Header Kolom -->
+              <rect x="115" y="146" width="20" height="14" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="0.5"/>
+              <rect x="135" y="146" width="70" height="14" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="0.5"/>
+              <text x="165" y="157" font-size="8" font-weight="700" fill="#475569">A</text>
+              <rect x="205" y="146" width="65" height="14" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="0.5"/>
+              <text x="233" y="157" font-size="8" font-weight="700" fill="#475569">B</text>
+              <rect x="270" y="146" width="75" height="14" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="0.5"/>
+              <text x="303" y="157" font-size="8" font-weight="700" fill="#475569">C</text>
+
+              <!-- Baris 1: Judul Tabel -->
+              <rect x="115" y="160" width="20" height="15" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="0.5"/>
+              <text x="122" y="171" font-size="8" fill="#64748b">1</text>
+              <rect x="135" y="160" width="70" height="15" fill="#dcfce7" stroke="#86efac" stroke-width="0.5"/>
+              <text x="140" y="171" font-size="8" font-weight="700" fill="#166534">Nama</text>
+              <rect x="205" y="160" width="65" height="15" fill="#dcfce7" stroke="#86efac" stroke-width="0.5"/>
+              <text x="210" y="171" font-size="8" font-weight="700" fill="#166534">Tugas</text>
+              <rect x="270" y="160" width="75" height="15" fill="#dcfce7" stroke="#86efac" stroke-width="0.5"/>
+              <text x="275" y="171" font-size="8" font-weight="700" fill="#166534">Nilai UAS</text>
+
+              <!-- Baris 2: Andi -->
+              <rect x="115" y="175" width="20" height="15" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="0.5"/>
+              <text x="122" y="186" font-size="8" fill="#64748b">2</text>
+              <rect x="135" y="175" width="70" height="15" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.5"/>
+              <text x="140" y="186" font-size="8" fill="#334155">Andi</text>
+              <rect x="205" y="175" width="65" height="15" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.5"/>
+              <text x="220" y="186" font-size="8" fill="#334155">85</text>
+              <rect x="270" y="175" width="75" height="15" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.5"/>
+              <text x="290" y="186" font-size="8" fill="#334155">90</text>
+
+              <!-- Baris 3: Citra (Selected with Excel Green Border) -->
+              <rect x="115" y="190" width="20" height="15" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="0.5"/>
+              <text x="122" y="201" font-size="8" fill="#64748b">3</text>
+              <rect x="135" y="190" width="70" height="15" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.5"/>
+              <text x="140" y="201" font-size="8" fill="#334155">Citra</text>
+              <rect x="205" y="190" width="65" height="15" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.5"/>
+              <text x="220" y="201" font-size="8" fill="#334155">90</text>
+              <!-- Cell Aktif Terpilih -->
+              <rect x="270" y="190" width="75" height="15" fill="#e8f5e9" stroke="#107c41" stroke-width="2"/>
+              <text x="290" y="201" font-size="8" font-weight="700" fill="#107c41">95</text>
+              <rect x="342" y="202" width="4" height="4" fill="#107c41" />
+
+              <!-- Baris 4: Total Nilai -->
+              <rect x="115" y="205" width="20" height="15" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="0.5"/>
+              <text x="122" y="216" font-size="8" fill="#64748b">4</text>
+              <rect x="135" y="205" width="70" height="15" fill="#f8fafc" stroke="#cbd5e1" stroke-width="0.5"/>
+              <text x="140" y="216" font-size="8" font-weight="700" fill="#0f172a">Total</text>
+              <rect x="205" y="205" width="65" height="15" fill="#f8fafc" stroke="#cbd5e1" stroke-width="0.5"/>
+              <text x="216" y="216" font-size="8" font-weight="700" fill="#107c41">175</text>
+              <rect x="270" y="205" width="75" height="15" fill="#f8fafc" stroke="#cbd5e1" stroke-width="0.5"/>
+              <text x="286" y="216" font-size="8" font-weight="700" fill="#107c41">185</text>
+
+              <!-- Karakter Siswa SMP Ceria (Kiri) -->
+              <g transform="translate(15, 110)">
+                <!-- Badan Seragam Putih Biru SMP -->
+                <ellipse cx="60" cy="135" rx="30" ry="38" fill="#2563eb" />
+                <path d="M35 125 L85 125 L80 85 L40 85 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+                <polygon points="60,88 56,110 60,118 64,110" fill="#1d4ed8" />
+                <circle cx="60" cy="52" r="22" fill="#fbd38d" />
+                <path d="M38 50 C38 32 48 24 60 24 C72 24 82 32 82 50 C80 44 74 40 60 40 C46 40 40 44 38 50 Z" fill="#1e293b" />
+                <circle cx="53" cy="52" r="2.5" fill="#1e293b" />
+                <circle cx="67" cy="52" r="2.5" fill="#1e293b" />
+                <path d="M55 60 Q60 65 65 60" stroke="#b91c1c" stroke-width="2" fill="none" stroke-linecap="round" />
+                <path d="M40 92 Q60 100 80 98" stroke="#fbd38d" stroke-width="6" stroke-linecap="round" fill="none"/>
+              </g>
+
+              <!-- Ornamen Buku & Pensil di Kanan -->
+              <rect x="375" y="250" width="45" height="20" rx="3" fill="#3b82f6" />
+              <rect x="378" y="244" width="40" height="7" rx="2" fill="#10b981" />
+              <rect x="382" y="238" width="35" height="7" rx="2" fill="#f59e0b" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL STATUS & RESET PROGRES BELAJAR SISWA -->
+      <div class="learning-progress-banner card-white shadow-card">
+        <div class="progress-banner-info">
+          <div class="prog-icon-badge">⚡</div>
+          <div class="prog-text-group">
+            <h3 class="prog-main-title">Status Progres Belajar Kamu</h3>
+            <p class="prog-sub-title" id="berandaProgressDetail">
+              Materi: <strong id="statMateriCount">0/4</strong> &bull; Rumus: <strong id="statRumusCount">0/10</strong> &bull; Aktivitas: <strong id="statAktCount">0/4</strong> &bull; Kuis: <strong id="statKuisStatus">Belum Selesai</strong>
+            </p>
+          </div>
+        </div>
+        <div class="progress-banner-actions">
+          <div class="prog-bar-container">
+            <span class="prog-big-percent" id="berandaProgressPercent">0%</span>
+            <div class="prog-big-track">
+              <div class="prog-big-fill" id="berandaProgressBar" style="width: 0%;"></div>
+            </div>
+          </div>
+          <button class="btn btn-reset-prog" onclick="resetAllProgress()" title="Kembalikan progres belajar ke 0%">
+            <span>🔄 Reset Progres Belajar</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 3 KARTU UTAMA BERANDA -->
+      <div class="section-title-wrap">
+        <h2 class="section-heading">🌟 Jelajahi Modul Belajar</h2>
+        <p class="section-subheading">Tiga langkah seru menguasai spreadsheet dan rumus pengolahan data.</p>
+      </div>
+
+      <div class="cards-grid-3">
+        <!-- Kartu 1 -->
+        <div class="feature-card" onclick="navigateTo('materi')">
+          <div class="card-icon-wrap bg-green-light">
+            <span class="card-icon">📊</span>
+          </div>
+          <h3 class="card-title">FITUR &amp; ANTARMUKA</h3>
+          <p class="card-desc">
+            Kuasai Menu Bar (Ribbon), cell, worksheet, formula bar, name box, hingga fitur ajaib Fill Handle.
+          </p>
+          <div class="card-action-link">
+            <span>Pelajari Fitur</span> &rarr;
+          </div>
+        </div>
+
+        <!-- Kartu 2 -->
+        <div class="feature-card" onclick="navigateTo('rumus')">
+          <div class="card-icon-wrap bg-blue-light">
+            <span class="card-icon">🧮</span>
+          </div>
+          <h3 class="card-title">RUMUS EXCEL</h3>
+          <p class="card-desc">
+            Pelajari 10 rumus Excel yang sering digunakan untuk mengolah data dan hitung otomatis.
+          </p>
+          <div class="card-action-link">
+            <span>Pelajari Rumus</span> &rarr;
+          </div>
+        </div>
+
+        <!-- Kartu 3 -->
+        <div class="feature-card" onclick="navigateTo('aktivitas')">
+          <div class="card-icon-wrap bg-purple-light">
+            <span class="card-icon">💡</span>
+          </div>
+          <h3 class="card-title">PEMECAHAN MASALAH</h3>
+          <p class="card-desc">
+            Pilih rumus yang tepat untuk menyelesaikan masalah berdasarkan data melalui aktivitas seru.
+          </p>
+          <div class="card-action-link">
+            <span>Mulai Berlatih</span> &rarr;
+          </div>
+        </div>
+      </div>
+
+      <!-- TUJUAN PEMBELAJARAN (SESUAI SILABUS KELAS VIII) -->
+      <div class="learning-objectives-box">
+        <div class="box-header">
+          <div class="box-icon">🎯</div>
+          <div>
+            <h3 class="box-title">Tujuan Pembelajaran Siswa</h3>
+            <p class="box-subtitle">Setelah menggunakan media pembelajaran ini, siswa kelas VIII diharapkan mampu:</p>
+          </div>
+        </div>
+        <div class="objectives-grid">
+          <div class="objective-item">
+            <div class="check-icon">✓</div>
+            <p>Mengenal Menu Bar / Ribbon (Home, Insert, Page Layout, Formulas, Data, View) serta antarmuka penting Excel.</p>
+          </div>
+          <div class="objective-item">
+            <div class="check-icon">✓</div>
+            <p>Menguasai pengelolaan Sheet (tambah, rename, beri warna tab sheet) dan pemanfaatan Formula Bar serta Name Box.</p>
+          </div>
+          <div class="objective-item">
+            <div class="check-icon">✓</div>
+            <p>Memahami cell, alamat cell, tipe data angka/teks, dan fitur otomatis Fill Handle serta Freeze Panes.</p>
+          </div>
+          <div class="objective-item">
+            <div class="check-icon">✓</div>
+            <p>Memahami konsep rumus dan fungsi yang selalu diawali tanda sama dengan (<code>=</code>).</p>
+          </div>
+          <div class="objective-item">
+            <div class="check-icon">✓</div>
+            <p>Menggunakan 10 rumus Excel dasar (SUM, AVERAGE, MAX, MIN, SUMIF, IF, COUNT, COUNTIF, RANK, VLOOKUP).</p>
+          </div>
+          <div class="objective-item">
+            <div class="check-icon">✓</div>
+            <p>Memilih rumus yang paling tepat berdasarkan studi kasus dan permasalahan data nyata.</p>
+          </div>
+          <div class="objective-item">
+            <div class="check-icon">✓</div>
+            <p>Mengolah dan membaca hasil perhitungan data nilai siswa dan daftar barang sederhana.</p>
+          </div>
+          <div class="objective-item">
+            <div class="check-icon">✓</div>
+            <p>Menyelesaikan permasalahan dan membuat keputusan berbasis data secara tepat.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUICK STATS BANNER -->
+      <div class="quick-banner">
+        <div class="banner-stat">
+          <span class="stat-number">10</span>
+          <span class="stat-label">Rumus Utama Excel</span>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="banner-stat">
+          <span class="stat-number">4</span>
+          <span class="stat-label">Aktivitas Interaktif</span>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="banner-stat">
+          <span class="stat-number">10</span>
+          <span class="stat-label">Soal Kuis Ujian</span>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="banner-stat">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Sesuai Kurikulum SMP</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 2. MENU MATERI                                         -->
+    <!-- ===================================================== -->
+    <!-- ===================================================== -->
+    <!-- 2. MENU MATERI                                         -->
+    <!-- ===================================================== -->
+    <section id="materi" class="content-section">
+      <div class="section-title-wrap">
+        <div class="badge-tag">MODUL LENGKAP • FITUR &amp; RUMUS</div>
+        <h2 class="section-heading">Materi Pembelajaran Excel</h2>
+        <p class="section-subheading">Pelajari antarmuka, Menu Bar, cell, manajemen sheet, formula bar, hingga pengolahan data terstruktur.</p>
+      </div>
+
+      <!-- MATERI TABS / ACCORDION (5 SUB-MODUL) -->
+      <div class="materi-tabs-nav">
+        <button class="materi-tab-btn active" onclick="switchMateriTab('tab-antarmuka')">
+          <span>🖥️ A. Menu Bar &amp; Antarmuka</span>
+        </button>
+        <button class="materi-tab-btn" onclick="switchMateriTab('tab-cell')">
+          <span>🟩 B. Cell &amp; Fill Handle</span>
+        </button>
+        <button class="materi-tab-btn" onclick="switchMateriTab('tab-sheet')">
+          <span>📑 C. Manajemen Sheet</span>
+        </button>
+        <button class="materi-tab-btn" onclick="switchMateriTab('tab-formula-bar')">
+          <span>🧮 D. Formula Bar &amp; Rumus</span>
+        </button>
+        <button class="materi-tab-btn" onclick="switchMateriTab('tab-pengolahan')">
+          <span>📊 E. Pengolahan Data &amp; Fitur</span>
+        </button>
+      </div>
+
+      <!-- ===================================================== -->
+      <!-- TAB A: MENU BAR & ANATOMI ANTARMUKA EXCEL             -->
+      <!-- ===================================================== -->
+      <div id="tab-antarmuka" class="materi-panel active">
+        <div class="card-white shadow-card">
+          <div class="panel-header-badge">
+            <span class="panel-num">A</span>
+            <div>
+              <h3>Menu Bar &amp; Anatomi Antarmuka Microsoft Excel</h3>
+              <p class="sub-panel-title">Mengenal bagian-bagian penting jendela kerja Excel dan fungsi Menu Bar (Ribbon).</p>
+            </div>
+          </div>
+
+          <p class="lead-text">
+            Microsoft Excel mengorganisasikan seluruh alat kerjanya ke dalam sistem <strong>Ribbon (Pita Menu)</strong> di bagian atas layar. Setiap tab menu memiliki kelompok fungsi khusus untuk memudahkan kita mengolah data, membuat tabel, hingga menyusun grafik visual.
+          </p>
+
+          <!-- SIMULATOR INTERAKTIF: PETA ANTARMUKA EXCEL -->
+          <div class="interface-explorer-box">
+            <div class="explorer-header">
+              <span class="explorer-badge">🧭 SIMULATOR INTERAKTIF: PETA ANTARMUKA EXCEL</span>
+              <h4>Klik salah satu bagian antarmuka di bawah ini untuk melihat fungsi dan cara penggunaannya:</h4>
+            </div>
+
+            <!-- Tombol Hotspot Bagian Antarmuka -->
+            <div class="hotspot-buttons-row">
+              <button class="hotspot-btn active" onclick="selectInterfacePart('quick_access', this)">
+                <span>⚡ Quick Access</span>
+              </button>
+              <button class="hotspot-btn" onclick="selectInterfacePart('menu_bar', this)">
+                <span>📋 Menu Bar / Ribbon</span>
+              </button>
+              <button class="hotspot-btn" onclick="selectInterfacePart('name_box', this)">
+                <span>🏷️ Name Box</span>
+              </button>
+              <button class="hotspot-btn" onclick="selectInterfacePart('formula_bar', this)">
+                <span>✏️ Formula Bar</span>
+              </button>
+              <button class="hotspot-btn" onclick="selectInterfacePart('headers', this)">
+                <span>📐 Header Kolom &amp; Baris</span>
+              </button>
+              <button class="hotspot-btn" onclick="selectInterfacePart('cell_grid', this)">
+                <span>🟩 Lembar Kisi (Grid)</span>
+              </button>
+              <button class="hotspot-btn" onclick="selectInterfacePart('sheet_tabs', this)">
+                <span>📑 Sheet Tabs</span>
+              </button>
+              <button class="hotspot-btn" onclick="selectInterfacePart('status_bar', this)">
+                <span>📊 Status Bar &amp; Zoom</span>
+              </button>
+            </div>
+
+            <!-- Layout Visual Mockup & Penjelasan Dinamis -->
+            <div class="explorer-display-grid">
+              <!-- Visual Jendela Excel Mockup dengan Highlight -->
+              <div class="mockup-screen-card" id="mockupScreenContainer">
+                <div class="mockup-header-top" id="zone-quick_access">
+                  <div class="quick-icons">
+                    <span class="q-icon" title="Save / Simpan (Ctrl+S)">💾</span>
+                    <span class="q-icon" title="Undo / Batal (Ctrl+Z)">↩️</span>
+                    <span class="q-icon" title="Redo (Ctrl+Y)">↪️</span>
+                  </div>
+                  <span class="mock-doc-title">Buku1.xlsx - Excel SMP Kelas VIII</span>
+                  <div class="window-controls">
+                    <span>—</span>
+                    <span>▢</span>
+                    <span>✕</span>
+                  </div>
+                </div>
+
+                <!-- Menu Bar / Ribbon Mockup -->
+                <div class="mockup-ribbon-bar" id="zone-menu_bar">
+                  <div class="ribbon-tabs-row">
+                    <span class="r-tab active">Beranda (Home)</span>
+                    <span class="r-tab">Sisipkan (Insert)</span>
+                    <span class="r-tab">Tata Letak (Layout)</span>
+                    <span class="r-tab">Rumus (Formulas)</span>
+                    <span class="r-tab">Data</span>
+                    <span class="r-tab">Tampilan (View)</span>
+                  </div>
+                  <div class="ribbon-tools-preview">
+                    <span class="tool-chip">✂️ Salin/Tempel</span>
+                    <span class="tool-chip"><strong>B</strong> <em>I</em> <u>U</u> Huruf</span>
+                    <span class="tool-chip">🔲 Border Tabel</span>
+                    <span class="tool-chip">🎨 Warna Cell</span>
+                    <span class="tool-chip">⊞ Merge &amp; Center</span>
+                    <span class="tool-chip">Rp Format Uang</span>
+                  </div>
+                </div>
+
+                <!-- Formula Bar & Name Box Mockup -->
+                <div class="mockup-formula-row">
+                  <div class="mock-namebox" id="zone-name_box" title="Name Box (Kotak Nama)">
+                    <span class="nb-label">Kotak Nama:</span>
+                    <strong class="nb-val">B3</strong>
+                  </div>
+                  <div class="mock-fx-area" id="zone-formula_bar" title="Formula Bar (Bilah Rumus)">
+                    <span class="fx-symbol">fx</span>
+                    <span class="fx-text">=SUM(B2:B5)</span>
+                  </div>
+                </div>
+
+                <!-- Spreadsheet Grid Mockup -->
+                <div class="mockup-sheet-viewport">
+                  <!-- Header Kolom -->
+                  <div class="mock-grid-row head-row" id="zone-headers">
+                    <div class="corner-box"></div>
+                    <div class="col-head-box">A</div>
+                    <div class="col-head-box hl-col">B</div>
+                    <div class="col-head-box">C</div>
+                    <div class="col-head-box">D</div>
+                  </div>
+                  <!-- Baris 1: Judul -->
+                  <div class="mock-grid-row" id="zone-cell_grid">
+                    <div class="row-num-box">1</div>
+                    <div class="cell-box head-cell">Nama Siswa</div>
+                    <div class="cell-box head-cell">Nilai UTS</div>
+                    <div class="cell-box head-cell">Nilai UAS</div>
+                    <div class="cell-box head-cell">Keterangan</div>
+                  </div>
+                  <!-- Baris 2: Andi -->
+                  <div class="mock-grid-row">
+                    <div class="row-num-box">2</div>
+                    <div class="cell-box">Andi</div>
+                    <div class="cell-box">80</div>
+                    <div class="cell-box">85</div>
+                    <div class="cell-box">Lulus</div>
+                  </div>
+                  <!-- Baris 3: Budi (Active Cell) -->
+                  <div class="mock-grid-row">
+                    <div class="row-num-box hl-row">3</div>
+                    <div class="cell-box">Budi</div>
+                    <div class="cell-box active-cell-mock">
+                      75
+                      <span class="fill-handle-mock" title="Fill Handle"></span>
+                    </div>
+                    <div class="cell-box">80</div>
+                    <div class="cell-box">Lulus</div>
+                  </div>
+                </div>
+
+                <!-- Sheet Tabs di Bawah -->
+                <div class="mockup-sheet-tabs-row" id="zone-sheet_tabs">
+                  <div class="sheet-tab-mock active" style="border-bottom-color: #107c41;">
+                    <span>Sheet1 (Nilai_8A)</span>
+                  </div>
+                  <div class="sheet-tab-mock" style="border-bottom-color: #0078d4;">
+                    <span>Sheet2 (Nilai_8B)</span>
+                  </div>
+                  <button class="add-sheet-mock-btn" title="Tambah Sheet Baru">+</button>
+                </div>
+
+                <!-- Status Bar di Paling Bawah -->
+                <div class="mockup-statusbar-row" id="zone-status_bar">
+                  <div class="sb-left">
+                    <span class="sb-status">SIAP</span>
+                  </div>
+                  <div class="sb-middle">
+                    <span>Rata-rata: 77.5</span>
+                    <span>Banyak: 2</span>
+                    <span>Jumlah: 155</span>
+                  </div>
+                  <div class="sb-right">
+                    <span>Normal ⊞</span>
+                    <span>100% 🔍</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Kartu Penjelasan Interaktif -->
+              <div class="explorer-info-card">
+                <div class="info-card-header">
+                  <span class="info-tag-badge" id="infoPartBadge">KOMPONEN ANTARMUKA</span>
+                  <h3 id="infoPartTitle">Quick Access Toolbar</h3>
+                </div>
+                <div class="info-card-body">
+                  <p class="info-main-desc" id="infoPartDesc">
+                    Bilah tombol pintas di pojok kiri atas jendela yang berisi perintah yang paling sering digunakan, seperti tombol <strong>Simpan (Save / Ctrl+S)</strong>, <strong>Batalkan (Undo / Ctrl+Z)</strong>, dan <strong>Ulangi (Redo / Ctrl+Y)</strong>.
+                  </p>
+                  <div class="info-section">
+                    <h5 class="info-subhead">🎯 Fungsi &amp; Kegunaan di Kelas:</h5>
+                    <p id="infoPartUse">
+                      Memudahkan siswa menyimpan file kerja secara cepat saat praktikum di laboratorium komputer tanpa harus membuka menu File terlebih dahulu, sehingga terhindar dari kehilangan data jika komputer mati mendadak.
+                    </p>
+                  </div>
+                  <div class="info-section">
+                    <h5 class="info-subhead">💡 Tips &amp; Shortcut Pintar:</h5>
+                    <div class="info-tip-box" id="infoPartTip">
+                      Gunakan tombol keyboard <code>Ctrl + S</code> sesering mungkin saat mengerjakan latihan Excel untuk menyimpan progres karyamu!
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BEDAH 7 TAB UTAMA MENU BAR / RIBBON -->
+          <div class="ribbon-breakdown-section">
+            <h4 class="subhead-title">📋 Pembahasan 7 Tab Menu Utama (Ribbon):</h4>
+            <div class="ribbon-cards-grid">
+              <!-- 1. Tab File -->
+              <div class="ribbon-detail-card">
+                <div class="ribbon-card-header bg-green-head">
+                  <span class="r-icon">📁</span>
+                  <h5>1. Tab File (Backstage)</h5>
+                </div>
+                <div class="ribbon-card-body">
+                  <p>Digunakan untuk pengelolaan file secara keseluruhan:</p>
+                  <ul class="clean-bullet-list">
+                    <li><strong>New:</strong> Membuat buku kerja (workbook) baru yang masih kosong.</li>
+                    <li><strong>Open:</strong> Membuka dokumen Excel yang pernah disimpan di komputer.</li>
+                    <li><strong>Save &amp; Save As:</strong> Menyimpan dokumen dengan format <code>.xlsx</code>.</li>
+                    <li><strong>Print:</strong> Mencetak lembar kerja ke printer atau PDF.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- 2. Tab Home (Beranda) -->
+              <div class="ribbon-detail-card">
+                <div class="ribbon-card-header bg-green-head">
+                  <span class="r-icon">🏠</span>
+                  <h5>2. Tab Beranda (Home)</h5>
+                </div>
+                <div class="ribbon-card-body">
+                  <p>Pusat pengeditan teks, angka, dan tampilan tabel harian:</p>
+                  <ul class="clean-bullet-list">
+                    <li><strong>Font:</strong> Mengubah jenis huruf, ukuran, menebalkan (Bold), dan memberi garis tabel (All Borders).</li>
+                    <li><strong>Alignment:</strong> Mengatur rata kiri, tengah, kanan, dan <strong>Merge &amp; Center</strong> (menggabungkan beberapa cell judul menjadi satu).</li>
+                    <li><strong>Number:</strong> Mengubah format angka menjadi mata uang (Rupiah Rp), persentase (%), atau desimal.</li>
+                    <li><strong>Editing:</strong> Tombol cepat AutoSum, Sort A-Z, dan Find.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- 3. Tab Insert (Sisipkan) -->
+              <div class="ribbon-detail-card">
+                <div class="ribbon-card-header bg-blue-head">
+                  <span class="r-icon">➕</span>
+                  <h5>3. Tab Sisipkan (Insert)</h5>
+                </div>
+                <div class="ribbon-card-body">
+                  <p>Menambahkan objek visual dan grafis ke dalam dokumen:</p>
+                  <ul class="clean-bullet-list">
+                    <li><strong>Charts / Grafik:</strong> Membuat visualisasi data berupa diagram batang (Column), diagram garis (Line), dan diagram lingkaran (Pie).</li>
+                    <li><strong>Tables:</strong> Mengubah range data biasa menjadi format tabel resmi Excel.</li>
+                    <li><strong>Pictures &amp; Shapes:</strong> Menyisipkan gambar, panah, atau diagram alir.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- 4. Tab Page Layout (Tata Letak) -->
+              <div class="ribbon-detail-card">
+                <div class="ribbon-card-header bg-blue-head">
+                  <span class="r-icon">📄</span>
+                  <h5>4. Tab Tata Letak (Page Layout)</h5>
+                </div>
+                <div class="ribbon-card-body">
+                  <p>Mengatur tampilan dokumen saat hendak dicetak:</p>
+                  <ul class="clean-bullet-list">
+                    <li><strong>Margins:</strong> Mengatur batas jarak tepi kertas (kiri, kanan, atas, bawah).</li>
+                    <li><strong>Orientation:</strong> Mengatur posisi kertas tegak (Portrait) atau mendatar (Landscape).</li>
+                    <li><strong>Size:</strong> Memilih ukuran kertas (A4, F4/Legal, Letter).</li>
+                    <li><strong>Print Area:</strong> Menentukan bagian tabel tertentu saja yang ingin dicetak.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- 5. Tab Formulas (Rumus) -->
+              <div class="ribbon-detail-card">
+                <div class="ribbon-card-header bg-purple-head">
+                  <span class="r-icon">🧮</span>
+                  <h5>5. Tab Rumus (Formulas)</h5>
+                </div>
+                <div class="ribbon-card-body">
+                  <p>Gudang pustaka seluruh rumus dan fungsi komputasi:</p>
+                  <ul class="clean-bullet-list">
+                    <li><strong>Insert Function (fx):</strong> Kotak dialog asisten untuk mencari rumus yang tepat.</li>
+                    <li><strong>Kategori Rumus:</strong> Kelompok fungsi Matematika (Math), Logika (Logical), Statistik, Tanggal/Waktu, dan Lookup.</li>
+                    <li><strong>Name Manager:</strong> Mengelola penamaan range cell tertentu.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- 6. Tab Data -->
+              <div class="ribbon-detail-card">
+                <div class="ribbon-card-header bg-purple-head">
+                  <span class="r-icon">📶</span>
+                  <h5>6. Tab Data</h5>
+                </div>
+                <div class="ribbon-card-body">
+                  <p>Alat canggih untuk mengelola dan menganalisis kumpulan data besar:</p>
+                  <ul class="clean-bullet-list">
+                    <li><strong>Sort:</strong> Mengurutkan data nilai dari terbesar ke terkecil atau nama abjad A ke Z.</li>
+                    <li><strong>Filter:</strong> Menyaring baris data berdasarkan kriteria tertentu (misal hanya menampilkan yang Lulus).</li>
+                    <li><strong>Data Validation:</strong> Membatasi angka yang boleh diinput ke dalam cell (misal nilai 0 - 100).</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- 7. Tab View (Tampilan) -->
+              <div class="ribbon-detail-card full-span">
+                <div class="ribbon-card-header bg-gray-head">
+                  <span class="r-icon">👁️</span>
+                  <h5>7. Tab Tampilan (View) &amp; Fitur Freeze Panes</h5>
+                </div>
+                <div class="ribbon-card-body">
+                  <p>Mengatur mode pandangan kerja agar nyaman di mata:</p>
+                  <ul class="clean-bullet-list">
+                    <li><strong>Gridlines:</strong> Menampilkan atau menyembunyikan garis kotak-kotak bantu di lembar kerja.</li>
+                    <li><strong>Freeze Panes (Bekukan Panel):</strong> Fitur legendaris untuk mengunci baris judul tabel agar tetap diam di atas saat kamu menggulir (scroll) ratusan baris ke bawah!</li>
+                    <li><strong>Zoom:</strong> Memperbesar atau memperkecil ukuran tampilan sel.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================================================== -->
+      <!-- TAB B: CELL, KOLOM, BARIS & FILL HANDLE               -->
+      <!-- ===================================================== -->
+      <div id="tab-cell" class="materi-panel">
+        <div class="card-white shadow-card">
+          <div class="panel-header-badge">
+            <span class="panel-num">B</span>
+            <div>
+              <h3>Cell, Baris, Kolom &amp; Fitur Ajaib Fill Handle</h3>
+              <p class="sub-panel-title">Memahami struktur dasar kotak penyimpan data dan cara mempercepat kerja dengan AutoFill.</p>
+            </div>
+          </div>
+
+          <p class="lead-text">
+            Setiap informasi di dalam Excel disimpan di dalam <strong>Cell (Sel)</strong>. Pertemuan antara Kolom dan Baris menghasilkan alamat unik yang menjadi acuan utama setiap perhitungan rumus.
+          </p>
+
+          <!-- PENJELASAN CELL, ROW, COLUMN -->
+          <div class="cell-concepts-grid">
+            <div class="concept-card">
+              <span class="concept-icon">↔️</span>
+              <h4>Baris (Row)</h4>
+              <p>Berjejer secara <strong>horizontal</strong> dari kiri ke kanan. Ditandai dengan urutan <strong>Angka (1, 2, 3, ... hingga 1.048.576 baris)</strong>.</p>
+            </div>
+            <div class="concept-card">
+              <span class="concept-icon">↕️</span>
+              <h4>Kolom (Column)</h4>
+              <p>Berjejer secara <strong>vertikal</strong> dari atas ke bawah. Ditandai dengan urutan <strong>Huruf (A, B, C, ... hingga XFD / 16.384 kolom)</strong>.</p>
+            </div>
+            <div class="concept-card">
+              <span class="concept-icon">🟩</span>
+              <h4>Cell (Sel)</h4>
+              <p>Titik temu kolom dan baris. Penulisan nama diawali huruf kolom lalu nomor baris, contoh: <strong>Cell B3</strong> (Kolom B, Baris 3).</p>
+            </div>
+            <div class="concept-card">
+              <span class="concept-icon">📐</span>
+              <h4>Range (Rentang)</h4>
+              <p>Gabungan dari beberapa cell yang dipilih sekaligus. Ditulis dengan tanda titik dua, contoh: <strong>B2:B6</strong> artinya cell B2 sampai B6.</p>
+            </div>
+          </div>
+
+          <!-- FITUR AJAIB FILL HANDLE & AUTOFILL -->
+          <div class="fill-handle-showcase">
+            <div class="fh-header">
+              <span class="fh-badge">✨ FITUR AJAIB EXCEL</span>
+              <h4>Fill Handle &amp; AutoFill: Mengisi Deret Otomatis dalam 1 Detik</h4>
+            </div>
+            <div class="fh-content-grid">
+              <div class="fh-text-col">
+                <p>
+                  <strong>Fill Handle</strong> adalah titik kotak kecil berwarna hijau/hitam pekat yang terletak di <strong>sudut kanan bawah cell aktif</strong>. Saat kursor mouse diarahkan ke titik ini, bentuk kursor akan berubah menjadi tanda tambah hitam pekat (<code>+</code>).
+                </p>
+                <div class="fh-benefit-list">
+                  <div class="fh-benefit-item">
+                    <span class="fh-num">1</span>
+                    <div>
+                      <strong>Membuat Nomor Urut Otomatis:</strong>
+                      <p>Ketik angka 1 di cell atas dan 2 di bawahnya, blok keduanya, lalu tarik fill handle ke bawah. Excel akan otomatis melanjutkan angka 3, 4, 5 sampai ratusan tanpa kamu ketik manual!</p>
+                    </div>
+                  </div>
+                  <div class="fh-benefit-item">
+                    <span class="fh-num">2</span>
+                    <div>
+                      <strong>Melanjutkan Deret Hari &amp; Bulan:</strong>
+                      <p>Ketik kata "Senin", tarik ke bawah &rarr; otomatis terisi Selasa, Rabu, Kamis, Jumat. Begitu juga dengan nama bulan "Januari" &rarr; Februari, Maret, April.</p>
+                    </div>
+                  </div>
+                  <div class="fh-benefit-item">
+                    <span class="fh-num">3</span>
+                    <div>
+                      <strong>Menyalin Rumus ke Seluruh Siswa:</strong>
+                      <p>Cukup buat rumus di baris pertama (misal <code>=SUM(B2:D2)</code>), lalu klik ganda (double-click) pada fill handle. Rumus akan otomatis tersalin untuk 100 siswa ke bawah dalam sekejap mata!</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Visual Anatomi Fill Handle -->
+              <div class="fh-visual-col">
+                <div class="fh-demo-card">
+                  <span class="fh-visual-title">Visualisasi Titik Fill Handle</span>
+                  <div class="active-cell-illustration">
+                    <div class="cell-mock-large">
+                      <span class="cell-val-inner">Senin</span>
+                      <div class="fill-handle-dot" title="Tarik titik ini ke bawah!">
+                        <span class="fh-cursor-symbol">+</span>
+                      </div>
+                    </div>
+                    <div class="arrow-down-drag">
+                      <span>↓ Ditarik ke bawah (Drag)</span>
+                    </div>
+                    <div class="cell-results-stream">
+                      <div class="stream-item">Selasa</div>
+                      <div class="stream-item">Rabu</div>
+                      <div class="stream-item">Kamis</div>
+                      <div class="stream-item">Jumat</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TIPE DATA CELL & FORMAT NUMBER -->
+          <div class="data-types-box">
+            <h4 class="subhead-title">🏷️ Tipe Data Cell &amp; Pengaturan Format Cells:</h4>
+            <div class="types-grid">
+              <div class="type-item">
+                <span class="type-badge bg-blue-pill">Teks (Label)</span>
+                <p>Secara default otomatis <strong>rata kiri</strong>. Digunakan untuk nama siswa, judul tabel, atau alamat.</p>
+              </div>
+              <div class="type-item">
+                <span class="type-badge bg-green-pill">Angka (Numerik)</span>
+                <p>Secara default otomatis <strong>rata kanan</strong>. Digunakan untuk nilai ujian, harga barang, dan jumlah stok.</p>
+              </div>
+              <div class="type-item">
+                <span class="type-badge bg-purple-pill">Mata Uang (Rupiah)</span>
+                <p>Mengubah angka <code>50000</code> menjadi <code>Rp 50.000</code> melalui format *Accounting / Currency* di Tab Home.</p>
+              </div>
+              <div class="type-item">
+                <span class="type-badge bg-green-pill">Persentase (%)</span>
+                <p>Mengubah nilai desimal <code>0.75</code> menjadi tampilan <code>75%</code> secara otomatis.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- SIMULASI KLIK CELL INTERAKTIF (YANG SUDAH ADA) -->
+          <div class="interactive-cell-demo" style="margin-top: 30px;">
+            <h4 class="subhead-title">🖱️ Coba Praktik Langsung: Klik Cell Pada Tabel Di Bawah:</h4>
+            <p style="margin-bottom: 14px; font-size: 0.95rem; color: var(--text-normal);">
+              Klik sembarang kotak data untuk melihat bagaimana Excel mengenali nama cell, isi, dan posisinya:
+            </p>
+            <div class="demo-layout">
+              <!-- Tabel Spreadsheet Mini Interaktif -->
+              <div class="sheet-table-wrapper">
+                <div class="sheet-toolbar-status">
+                  <div class="box-indicator">
+                    <span class="ind-label">Nama Cell:</span>
+                    <span class="ind-val" id="inspectorCellName">B3</span>
+                  </div>
+                  <div class="box-indicator">
+                    <span class="ind-label">Formula Bar:</span>
+                    <span class="ind-formula" id="inspectorCellValue">75</span>
+                  </div>
+                </div>
+
+                <table class="interactive-excel-table" id="interactiveCellTable">
+                  <thead>
+                    <tr>
+                      <th class="th-corner"></th>
+                      <th class="th-col" data-col="A">A</th>
+                      <th class="th-col" data-col="B">B</th>
+                      <th class="th-col" data-col="C">C</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Baris 1: Header -->
+                    <tr data-row="1">
+                      <th class="th-row">1</th>
+                      <td class="cell-item" data-cell="A1" data-val="Nama" data-desc="Header kolom nama siswa">Nama</td>
+                      <td class="cell-item" data-cell="B1" data-val="Nilai UTS" data-desc="Header kolom nilai Ujian Tengah Semester">Nilai UTS</td>
+                      <td class="cell-item" data-cell="C1" data-val="Nilai UAS" data-desc="Header kolom nilai Ujian Akhir Semester">Nilai UAS</td>
+                    </tr>
+                    <!-- Baris 2: Andi -->
+                    <tr data-row="2">
+                      <th class="th-row">2</th>
+                      <td class="cell-item" data-cell="A2" data-val="Andi" data-desc="Nama siswa pertama">Andi</td>
+                      <td class="cell-item" data-cell="B2" data-val="80" data-desc="Nilai UTS milik Andi">80</td>
+                      <td class="cell-item" data-cell="C2" data-val="85" data-desc="Nilai UAS milik Andi">85</td>
+                    </tr>
+                    <!-- Baris 3: Budi -->
+                    <tr data-row="3">
+                      <th class="th-row">3</th>
+                      <td class="cell-item selected-cell" data-cell="B3" data-val="75" data-desc="Nilai UTS Budi">75</td>
+                      <td class="cell-item" data-cell="A3" data-val="Budi" data-desc="Nama siswa kedua">Budi</td>
+                      <td class="cell-item" data-cell="C3" data-val="80" data-desc="Nilai UAS milik Budi">80</td>
+                    </tr>
+                    <!-- Baris 4: Citra -->
+                    <tr data-row="4">
+                      <th class="th-row">4</th>
+                      <td class="cell-item" data-cell="A4" data-val="Citra" data-desc="Nama siswa ketiga">Citra</td>
+                      <td class="cell-item" data-cell="B4" data-val="90" data-desc="Nilai UTS milik Citra (Nilai Tertinggi)">90</td>
+                      <td class="cell-item" data-cell="C4" data-val="95" data-desc="Nilai UAS milik Citra">95</td>
+                    </tr>
+                    <!-- Baris 5: Deni -->
+                    <tr data-row="5">
+                      <th class="th-row">5</th>
+                      <td class="cell-item" data-cell="A5" data-val="Deni" data-desc="Nama siswa keempat">Deni</td>
+                      <td class="cell-item" data-cell="B5" data-val="70" data-desc="Nilai UTS milik Deni">70</td>
+                      <td class="cell-item" data-cell="C5" data-val="75" data-desc="Nilai UAS milik Deni">75</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Hasil Inspeksi Cell Yang Diklik Siswa -->
+              <div class="cell-inspector-panel">
+                <div class="inspector-card">
+                  <div class="inspector-header">
+                    <span class="ins-badge">🔎 Hasil Deteksi Cell</span>
+                    <span class="ins-live">Aktif</span>
+                  </div>
+                  <div class="inspector-body">
+                    <div class="ins-row">
+                      <span class="ins-lbl">Nama Cell:</span>
+                      <strong class="ins-val-strong" id="infoCellName">B3</strong>
+                    </div>
+                    <div class="ins-row">
+                      <span class="ins-lbl">Isi Data:</span>
+                      <span class="ins-chip" id="infoCellValue">75</span>
+                    </div>
+                    <div class="ins-row">
+                      <span class="ins-lbl">Keterangan:</span>
+                      <p class="ins-desc" id="infoCellDesc">Nilai UTS Budi</p>
+                    </div>
+                    <div class="ins-box-tip">
+                      💡 <strong>Tahukah Kamu?</strong> Cell B3 artinya berada di <strong>Kolom B</strong> (kolom kedua) dan <strong>Baris 3</strong>. Rentang dari B2 sampai B5 ditulis sebagai <code>B2:B5</code>.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================================================== -->
+      <!-- TAB C: MANAJEMEN SHEET & WORKBOOK                     -->
+      <!-- ===================================================== -->
+      <div id="tab-sheet" class="materi-panel">
+        <div class="card-white shadow-card">
+          <div class="panel-header-badge">
+            <span class="panel-num">C</span>
+            <div>
+              <h3>Manajemen Sheet (Worksheet) &amp; Workbook</h3>
+              <p class="sub-panel-title">Mengelola banyak lembar kerja dalam satu file: tambah, ganti nama, beri warna, dan pindahkan sheet.</p>
+            </div>
+          </div>
+
+          <div class="workbook-compare-card">
+            <div class="wb-box">
+              <span class="wb-icon">📘</span>
+              <div class="wb-text">
+                <h4>Workbook (Buku Kerja)</h4>
+                <p>File dokumen Excel utuh yang kamu simpan (misalnya <code>Data_Kelas_8.xlsx</code>). Workbook ibarat sebuah <strong>Buku Tulis tebal</strong>.</p>
+              </div>
+            </div>
+            <div class="wb-divider"></div>
+            <div class="wb-box">
+              <span class="wb-icon">📑</span>
+              <div class="wb-text">
+                <h4>Worksheet (Lembar Kerja / Sheet)</h4>
+                <p>Halaman lembar kerja tunggal berkotak-kotak di dalam workbook. Worksheet ibarat <strong>lembaran halaman</strong> di dalam buku tulis tersebut.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FITUR-FITUR PENGELOLAAN SHEET -->
+          <h4 class="subhead-title">🛠️ Operasi Penting Pada Tab Sheet:</h4>
+          <div class="sheet-ops-grid">
+            <div class="sheet-op-card">
+              <span class="op-icon">➕</span>
+              <h5>1. Menambah Sheet Baru</h5>
+              <p>Klik tombol lingkaran bertanda tambah (<code>+</code>) di sebelah tab sheet untuk membuka lembar kerja kosong baru.</p>
+            </div>
+            <div class="sheet-op-card">
+              <span class="op-icon">✏️</span>
+              <h5>2. Mengubah Nama Sheet (Rename)</h5>
+              <p>Klik ganda (double-click) pada nama sheet atau klik kanan &rarr; pilih <strong>Rename</strong>, lalu ketik nama baru (misal: <code>Nilai_Matematika</code>).</p>
+            </div>
+            <div class="sheet-op-card">
+              <span class="op-icon">🎨</span>
+              <h5>3. Memberi Warna Tab (Tab Color)</h5>
+              <p>Klik kanan pada sheet &rarr; pilih <strong>Tab Color</strong> &rarr; pilih warna (hijau, biru, merah) agar kategori lembar kerja mudah dikenali.</p>
+            </div>
+            <div class="sheet-op-card">
+              <span class="op-icon">↔️</span>
+              <h5>4. Memindahkan &amp; Menggandakan</h5>
+              <p>Klik dan tahan (drag) tab sheet untuk memindahkan posisinya, atau klik kanan &rarr; <strong>Move or Copy</strong> untuk menduplikasi sheet.</p>
+            </div>
+            <div class="sheet-op-card">
+              <span class="op-icon">🗑️</span>
+              <h5>5. Menghapus Sheet (Delete)</h5>
+              <p>Klik kanan pada tab sheet yang tidak dipakai &rarr; pilih <strong>Delete</strong>. <em>Perhatian: sheet yang dihapus tidak bisa di-Undo!</em></p>
+            </div>
+            <div class="sheet-op-card">
+              <span class="op-icon">🔒</span>
+              <h5>6. Mengunci Sheet (Protect Sheet)</h5>
+              <p>Klik kanan pada sheet &rarr; <strong>Protect Sheet</strong> untuk mengunci agar rumus di dalam tabel tidak bisa diubah oleh orang lain.</p>
+            </div>
+          </div>
+
+          <!-- SIMULATOR INTERAKTIF SHEET MANAGER -->
+          <div class="sheet-interactive-simulator">
+            <div class="sim-sheet-header">
+              <span class="sim-badge">🎮 SIMULATOR NYATA: PRAKTIK KELOLA SHEET EXCEL</span>
+              <h4>Uji coba langsung menambah, mengganti nama, dan memberi warna tab sheet di bawah ini:</h4>
+            </div>
+
+            <!-- Kontrol Pengaturan Sheet Aktif -->
+            <div class="sheet-controls-bar">
+              <div class="ctrl-group">
+                <label for="inputSheetRename">Nama Sheet Aktif:</label>
+                <input type="text" id="inputSheetRename" class="input-sheet-name" value="Data_Kelas_8A" oninput="handleSheetNameInput(this.value)">
+              </div>
+              <div class="ctrl-group">
+                <label>Pilih Warna Tab Sheet:</label>
+                <div class="color-palette-picker">
+                  <button class="color-swatch bg-c-green" onclick="setSimSheetColor('#107c41')" title="Hijau Excel"></button>
+                  <button class="color-swatch bg-c-blue" onclick="setSimSheetColor('#0078d4')" title="Biru"></button>
+                  <button class="color-swatch bg-c-orange" onclick="setSimSheetColor('#ea580c')" title="Oranye"></button>
+                  <button class="color-swatch bg-c-purple" onclick="setSimSheetColor('#7c3aed')" title="Ungu"></button>
+                  <button class="color-swatch bg-c-red" onclick="setSimSheetColor('#dc2626')" title="Merah"></button>
+                </div>
+              </div>
+              <div class="ctrl-group actions-ctrl">
+                <button class="btn btn-sm btn-primary" onclick="addSimSheetTab()">
+                  <span>➕ Tambah Sheet Baru</span>
+                </button>
+                <button class="btn btn-sm btn-secondary" onclick="deleteActiveSimSheet()">
+                  <span>🗑️ Hapus Sheet Ini</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Visual Baris Tab Sheet Excel -->
+            <div class="realistic-sheet-bar">
+              <div class="sheet-scroll-nav">
+                <span class="nav-arrow">◂</span>
+                <span class="nav-arrow">▸</span>
+              </div>
+              <div class="sheet-tabs-list" id="simSheetTabsContainer">
+                <!-- Tab sheet dinamis di-render via script.js -->
+              </div>
+              <button class="add-sheet-circle-btn" onclick="addSimSheetTab()" title="Klik untuk menambah sheet baru">+</button>
+            </div>
+            <div class="sheet-hint-caption" id="sheetSimulatorHint">
+              💡 Klik salah satu tab sheet di atas untuk memilihnya, lalu ganti namanya atau beri warna tab!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================================================== -->
+      <!-- TAB D: FORMULA BAR & ATURAN RUMUS                     -->
+      <!-- ===================================================== -->
+      <div id="tab-formula-bar" class="materi-panel">
+        <div class="card-white shadow-card">
+          <div class="panel-header-badge">
+            <span class="panel-num">D</span>
+            <div>
+              <h3>Formula Bar, Name Box &amp; Konsep Rumus</h3>
+              <p class="sub-panel-title">Mengenal fungsi kotak nama, bilah rumus, aturan tanda sama dengan (=), dan operator matematika.</p>
+            </div>
+          </div>
+
+          <p class="lead-text">
+            <strong>Formula Bar (Bilah Rumus)</strong> dan <strong>Name Box (Kotak Nama)</strong> adalah dua komponen vital yang bekerja berdampingan tepat di atas kisi lembar kerja.
+          </p>
+
+          <div class="formula-anatomy-row">
+            <div class="fb-anatomy-card">
+              <div class="f-part-header">
+                <span class="f-badge">BAGIAN KIRI</span>
+                <h4>Name Box (Kotak Nama)</h4>
+              </div>
+              <div class="f-part-body">
+                <div class="mock-single-namebox">C4</div>
+                <ul class="clean-bullet-list">
+                  <li>Menampilkan alamat koordinat cell yang sedang aktif terpilih.</li>
+                  <li><strong>Trik Jalan Pintas:</strong> Ketikkan alamat cell mana pun (misal <code>Z50</code>) di Name Box lalu tekan <strong>Enter</strong>, maka kursor lembar kerja akan langsung melompat ke cell tersebut!</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="fb-anatomy-card">
+              <div class="f-part-header">
+                <span class="f-badge">BAGIAN KANAN</span>
+                <h4>Formula Bar (Bilah Rumus)</h4>
+              </div>
+              <div class="f-part-body">
+                <div class="mock-single-formulabar">
+                  <span class="fx-icon-pill">fx</span>
+                  <span class="formula-typing">=AVERAGE(B2:B10)</span>
+                </div>
+                <ul class="clean-bullet-list">
+                  <li>Tempat menampilkan, mengetik, dan mengedit isi rumus yang panjang.</li>
+                  <li><strong>Prinsip Rahasia Excel:</strong> Kotak cell di tabel hanya menampilkan <em>hasil akhir angka</em>, sedangkan rumus asli yang menghitungnya selalu terlihat di <em>Formula Bar</em>!</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="rule-gold-banner" style="margin-top: 24px;">
+            <span class="rule-icon">⚠️</span>
+            <div class="rule-text">
+              <strong>ATURAN EMAS EXCEL:</strong>
+              Semua rumus dan fungsi di Microsoft Excel <strong>WAJIB DIAWALI DENGAN TANDA SAMA DENGAN (<code>=</code>)</strong>. Jika lupa mengetikkan tanda <code>=</code>, Excel hanya akan menganggap ketikanmu sebagai teks biasa!
+            </div>
+          </div>
+
+          <div class="compare-row">
+            <div class="compare-card">
+              <div class="compare-header bg-blue">
+                <h4>1. Rumus Manual (Formula)</h4>
+              </div>
+              <div class="compare-body">
+                <p>Menggunakan operator matematika standar (+, -, *, /) satu per satu antar cell.</p>
+                <div class="code-pill">=B2+B3+B4</div>
+                <ul class="compare-notes">
+                  <li>✅ Cocok untuk hitungan sederhana 2-3 cell.</li>
+                  <li>❌ Melelahkan jika cell yang dihitung ada ratusan baris.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="compare-card">
+              <div class="compare-header bg-green">
+                <h4>2. Fungsi Siap Pakai (Function)</h4>
+              </div>
+              <div class="compare-body">
+                <p>Menggunakan perintah bawaan cerdas Excel dengan menyebutkan nama fungsi dan rentang range data.</p>
+                <div class="code-pill">=SUM(B2:B4)</div>
+                <ul class="compare-notes">
+                  <li>✅ Sangat cepat, hemat waktu, dan rapi.</li>
+                  <li>✅ Bisa menghitung ribuan data sekaligus dalam 1 detik.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Operator Matematika Dasar -->
+          <div class="operators-table-box">
+            <h4 class="subhead-title">➗ Operator Aritmatika Dasar di Excel:</h4>
+            <div class="op-pills-row">
+              <div class="op-item">
+                <span class="op-sym"><code>+</code></span>
+                <span class="op-name">Penjumlahan</span>
+                <span class="op-ex">Contoh: <code>=A1+B1</code></span>
+              </div>
+              <div class="op-item">
+                <span class="op-sym"><code>-</code></span>
+                <span class="op-name">Pengurangan</span>
+                <span class="op-ex">Contoh: <code>=A1-B1</code></span>
+              </div>
+              <div class="op-item">
+                <span class="op-sym"><code>*</code></span>
+                <span class="op-name">Perkalian (Bintang)</span>
+                <span class="op-ex">Contoh: <code>=A1*B1</code></span>
+              </div>
+              <div class="op-item">
+                <span class="op-sym"><code>/</code></span>
+                <span class="op-name">Pembagian (Garis Miring)</span>
+                <span class="op-ex">Contoh: <code>=A1/B1</code></span>
+              </div>
+              <div class="op-item">
+                <span class="op-sym"><code>^</code></span>
+                <span class="op-name">Perpangkatan (Caret)</span>
+                <span class="op-ex">Contoh: <code>=A1^2</code></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================================================== -->
+      <!-- TAB E: PENGOLAHAN DATA & FITUR PRODUKTIF              -->
+      <!-- ===================================================== -->
+      <div id="tab-pengolahan" class="materi-panel">
+        <div class="card-white shadow-card">
+          <div class="panel-header-badge">
+            <span class="panel-num">E</span>
+            <div>
+              <h3>Pengolahan Data Sederhana &amp; Fitur Produktif</h3>
+              <p class="sub-panel-title">Studi kasus pemecahan masalah data nilai siswa, fitur Freeze Panes, dan Sort &amp; Filter.</p>
+            </div>
+          </div>
+
+          <p class="lead-text">
+            Perhatikan studi kasus tabel nilai harian siswa berikut. Pertanyaan apa saja yang bisa diselesaikan menggunakan rumus dan fitur Excel?
+          </p>
+
+          <div class="data-study-case">
+            <div class="case-table-wrap">
+              <table class="styled-case-table">
+                <thead>
+                  <tr>
+                    <th>Nama</th>
+                    <th>Tugas</th>
+                    <th>UTS</th>
+                    <th>UAS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Andi</strong></td>
+                    <td>80</td>
+                    <td>75</td>
+                    <td>85</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Budi</strong></td>
+                    <td>70</td>
+                    <td>80</td>
+                    <td>75</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Citra</strong></td>
+                    <td>90</td>
+                    <td>85</td>
+                    <td>95</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Deni</strong></td>
+                    <td>75</td>
+                    <td>70</td>
+                    <td>80</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Eka</strong></td>
+                    <td>85</td>
+                    <td>90</td>
+                    <td>88</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <!-- Fitur Freeze Panes & Sort Filter Highlight -->
+              <div class="productivity-feature-box">
+                <h5>💡 Fitur Produktif yang Sering Dipakai Guru:</h5>
+                <div class="pf-item">
+                  <strong>📌 Freeze Panes (Bekukan Baris Judul):</strong>
+                  <p>Buka menu <em>View &rarr; Freeze Panes &rarr; Freeze Top Row</em>. Kepala tabel (Nama, Tugas, UTS, UAS) akan terkunci diam saat data 50 siswa di-scroll ke bawah!</p>
+                </div>
+                <div class="pf-item">
+                  <strong>⚡ Sort &amp; Filter:</strong>
+                  <p>Buka menu <em>Data &rarr; Filter</em> untuk memunculkan panah saring di kepala kolom, memudahkan mencari siswa dengan kriteria tertentu.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pertanyaan Pemantik & Rumus Solusi -->
+            <div class="case-questions-panel">
+              <h4>🎯 Pertanyaan Pemecahan Masalah:</h4>
+              <div class="question-pill-list">
+                <div class="case-q-item">
+                  <div class="q-title">❓ Berapa total nilai tugas seluruh siswa?</div>
+                  <div class="q-solution">
+                    <span class="sol-badge">Solusi:</span> Gunakan rumus <code>=SUM(B2:B6)</code> &rarr; Hasil: <strong>400</strong>
+                  </div>
+                </div>
+
+                <div class="case-q-item">
+                  <div class="q-title">❓ Berapa rata-rata nilai UTS siswa kelas?</div>
+                  <div class="q-solution">
+                    <span class="sol-badge">Solusi:</span> Gunakan rumus <code>=AVERAGE(C2:C6)</code> &rarr; Hasil: <strong>80</strong>
+                  </div>
+                </div>
+
+                <div class="case-q-item">
+                  <div class="q-title">❓ Berapa nilai UAS tertinggi di kelas?</div>
+                  <div class="q-solution">
+                    <span class="sol-badge">Solusi:</span> Gunakan rumus <code>=MAX(D2:D6)</code> &rarr; Hasil: <strong>95</strong> (Milik Citra)
+                  </div>
+                </div>
+
+                <div class="case-q-item">
+                  <div class="q-title">❓ Berapa nilai UAS terendah di kelas?</div>
+                  <div class="q-solution">
+                    <span class="sol-badge">Solusi:</span> Gunakan rumus <code>=MIN(D2:D6)</code> &rarr; Hasil: <strong>75</strong> (Milik Budi)
+                  </div>
+                </div>
+              </div>
+
+              <div class="cta-banner-materi">
+                <span>Siap mempelajari cara kerja 10 rumus wajib secara mendalam?</span>
+                <button class="btn btn-sm btn-primary" onclick="navigateTo('rumus')">Buka 10 Rumus Excel &rarr;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 3. MENU RUMUS EXCEL (10 RUMUS LENGKAP & SIMULASI)      -->
+    <!-- ===================================================== -->
+    <section id="rumus" class="content-section">
+      <div class="section-title-wrap">
+        <div class="badge-tag">INTI MATERI • 10 FORMULA UTAMA</div>
+        <h2 class="section-heading">10 Rumus Excel Wajib Siswa SMP</h2>
+        <p class="section-subheading">
+          Klik pada kartu rumus mana pun untuk mempelajari fungsi, sintaks, contoh data, cara pemakaian, hingga kesalahan umum yang sering terjadi.
+        </p>
+      </div>
+
+      <!-- FILTER KATEGORI RUMUS -->
+      <div class="formula-filter-tabs">
+        <button class="filter-btn active" onclick="filterFormulas('all', this)">🌟 Semua (10)</button>
+        <button class="filter-btn" onclick="filterFormulas('statistik', this)">📊 Statistik &amp; Hitung</button>
+        <button class="filter-btn" onclick="filterFormulas('logika', this)">⚖️ Logika &amp; Syarat</button>
+        <button class="filter-btn" onclick="filterFormulas('pencarian', this)">🔍 Peringkat &amp; Lookup</button>
+      </div>
+
+      <!-- GRID 10 KARTU RUMUS -->
+      <div class="formulas-grid" id="formulasContainer">
+        <!-- RUMUS 1: SUM -->
+        <div class="formula-card" data-category="statistik" onclick="openFormulaModal('SUM')">
+          <div class="formula-card-top">
+            <span class="formula-num">01</span>
+            <span class="badge-pill bg-green-pill">Statistik</span>
+          </div>
+          <h3 class="formula-name">=SUM</h3>
+          <p class="formula-brief">Menjumlahkan angka dalam suatu range secara cepat.</p>
+          <div class="formula-syntax-preview"><code>=SUM(range)</code></div>
+          <div class="formula-card-footer">
+            <span class="click-hint">Klik untuk detail lengkap &rarr;</span>
+          </div>
+        </div>
+
+        <!-- RUMUS 2: AVERAGE -->
+        <div class="formula-card" data-category="statistik" onclick="openFormulaModal('AVERAGE')">
+          <div class="formula-card-top">
+            <span class="formula-num">02</span>
+            <span class="badge-pill bg-green-pill">Statistik</span>
+          </div>
+          <h3 class="formula-name">=AVERAGE</h3>
+          <p class="formula-brief">Menhitung nilai rata-rata dari sekelompok data angka.</p>
+          <div class="formula-syntax-preview"><code>=AVERAGE(range)</code></div>
+          <div class="formula-card-footer">
+            <span class="click-hint">Klik untuk detail lengkap &rarr;</span>
+          </div>
+        </div>
+
+        <!-- RUMUS 3: MAX -->
+        <div class="formula-card" data-category="statistik" onclick="openFormulaModal('MAX')">
+          <div class="formula-card-top">
+            <span class="formula-num">03</span>
+            <span class="badge-pill bg-green-pill">Statistik</span>
+          </div>
+          <h3 class="formula-name">=MAX</h3>
+          <p class="formula-brief">Mencari nilai angka terbesar / tertinggi dalam range.</p>
+          <div class="formula-syntax-preview"><code>=MAX(range)</code></div>
+          <div class="formula-card-footer">
+            <span class="click-hint">Klik untuk detail lengkap &rarr;</span>
+          </div>
+        </div>
+
+        <!-- RUMUS 4: MIN -->
+        <div class="formula-card" data-category="statistik" onclick="openFormulaModal('MIN')">
+          <div class="formula-card-top">
+            <span class="formula-num">04</span>
+            <span class="badge-pill bg-green-pill">Statistik</span>
+          </div>
+          <h3 class="formula-name">=MIN</h3>
+          <p class="formula-brief">Mencari nilai angka terkecil / terendah dalam range.</p>
+          <div class="formula-syntax-preview"><code>=MIN(range)</code></div>
+          <div class="formula-card-footer">
+            <span class="click-hint">Klik untuk detail lengkap &rarr;</span>
+          </div>
+        </div>
+
+        <!-- RUMUS 5: SUMIF -->
+        <div class="formula-card" data-category="logika" onclick="openFormulaModal('SUMIF')">
+          <div class="formula-card-top">
+            <span class="formula-num">05</span>
+            <span class="badge-pill bg-blue-pill">Logika &amp; Hitung</span>
+          </div>
+          <h3 class="formula-name">=SUMIF</h3>
+          <p class="formula-brief">Menjumlahkan angka hanya yang memenuhi kriteria tertentu.</p>
+          <div class="formula-syntax-preview"><code>=SUMIF(range;kriteria;sum_range)</code></div>
+          <div class="formula-card-footer">
+            <span class="click-hint">Klik untuk detail lengkap &rarr;</span>
+          </div>
+        </div>
+
+        <!-- RUMUS 6: IF -->
+        <div class="formula-card" data-category="logika" onclick="openFormulaModal('IF')">
+          <div class="formula-card-top">
+            <span class="formula-num">06</span>
+            <span class="badge-pill bg-blue-pill">Logika</span>
+          </div>
+          <h3 class="formula-name">=IF</h3>
+          <p class="formula-brief">Membuat keputusan dan hasil berbeda berdasarkan suatu kondisi.</p>
+          <div class="formula-syntax-preview"><code>=IF(kondisi;jika_benar;jika_salah)</code></div>
+          <div class="formula-card-footer">
+            <span class="click-hint">Klik untuk detail lengkap &rarr;</span>
+          </div>
+        </div>
+
+        <!-- RUMUS 7: COUNT -->
+        <div class="formula-card" data-category="statistik" onclick="openFormulaModal('COUNT')">
+          <div class="formula-card-top">
+            <span class="formula-num">07</span>
+            <span class="badge-pill bg-green-pill">Statistik</span>
+          </div>
+          <h3 class="formula-name">=COUNT</h3>
+          <p class="formula-brief">Menghitung banyak cell yang terisi data angka (bukan menjumlahkannya).</p>
+          <div class="formula-syntax-preview"><code>=COUNT(range)</code></div>
+          <div class="formula-card-footer">
+            <span class="click-hint">Klik untuk detail lengkap &rarr;</span>
+          </div>
+        </div>
+
+        <!-- RUMUS 8: COUNTIF -->
+        <div class="formula-card" data-category="logika" onclick="openFormulaModal('COUNTIF')">
+          <div class="formula-card-top">
+            <span class="formula-num">08</span>
+            <span class="badge-pill bg-blue-pill">Logika &amp; Hitung</span>
+          </div>
+          <h3 class="formula-name">=COUNTIF</h3>
+          <p class="formula-brief">Menghitung banyaknya cell yang sesuai dengan kriteria syarat tertentu.</p>
+          <div class="formula-syntax-preview"><code>=COUNTIF(range;kriteria)</code></div>
+          <div class="formula-card-footer">
+            <span class="click-hint">Klik untuk detail lengkap &rarr;</span>
+          </div>
+        </div>
+
+        <!-- RUMUS 9: RANK -->
+        <div class="formula-card" data-category="pencarian" onclick="openFormulaModal('RANK')">
+          <div class="formula-card-top">
+            <span class="formula-num">09</span>
+            <span class="badge-pill bg-purple-pill">Peringkat</span>
+          </div>
+          <h3 class="formula-name">=RANK.EQ</h3>
+          <p class="formula-brief">Menentukan urutan ranking suatu nilai dibandingkan kelompok nilai sekelas.</p>
+          <div class="formula-syntax-preview"><code>=RANK.EQ(B2;$B$2:$B$6;0)</code></div>
+          <div class="formula-card-footer">
+            <span class="click-hint">Klik untuk detail lengkap &rarr;</span>
+          </div>
+        </div>
+
+        <!-- RUMUS 10: VLOOKUP -->
+        <div class="formula-card" data-category="pencarian" onclick="openFormulaModal('VLOOKUP')">
+          <div class="formula-card-top">
+            <span class="formula-num">10</span>
+            <span class="badge-pill bg-purple-pill">Pencarian</span>
+          </div>
+          <h3 class="formula-name">=VLOOKUP</h3>
+          <p class="formula-brief">Mencari data pada tabel lain secara vertikal berdasarkan kunci.</p>
+          <div class="formula-syntax-preview"><code>=VLOOKUP(kunci;tabel;kolom;FALSE)</code></div>
+          <div class="formula-card-footer">
+            <span class="click-hint">Klik untuk detail lengkap &rarr;</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIMULASI VLOOKUP INTERAKTIF KHUSUS DI MENU RUMUS -->
+      <div class="vlookup-interactive-section">
+        <div class="card-white shadow-card">
+          <div class="vlookup-header">
+            <div class="vlookup-badge">⚡ SIMULASI INTERAKTIF LANGSUNG</div>
+            <h3>Simulasi Rumus VLOOKUP: Toko Koperasi Sekolah</h3>
+            <p>Pilih kode barang di bawah ini. Sistem akan mensimulasikan rumus Excel <code>=VLOOKUP(kode; A2:C4; kolom; FALSE)</code> secara otomatis!</p>
+          </div>
+
+          <div class="vlookup-body-grid">
+            <!-- Tabel Master Data Referensi -->
+            <div class="vlookup-master-table">
+              <span class="sub-caption">📋 Tabel Referensi Barang (A2:C4)</span>
+              <table class="mini-grid-table">
+                <thead>
+                  <tr>
+                    <th>Kode (Kol 1)</th>
+                    <th>Nama Barang (Kol 2)</th>
+                    <th>Harga (Kol 3)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr id="vrow-B01">
+                    <td><code>B01</code></td>
+                    <td>Buku Tulis</td>
+                    <td>Rp 5.000</td>
+                  </tr>
+                  <tr id="vrow-B02" class="highlight-vrow">
+                    <td><code>B02</code></td>
+                    <td>Pensil</td>
+                    <td>Rp 3.000</td>
+                  </tr>
+                  <tr id="vrow-B03">
+                    <td><code>B03</code></td>
+                    <td>Penghapus</td>
+                    <td>Rp 2.000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Interaksi Pilih Kode & Hasil Lookup -->
+            <div class="vlookup-action-box">
+              <span class="sub-caption">🔍 Kotak Uji Coba VLOOKUP</span>
+              <div class="select-code-group">
+                <label for="vlookupSelect">Pilih Kode Barang:</label>
+                <select id="vlookupSelect" onchange="runVlookupSimulation()" class="custom-select">
+                  <option value="B01">B01 (Buku Tulis)</option>
+                  <option value="B02" selected>B02 (Pensil)</option>
+                  <option value="B03">B03 (Penghapus)</option>
+                </select>
+              </div>
+
+              <!-- Formula yang sedang bekerja -->
+              <div class="vlookup-active-formula">
+                <div class="vf-line">
+                  <span class="vf-label">Rumus Nama:</span>
+                  <code id="vfNama">=VLOOKUP("B02"; A2:C4; 2; FALSE)</code>
+                </div>
+                <div class="vf-line">
+                  <span class="vf-label">Rumus Harga:</span>
+                  <code id="vfHarga">=VLOOKUP("B02"; A2:C4; 3; FALSE)</code>
+                </div>
+              </div>
+
+              <!-- Output Display -->
+              <div class="vlookup-result-card">
+                <div class="res-item">
+                  <span class="res-label">Nama Barang:</span>
+                  <strong class="res-val text-green" id="vlookupResNama">Pensil</strong>
+                </div>
+                <div class="res-item">
+                  <span class="res-label">Harga Satuan:</span>
+                  <strong class="res-val text-blue" id="vlookupResHarga">Rp 3.000</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODAL DETAIL RUMUS (POPUP MENARIK UNTUK 10 RUMUS) -->
+    <div id="formulaModal" class="modal-backdrop" onclick="closeFormulaModalOnOutside(event)">
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <div class="modal-badge" id="modalBadge">RUMUS EXCEL</div>
+          <button class="modal-close-btn" onclick="closeFormulaModal()" aria-label="Tutup">&times;</button>
+        </div>
+        <div class="modal-body" id="modalBodyContent">
+          <!-- Diisi dinamis oleh script.js -->
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" onclick="closeFormulaModal()">Tutup Jendela</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- 4. MENU AKTIVITAS (4 AKTIVITAS UTAMA)                   -->
+    <!-- ===================================================== -->
+    <section id="aktivitas" class="content-section">
+      <div class="section-title-wrap">
+        <div class="badge-tag">ZONA PRAKTIK SISWA</div>
+        <h2 class="section-heading">Aktivitas Belajar Interaktif</h2>
+        <p class="section-subheading">
+          Uji pemahamanmu secara langsung melalui 4 tantangan seru: Menjodohkan, Menyusun Rumus, Memilih Rumus, dan Simulasi Mini Excel.
+        </p>
+      </div>
+
+      <!-- SUB-NAV AKTIVITAS -->
+      <div class="sub-nav-tabs">
+        <button class="sub-tab-btn active" onclick="switchAktivitas('akt-1', this)">
+          <span>🎯 Aktivitas 1: Cocokkan Rumus</span>
+        </button>
+        <button class="sub-tab-btn" onclick="switchAktivitas('akt-2', this)">
+          <span>🧩 Aktivitas 2: Susun Rumus</span>
+        </button>
+        <button class="sub-tab-btn" onclick="switchAktivitas('akt-3', this)">
+          <span>🤔 Aktivitas 3: Pilih Rumus</span>
+        </button>
+        <button class="sub-tab-btn" onclick="switchAktivitas('akt-4', this)">
+          <span>💻 Aktivitas 4: Simulasi Excel</span>
+        </button>
+      </div>
+
+      <!-- =================================================== -->
+      <!-- AKTIVITAS 1: COCOKKAN RUMUS (MENJODOHKAN)            -->
+      <!-- =================================================== -->
+      <div id="akt-1" class="aktivitas-panel active">
+        <div class="card-white shadow-card">
+          <div class="akt-header-bar">
+            <div>
+              <h3>Aktivitas 1 — Cocokkan Rumus dengan Fungsinya</h3>
+              <p class="akt-instruksi">
+                👉 <strong>Cara Main:</strong> Klik salah satu nama rumus di kolom kiri, lalu klik fungsinya yang sesuai di kolom kanan. Klik <strong>Periksa</strong> untuk melihat nilaimu!
+              </p>
+            </div>
+            <div class="akt-score-badge">
+              <span>Skor Menjodohkan:</span>
+              <strong id="matchingScoreText">0 / 10</strong>
+            </div>
+          </div>
+
+          <div class="matching-container">
+            <!-- Kolom Kiri: Nama Rumus (A - J) -->
+            <div class="matching-column" id="matchingLeftCol">
+              <span class="col-title">🧮 Nama Rumus</span>
+              <div class="match-item-btn" data-key="SUM" onclick="selectMatchLeft('SUM', this)">
+                <span class="match-letter">A</span>
+                <span class="match-text">SUM</span>
+              </div>
+              <div class="match-item-btn" data-key="AVERAGE" onclick="selectMatchLeft('AVERAGE', this)">
+                <span class="match-letter">B</span>
+                <span class="match-text">AVERAGE</span>
+              </div>
+              <div class="match-item-btn" data-key="MAX" onclick="selectMatchLeft('MAX', this)">
+                <span class="match-letter">C</span>
+                <span class="match-text">MAX</span>
+              </div>
+              <div class="match-item-btn" data-key="MIN" onclick="selectMatchLeft('MIN', this)">
+                <span class="match-letter">D</span>
+                <span class="match-text">MIN</span>
+              </div>
+              <div class="match-item-btn" data-key="IF" onclick="selectMatchLeft('IF', this)">
+                <span class="match-letter">E</span>
+                <span class="match-text">IF</span>
+              </div>
+              <div class="match-item-btn" data-key="COUNT" onclick="selectMatchLeft('COUNT', this)">
+                <span class="match-letter">F</span>
+                <span class="match-text">COUNT</span>
+              </div>
+              <div class="match-item-btn" data-key="COUNTIF" onclick="selectMatchLeft('COUNTIF', this)">
+                <span class="match-letter">G</span>
+                <span class="match-text">COUNTIF</span>
+              </div>
+              <div class="match-item-btn" data-key="SUMIF" onclick="selectMatchLeft('SUMIF', this)">
+                <span class="match-letter">H</span>
+                <span class="match-text">SUMIF</span>
+              </div>
+              <div class="match-item-btn" data-key="RANK" onclick="selectMatchLeft('RANK', this)">
+                <span class="match-letter">I</span>
+                <span class="match-text">RANK</span>
+              </div>
+              <div class="match-item-btn" data-key="VLOOKUP" onclick="selectMatchLeft('VLOOKUP', this)">
+                <span class="match-letter">J</span>
+                <span class="match-text">VLOOKUP</span>
+              </div>
+            </div>
+
+            <!-- Kolom Kanan: Fungsi (1 - 10) -->
+            <div class="matching-column" id="matchingRightCol">
+              <span class="col-title">📖 Fungsi / Kegunaan</span>
+              <div class="match-desc-btn" data-target="AVERAGE" onclick="selectMatchRight('AVERAGE', this)">
+                <span class="match-number">1</span>
+                <span class="match-text">Menghitung rata-rata.</span>
+              </div>
+              <div class="match-desc-btn" data-target="SUM" onclick="selectMatchRight('SUM', this)">
+                <span class="match-number">2</span>
+                <span class="match-text">Menghitung jumlah nilai.</span>
+              </div>
+              <div class="match-desc-btn" data-target="MIN" onclick="selectMatchRight('MIN', this)">
+                <span class="match-number">3</span>
+                <span class="match-text">Mencari nilai terkecil.</span>
+              </div>
+              <div class="match-desc-btn" data-target="MAX" onclick="selectMatchRight('MAX', this)">
+                <span class="match-number">4</span>
+                <span class="match-text">Mencari nilai terbesar.</span>
+              </div>
+              <div class="match-desc-btn" data-target="IF" onclick="selectMatchRight('IF', this)">
+                <span class="match-number">5</span>
+                <span class="match-text">Membuat keputusan berdasarkan kondisi.</span>
+              </div>
+              <div class="match-desc-btn" data-target="COUNT" onclick="selectMatchRight('COUNT', this)">
+                <span class="match-number">6</span>
+                <span class="match-text">Menghitung jumlah cell berisi angka.</span>
+              </div>
+              <div class="match-desc-btn" data-target="COUNTIF" onclick="selectMatchRight('COUNTIF', this)">
+                <span class="match-number">7</span>
+                <span class="match-text">Menghitung data berdasarkan kriteria.</span>
+              </div>
+              <div class="match-desc-btn" data-target="SUMIF" onclick="selectMatchRight('SUMIF', this)">
+                <span class="match-number">8</span>
+                <span class="match-text">Menjumlahkan data berdasarkan kriteria.</span>
+              </div>
+              <div class="match-desc-btn" data-target="RANK" onclick="selectMatchRight('RANK', this)">
+                <span class="match-number">9</span>
+                <span class="match-text">Menentukan peringkat.</span>
+              </div>
+              <div class="match-desc-btn" data-target="VLOOKUP" onclick="selectMatchRight('VLOOKUP', this)">
+                <span class="match-number">10</span>
+                <span class="match-text">Mencari data secara vertikal berdasarkan kunci.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- FEEDBACK & TOMBOL AKSI -->
+          <div class="matching-actions-bar">
+            <button class="btn btn-primary" onclick="checkMatchingAnswers()">
+              <span>✅ Periksa</span>
+            </button>
+            <button class="btn btn-outline" onclick="resetMatchingActivity()">
+              <span>🔄 Ulangi Aktivitas</span>
+            </button>
+            <div class="feedback-msg" id="matchingFeedback"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- =================================================== -->
+      <!-- AKTIVITAS 2: SUSUN RUMUS (DRAG AND DROP)             -->
+      <!-- =================================================== -->
+      <div id="akt-2" class="aktivitas-panel">
+        <div class="card-white shadow-card">
+          <div class="akt-header-bar">
+            <div>
+              <h3>Aktivitas 2 — Susun Rumus (Drag and Drop)</h3>
+              <p class="akt-instruksi">
+                👉 <strong>Cara Main:</strong> Tarik (drag) atau klik potongan formula yang diacak ke dalam kotak sasaran secara berurutan sehingga membentuk rumus Excel yang valid!
+              </p>
+            </div>
+            <div class="akt-progress-badge">
+              <span id="dragProgressText">Soal 1 dari 5</span>
+            </div>
+          </div>
+
+          <!-- Soal Container -->
+          <div class="drag-question-box">
+            <div class="puzzle-prompt">
+              <span class="puzzle-badge" id="puzzleTargetFormula">Tantangan #1</span>
+              <p class="puzzle-desc" id="puzzleGoalDesc">Susun rumus untuk: <strong>Menjumlahkan nilai dari cell B2 sampai B6</strong></p>
+            </div>
+
+            <!-- Target Dropzone -->
+            <div class="drop-zone-container">
+              <div class="drop-label">📥 Susunan Rumus Kamu (Urutkan dari kiri ke kanan):</div>
+              <div class="drop-slots-row" id="dropSlotsRow" ondragover="handleDragOver(event)" ondrop="handleDropToTarget(event)">
+                <!-- Slot kosong tempat menampung chip -->
+              </div>
+            </div>
+
+            <!-- Kotak Potongan Formula yang Tersedia -->
+            <div class="pool-container">
+              <div class="pool-label">🧩 Potongan Formula Tersedia (Klik atau Tarik ke kotak atas):</div>
+              <div class="chip-pool" id="chipPool" ondragover="handleDragOver(event)" ondrop="handleDropToPool(event)">
+                <!-- Chip di-generate oleh JS -->
+              </div>
+            </div>
+
+            <!-- Feedback & Tombol Aksi Puzzle -->
+            <div class="drag-actions-bar">
+              <button class="btn btn-primary" onclick="checkDragPuzzle()">
+                <span>🔍 Periksa Jawaban</span>
+              </button>
+              <button class="btn btn-secondary" onclick="resetCurrentPuzzle()">
+                <span>↩️ Reset Susunan</span>
+              </button>
+              <button class="btn btn-outline" id="btnNextPuzzle" style="display:none;" onclick="nextDragPuzzle()">
+                <span>Lanjut Soal Berikutnya &rarr;</span>
+              </button>
+              <div class="feedback-msg" id="dragFeedback"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- =================================================== -->
+      <!-- AKTIVITAS 3: PILIH RUMUS YANG TEPAT                  -->
+      <!-- =================================================== -->
+      <div id="akt-3" class="aktivitas-panel">
+        <div class="card-white shadow-card">
+          <div class="akt-header-bar">
+            <div>
+              <h3>Aktivitas 3 — Pilih Rumus yang Tepat</h3>
+              <p class="akt-instruksi">
+                👉 Perhatikan tabel nilai di bawah, lalu tentukan rumus yang paling tepat berdasarkan setiap permasalahan!
+              </p>
+            </div>
+            <div class="akt-score-badge">
+              <span>Skor Studi Kasus:</span>
+              <strong id="caseScoreText">0 / 8</strong>
+            </div>
+          </div>
+
+          <!-- Tabel Acuan Kasus -->
+          <div class="akt-case-table-box">
+            <span class="case-table-title">📊 Tabel Nilai Siswa</span>
+            <table class="styled-case-table compact-table">
+              <thead>
+                <tr>
+                  <th>Baris</th>
+                  <th>Kolom A (Nama)</th>
+                  <th>Kolom B (Nilai)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>2</td><td>Andi</td><td>80</td></tr>
+                <tr><td>3</td><td>Budi</td><td>75</td></tr>
+                <tr><td>4</td><td>Citra</td><td>90</td></tr>
+                <tr><td>5</td><td>Deni</td><td>70</td></tr>
+                <tr><td>6</td><td>Eka</td><td>85</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Permasalahan Berjalan (Card Soal) -->
+          <div class="scenario-quiz-container" id="scenarioQuizContainer">
+            <div class="sc-header">
+              <span class="sc-badge" id="scQuestionBadge">Kasus 1 dari 8</span>
+            </div>
+            <h4 class="sc-question" id="scQuestionText">
+              Pertanyaan akan dimuat di sini...
+            </h4>
+
+            <div class="sc-options-grid" id="scOptionsGrid">
+              <!-- Pilihan A, B, C, D di-render via JS -->
+            </div>
+
+            <div class="sc-feedback-box" id="scFeedbackBox" style="display: none;">
+              <!-- Penjelasan muncul setelah memilih -->
+            </div>
+
+            <div class="sc-footer">
+              <button class="btn btn-primary" id="btnNextScenario" style="display: none;" onclick="nextScenarioQuestion()">
+                <span>Soal Kasus Selanjutnya &rarr;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- =================================================== -->
+      <!-- AKTIVITAS 4: SIMULASI EXCEL INTERAKTIF               -->
+      <!-- =================================================== -->
+      <div id="akt-4" class="aktivitas-panel">
+        <div class="card-white shadow-card">
+          <div class="akt-header-bar">
+            <div>
+              <h3>Aktivitas 4 — Simulasi Spreadsheet Interaktif</h3>
+              <p class="akt-instruksi">
+                👉 Klik salah satu tombol rumus di bawah untuk melihat bagaimana Excel menghitung, menandai cell target, dan mengisi hasil di tabel secara otomatis!
+              </p>
+            </div>
+          </div>
+
+          <!-- Mini Spreadsheet UI -->
+          <div class="mini-excel-app">
+            <!-- Formula Bar Atas -->
+            <div class="app-formula-bar">
+              <div class="app-name-box" id="simNameBox">B2:B6</div>
+              <div class="app-fx-icon">fx</div>
+              <div class="app-formula-input" id="simFormulaInput">=SUM(B2:B6)</div>
+            </div>
+
+            <!-- Spreadsheet Grid Table -->
+            <div class="app-grid-wrapper">
+              <table class="app-spreadsheet-table" id="simSpreadsheetTable">
+                <thead>
+                  <tr>
+                    <th class="head-corner"></th>
+                    <th class="col-letter">A</th>
+                    <th class="col-letter">B</th>
+                    <th class="col-letter">C</th>
+                    <th class="col-letter">D</th>
+                    <th class="col-letter">E</th>
+                  </tr>
+                  <tr class="header-data-row">
+                    <th class="row-num">1</th>
+                    <th>Nama Siswa</th>
+                    <th>Nilai Tugas</th>
+                    <th>UTS</th>
+                    <th>UAS</th>
+                    <th>Keterangan</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-row="2">
+                    <td class="row-num">2</td>
+                    <td class="cell-cell" data-coord="A2">Andi</td>
+                    <td class="cell-cell" data-coord="B2">80</td>
+                    <td class="cell-cell" data-coord="C2">75</td>
+                    <td class="cell-cell" data-coord="D2">85</td>
+                    <td class="cell-cell col-ket" data-coord="E2">-</td>
+                  </tr>
+                  <tr data-row="3">
+                    <td class="row-num">3</td>
+                    <td class="cell-cell" data-coord="A3">Budi</td>
+                    <td class="cell-cell" data-coord="B3">70</td>
+                    <td class="cell-cell" data-coord="C3">80</td>
+                    <td class="cell-cell" data-coord="D3">75</td>
+                    <td class="cell-cell col-ket" data-coord="E3">-</td>
+                  </tr>
+                  <tr data-row="4">
+                    <td class="row-num">4</td>
+                    <td class="cell-cell" data-coord="A4">Citra</td>
+                    <td class="cell-cell" data-coord="B4">90</td>
+                    <td class="cell-cell" data-coord="C4">85</td>
+                    <td class="cell-cell" data-coord="D4">95</td>
+                    <td class="cell-cell col-ket" data-coord="E4">-</td>
+                  </tr>
+                  <tr data-row="5">
+                    <td class="row-num">5</td>
+                    <td class="cell-cell" data-coord="A5">Deni</td>
+                    <td class="cell-cell" data-coord="B5">75</td>
+                    <td class="cell-cell" data-coord="C5">70</td>
+                    <td class="cell-cell" data-coord="D5">80</td>
+                    <td class="cell-cell col-ket" data-coord="E5">-</td>
+                  </tr>
+                  <tr data-row="6">
+                    <td class="row-num">6</td>
+                    <td class="cell-cell" data-coord="A6">Eka</td>
+                    <td class="cell-cell" data-coord="B6">85</td>
+                    <td class="cell-cell" data-coord="C6">90</td>
+                    <td class="cell-cell" data-coord="D6">88</td>
+                    <td class="cell-cell col-ket" data-coord="E6">-</td>
+                  </tr>
+                  <!-- Baris Total / Hasil Komputasi -->
+                  <tr class="calc-result-row" data-row="7">
+                    <td class="row-num">7</td>
+                    <td class="cell-bold" id="simResultLabel">HASIL PERHITUNGAN:</td>
+                    <td class="cell-calc-result" id="simResultB">-</td>
+                    <td class="cell-calc-result" id="simResultC">-</td>
+                    <td class="cell-calc-result" id="simResultD">-</td>
+                    <td class="cell-calc-result" id="simResultE">-</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Tombol-tombol Rumus Interaktif -->
+            <div class="sim-buttons-toolbar">
+              <span class="tool-label">🎮 Pilih Rumus:</span>
+              <div class="btn-group-rumus">
+                <button class="btn-sim-rumus active" onclick="runSpreadsheetSimulation('SUM', this)">
+                  <strong>SUM</strong>
+                </button>
+                <button class="btn-sim-rumus" onclick="runSpreadsheetSimulation('AVERAGE', this)">
+                  <strong>AVERAGE</strong>
+                </button>
+                <button class="btn-sim-rumus" onclick="runSpreadsheetSimulation('MAX', this)">
+                  <strong>MAX</strong>
+                </button>
+                <button class="btn-sim-rumus" onclick="runSpreadsheetSimulation('MIN', this)">
+                  <strong>MIN</strong>
+                </button>
+                <button class="btn-sim-rumus" onclick="runSpreadsheetSimulation('COUNT', this)">
+                  <strong>COUNT</strong>
+                </button>
+                <button class="btn-sim-rumus" onclick="runSpreadsheetSimulation('COUNTIF', this)">
+                  <strong>COUNTIF</strong>
+                </button>
+                <button class="btn-sim-rumus" onclick="runSpreadsheetSimulation('IF', this)">
+                  <strong>IF</strong>
+                </button>
+                <button class="btn-sim-rumus" onclick="runSpreadsheetSimulation('RANK', this)">
+                  <strong>RANK</strong>
+                </button>
+              </div>
+            </div>
+
+            <!-- Panel Penjelasan Hasil Simulasi -->
+            <div class="sim-explanation-box">
+              <div class="exp-title-row">
+                <span class="exp-badge" id="simExpBadge">Rumus: =SUM(B2:B6)</span>
+                <span class="exp-result" id="simExpResult">Hasil: 400</span>
+              </div>
+              <p class="exp-desc" id="simExpDesc">
+                Rumus <code>=SUM(B2:B6)</code> digunakan untuk menjumlahkan seluruh angka nilai tugas siswa (80 + 70 + 90 + 75 + 85 = 400).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 5. MENU KUIS (10 SOAL INTERAKTIF DENGAN SKOR LENGKAP)   -->
+    <!-- ===================================================== -->
+    <section id="kuis" class="content-section">
+      <div class="section-title-wrap">
+        <div class="badge-tag">EVALUASI PEMBELAJARAN</div>
+        <h2 class="section-heading">Kuis Interaktif Excel Dasar</h2>
+        <p class="section-subheading">
+          Uji pemahamanmu tentang antarmuka, cell, range, dan 10 rumus Excel melalui 10 soal pilihan ganda interaktif.
+        </p>
+      </div>
+
+      <!-- KUIS CONTAINER -->
+      <div class="quiz-card card-white shadow-card">
+        <!-- Tampilan Kuis Aktif -->
+        <div id="quizActiveView">
+          <div class="quiz-top-bar">
+            <div class="quiz-step-info">
+              <span class="quiz-q-num" id="quizCurrentStep">SOAL 1 / 10</span>
+            </div>
+            <div class="quiz-score-badge">
+              <span>Skor Sementara: </span>
+              <strong id="quizRunningScore">0</strong>
+            </div>
+          </div>
+
+          <!-- Progress Bar Kuis -->
+          <div class="quiz-progress-track">
+            <div class="quiz-progress-fill" id="quizProgressFill" style="width: 10%;"></div>
+          </div>
+
+          <!-- Soal Teks -->
+          <div class="quiz-question-area">
+            <div class="q-badge-category" id="quizCategoryBadge">Kategori: Excel Dasar</div>
+            <h3 class="quiz-question-title" id="quizQuestionTitle">
+              Rumus yang digunakan untuk menjumlahkan data adalah...
+            </h3>
+          </div>
+
+          <!-- Pilihan Jawaban A, B, C, D -->
+          <div class="quiz-options-list" id="quizOptionsList">
+            <!-- Diisi lewat script.js -->
+          </div>
+
+          <!-- Feedback Jawaban Benar / Salah -->
+          <div class="quiz-feedback-box" id="quizFeedbackBox" style="display: none;">
+            <!-- Muncul setelah klik pilihan -->
+          </div>
+
+          <!-- Tombol Next -->
+          <div class="quiz-nav-actions">
+            <button class="btn btn-primary" id="btnQuizNext" style="display: none;" onclick="nextQuizQuestion()">
+              <span>Lanjut Soal Berikutnya &rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Tampilan Hasil Akhir Kuis (Muncul setelah selesai 10 soal) -->
+        <div id="quizResultView" style="display: none;">
+          <div class="result-summary-box">
+            <div class="result-icon-trophy" id="resTrophy">🏆</div>
+            <h3 class="result-title">Selamat! Kamu Telah Menyelesaikan Kuis!</h3>
+            <p class="result-subtitle" id="resSubtitle">Berikut ringkasan hasil evaluasi belajarmu:</p>
+
+            <div class="result-score-circle">
+              <span class="final-score-val" id="finalScoreVal">100</span>
+              <span class="final-score-lbl">Nilai Akhir</span>
+            </div>
+
+            <div class="result-category-badge" id="resCategoryBadge">
+              Sangat Baik 🏆
+            </div>
+
+            <div class="result-feedback-message" id="resFeedbackMsg">
+              Luar biasa! Kamu sudah sangat menguasai konsep dasar Excel dan 10 rumus pentingnya!
+            </div>
+
+            <div class="result-actions">
+              <button class="btn btn-primary" onclick="restartQuiz()">
+                <span>🔄 Ulangi Kuis</span>
+              </button>
+              <button class="btn btn-outline" onclick="navigateTo('rangkuman')">
+                <span>💡 Lihat Rangkuman &rarr;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 6. MENU RANGKUMAN                                      -->
+    <!-- ===================================================== -->
+    <section id="rangkuman" class="content-section">
+      <div class="section-title-wrap">
+        <div class="badge-tag">RINGKASAN CEPAT</div>
+        <h2 class="section-heading">Rangkuman Excel Dasar</h2>
+        <p class="section-subheading">Catatan penting untuk mengingat kembali fungsi dasar dan seluruh rumus pengolahan data.</p>
+      </div>
+
+      <!-- KARTU POINT UTAMA -->
+      <div class="summary-points-card card-white shadow-card">
+        <h3 class="summary-card-title">📌 Poin Kunci yang Harus Diingat:</h3>
+        <ul class="summary-bullets">
+          <li>✓ <strong>Excel</strong> adalah aplikasi spreadsheet berbasis baris (Row) dan kolom (Column).</li>
+          <li>✓ <strong>Menu Bar / Ribbon</strong> memiliki tab utama (Home, Insert, Page Layout, Formulas, Data, View) untuk berbagai fungsi kerja.</li>
+          <li>✓ <strong>Cell</strong> adalah kotak pertemuan kolom (huruf) dan baris (angka), misal cell <strong>B3</strong>.</li>
+          <li>✓ <strong>Fill Handle</strong> adalah titik kotak kecil di sudut kanan bawah cell aktif untuk membuat deret angka/hari dan menyalin rumus secara cepat.</li>
+          <li>✓ <strong>Worksheet (Sheet)</strong> adalah lembar kerja tabel yang dapat ditambah (<code>+</code>), diubah namanya (Rename), dan diberi warna tab.</li>
+          <li>✓ <strong>Formula Bar</strong> menampilkan rumus asli, sedangkan <strong>Name Box</strong> menunjukkan alamat cell aktif.</li>
+          <li>✓ <strong>Freeze Panes</strong> digunakan untuk membekukan baris judul tabel agar tidak hilang saat digulir ke bawah.</li>
+          <li>✓ Rumus dan fungsi Excel <strong>wajib diawali dengan tanda sama dengan (<code>=</code>)</strong>.</li>
+          <li>✓ <strong>SUM</strong> digunakan untuk menjumlahkan data.</li>
+          <li>✓ <strong>AVERAGE</strong> digunakan untuk mencari rata-rata.</li>
+          <li>✓ <strong>MAX</strong> digunakan untuk mencari nilai terbesar.</li>
+          <li>✓ <strong>MIN</strong> digunakan untuk mencari nilai terkecil.</li>
+          <li>✓ <strong>SUMIF</strong> digunakan untuk menjumlahkan data berdasarkan kriteria.</li>
+          <li>✓ <strong>IF</strong> digunakan untuk membuat keputusan berdasarkan kondisi.</li>
+          <li>✓ <strong>COUNT</strong> digunakan untuk menghitung jumlah data berupa angka.</li>
+          <li>✓ <strong>COUNTIF</strong> digunakan untuk menghitung data berdasarkan kriteria.</li>
+          <li>✓ <strong>RANK</strong> digunakan untuk menentukan peringkat.</li>
+          <li>✓ <strong>VLOOKUP</strong> digunakan untuk mencari data secara vertikal berdasarkan nilai kunci.</li>
+        </ul>
+      </div>
+
+      <!-- TABEL RINGKAS 10 RUMUS -->
+      <div class="summary-table-card card-white shadow-card">
+        <h3 class="summary-card-title">📋 Tabel Ringkas 10 Rumus</h3>
+        <div class="summary-table-wrapper">
+          <table class="summary-table">
+            <thead>
+              <tr>
+                <th>Rumus</th>
+                <th>Fungsi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="badge-rumus-tag">SUM</span></td>
+                <td>Menjumlahkan</td>
+              </tr>
+              <tr>
+                <td><span class="badge-rumus-tag">AVERAGE</span></td>
+                <td>Menghitung rata-rata</td>
+              </tr>
+              <tr>
+                <td><span class="badge-rumus-tag">MAX</span></td>
+                <td>Mencari nilai terbesar</td>
+              </tr>
+              <tr>
+                <td><span class="badge-rumus-tag">MIN</span></td>
+                <td>Mencari nilai terkecil</td>
+              </tr>
+              <tr>
+                <td><span class="badge-rumus-tag">SUMIF</span></td>
+                <td>Menjumlahkan berdasarkan kriteria</td>
+              </tr>
+              <tr>
+                <td><span class="badge-rumus-tag">IF</span></td>
+                <td>Membuat keputusan berdasarkan kondisi</td>
+              </tr>
+              <tr>
+                <td><span class="badge-rumus-tag">COUNT</span></td>
+                <td>Menghitung jumlah data angka</td>
+              </tr>
+              <tr>
+                <td><span class="badge-rumus-tag">COUNTIF</span></td>
+                <td>Menghitung berdasarkan kriteria</td>
+              </tr>
+              <tr>
+                <td><span class="badge-rumus-tag">RANK</span></td>
+                <td>Menentukan peringkat</td>
+              </tr>
+              <tr>
+                <td><span class="badge-rumus-tag">VLOOKUP</span></td>
+                <td>Mencari data secara vertikal</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pesan Motivasi Detektif Data -->
+        <div class="detective-quote-banner">
+          <div class="quote-icon">🕵️‍♂️</div>
+          <div class="quote-content">
+            <h4 class="quote-heading">"Jadilah detektif data! Gunakan rumus yang tepat untuk menemukan jawabannya."</h4>
+            <p class="quote-sub">
+              Menguasai rumus Excel bukan hanya menghafal teks, tetapi melatih logika berpikir komputasional untuk menyelesaikan permasalahan sehari-hari.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tombol Belajar Lagi -->
+        <div class="summary-action-center">
+          <button class="btn btn-primary btn-lg" onclick="navigateTo('materi')">
+            <span>📚 Belajar Lagi</span>
+          </button>
+          <button class="btn btn-outline btn-lg" onclick="resetAllProgress()">
+            <span>🔄 Reset Progres Belajar</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================= -->
+  <!-- FOOTER                                                  -->
+  <!-- ======================================================= -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="footer-logo">📊 Excel Dasar &amp; Rumus</span>
+        <span class="footer-desc">Media Pembelajaran Interaktif Siswa Kelas VIII SMP/MTs</span>
+      </div>
+      <div class="footer-copy">
+        &copy; Media Pembelajaran Informatika SMP/MTs &bull; Dirancang Responsif untuk Layar Kelas &amp; Komputer
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT EKSTERNAL WAJIB -->
+  <script src="script.js"></script>
+</body>
+</html>

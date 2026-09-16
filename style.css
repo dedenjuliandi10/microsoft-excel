@@ -1,0 +1,4113 @@
+/* ==========================================================
+   STYLE CSS - MEDIA PEMBELAJARAN INTERAKTIF EXCEL DASAR
+   Mata Pelajaran Informatika SMP/MTs Kelas VIII
+   Tema: Modern, Edukatif, Spreadsheet Excel, Bersih, Profesional
+   ========================================================== */
+
+/* --- CSS Variables & Color System --- */
+:root {
+  --excel-green: #107c41;
+  --excel-green-dark: #0b5a2e;
+  --excel-green-light: #21a366;
+  --excel-green-soft: #dcfce7;
+  --excel-green-bg: #f3f9f4;
+  --accent-blue: #0078d4;
+  --accent-blue-light: #e0f2fe;
+  --accent-orange: #ea580c;
+  --accent-orange-light: #ffedd5;
+  --accent-purple: #7c3aed;
+  --accent-purple-light: #ede9fe;
+  --accent-red: #dc2626;
+  --accent-red-light: #fee2e2;
+
+  --text-dark: #0f172a;
+  --text-normal: #334155;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+
+  --bg-body: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-sheet-header: #f1f5f9;
+  --border-sheet: #cbd5e1;
+  --border-card: #e2e8f0;
+
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Nunito', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Consolas', monospace;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 6px 18px rgba(16, 124, 65, 0.08);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.09);
+  --shadow-hover: 0 14px 32px rgba(16, 124, 65, 0.16);
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Base & Reset --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-body);
+  color: var(--text-normal);
+  line-height: 1.6;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-dark);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+code {
+  font-family: var(--font-mono);
+  background-color: #f1f5f9;
+  color: var(--excel-green-dark);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: var(--transition-normal);
+}
+
+/* ==========================================================
+   HEADER & NAVBAR
+   ========================================================== */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #ffffff;
+  border-bottom: 2px solid #e2e8f0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.header-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Brand Logo */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.logo-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-fast);
+}
+
+.brand-logo:hover .logo-badge {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-subject {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--excel-green);
+}
+
+.brand-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+/* Header Progress Bar & Reset Button */
+.header-progress-wrap {
+  flex: 1;
+  max-width: 250px;
+  background: #f8fafc;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid #cbd5e1;
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  margin-bottom: 4px;
+  font-weight: 700;
+  gap: 6px;
+}
+
+.progress-title {
+  color: var(--text-muted);
+}
+
+.progress-percent {
+  color: var(--excel-green);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.btn-reset-header {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 1px 7px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  transition: all var(--transition-fast);
+}
+
+.btn-reset-header:hover {
+  background-color: #ef4444;
+  color: #ffffff;
+  border-color: #ef4444;
+  transform: scale(1.05);
+}
+
+.progress-track {
+  width: 100%;
+  height: 6px;
+  background-color: #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Banner Progres Belajar di Beranda */
+.learning-progress-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 36px;
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+  border: 2px solid #86efac;
+  flex-wrap: wrap;
+}
+
+.progress-banner-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.prog-icon-badge {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #dcfce7;
+  color: #166534;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.prog-main-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.prog-sub-title {
+  font-size: 0.9rem;
+  color: var(--text-normal);
+}
+
+.prog-sub-title strong {
+  color: var(--excel-green);
+}
+
+.progress-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.prog-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 180px;
+}
+
+.prog-big-percent {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--excel-green);
+  min-width: 48px;
+}
+
+.prog-big-track {
+  flex: 1;
+  height: 10px;
+  background-color: #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.prog-big-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--excel-green), #38ef7d);
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
+.btn-reset-prog {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  background-color: #fff1f2;
+  color: #b91c1c;
+  border: 1.5px solid #fecdd3;
+  border-radius: var(--radius-md);
+  font-weight: 800;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-reset-prog:hover {
+  background-color: #ef4444;
+  color: #ffffff;
+  border-color: #ef4444;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--excel-green), #38ef7d);
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+/* Nav Menu (6 Menu Wajib) */
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 6px;
+  align-items: center;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  color: var(--text-normal);
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+}
+
+.nav-icon {
+  font-size: 1.15rem;
+  transition: transform var(--transition-fast);
+}
+
+.nav-link:hover {
+  background-color: var(--excel-green-bg);
+  color: var(--excel-green);
+}
+
+.nav-link:hover .nav-icon {
+  transform: translateY(-2px);
+}
+
+.nav-link.active {
+  background-color: var(--excel-green);
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(16, 124, 65, 0.25);
+}
+
+.nav-link.active .nav-icon {
+  transform: scale(1.1);
+}
+
+/* Mobile Toggle Hamburger */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 32px;
+  height: 28px;
+  padding: 2px;
+}
+
+.menu-toggle span {
+  width: 100%;
+  height: 3px;
+  background-color: var(--text-dark);
+  border-radius: 2px;
+  transition: all var(--transition-fast);
+}
+
+/* ==========================================================
+   MAIN CONTENT ARCHITECTURE (SINGLE-PAGE)
+   ========================================================== */
+.main-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 30px 24px 60px 24px;
+  min-height: calc(100vh - 160px);
+}
+
+.content-section {
+  display: none;
+  animation: fadeIn 0.35s ease-out;
+}
+
+.content-section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section Header Typography */
+.section-title-wrap {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 36px auto;
+}
+
+.badge-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background-color: var(--excel-green-soft);
+  color: var(--excel-green-dark);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.section-heading {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+.section-subheading {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+}
+
+/* Common UI Cards & Buttons */
+.card-white {
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  border: 1px solid var(--border-card);
+}
+
+.shadow-card {
+  box-shadow: var(--shadow-md);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.btn-primary {
+  background-color: var(--excel-green);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(16, 124, 65, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: var(--excel-green-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(16, 124, 65, 0.4);
+}
+
+.btn-secondary {
+  background-color: #f1f5f9;
+  color: var(--text-dark);
+}
+
+.btn-secondary:hover {
+  background-color: #e2e8f0;
+}
+
+.btn-outline {
+  border: 2px solid var(--excel-green);
+  color: var(--excel-green);
+  background-color: transparent;
+}
+
+.btn-outline:hover {
+  background-color: var(--excel-green);
+  color: #ffffff;
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 0.88rem;
+  border-radius: var(--radius-sm);
+}
+
+.btn-lg {
+  padding: 14px 28px;
+  font-size: 1.05rem;
+}
+
+/* ==========================================================
+   1. MENU BERANDA
+   ========================================================== */
+.hero-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+  border: 1px solid #bbf7d0;
+  border-radius: var(--radius-xl);
+  padding: 44px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 10px 0 16px 0;
+  letter-spacing: -0.5px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-normal);
+  line-height: 1.6;
+  margin-bottom: 28px;
+  max-width: 540px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.hero-meta-badges {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pill-badge {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-normal);
+}
+
+.hero-illustration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.illustration-board {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+}
+
+.hero-svg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 14px 20px rgba(0, 0, 0, 0.08));
+}
+
+.floating-tag {
+  position: absolute;
+  background-color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 0.82rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid #e2e8f0;
+  z-index: 10;
+  animation: floatAnim 4s ease-in-out infinite;
+}
+
+.tag-top {
+  top: 10px;
+  right: -10px;
+  color: var(--excel-green-dark);
+  border-left: 4px solid var(--excel-green);
+}
+
+.tag-bottom {
+  bottom: 30px;
+  left: -15px;
+  color: var(--accent-blue);
+  border-left: 4px solid var(--accent-blue);
+  animation-delay: 2s;
+}
+
+@keyframes floatAnim {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* 3 Kartu Menu Beranda */
+.cards-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.feature-card {
+  background-color: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 30px 24px;
+  border: 2px solid transparent;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--excel-green);
+  box-shadow: var(--shadow-hover);
+}
+
+.card-icon-wrap {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.card-icon {
+  font-size: 2rem;
+}
+
+.bg-green-light { background-color: var(--excel-green-soft); }
+.bg-blue-light { background-color: var(--accent-blue-light); }
+.bg-purple-light { background-color: var(--accent-purple-light); }
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.card-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+.card-action-link {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--excel-green);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Tujuan Pembelajaran */
+.learning-objectives-box {
+  background-color: #ffffff;
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  border: 1px solid var(--border-card);
+  box-shadow: var(--shadow-md);
+  margin-bottom: 40px;
+}
+
+.box-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.box-icon {
+  font-size: 2.2rem;
+}
+
+.box-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+}
+
+.box-subtitle {
+  color: var(--text-muted);
+  font-size: 0.98rem;
+}
+
+.objectives-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px 24px;
+}
+
+.objective-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background-color: var(--bg-body);
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--excel-green);
+}
+
+.check-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--excel-green-soft);
+  color: var(--excel-green-dark);
+  font-weight: 900;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.objective-item p {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* Quick Banner Stats */
+.quick-banner {
+  background: linear-gradient(135deg, var(--excel-green) 0%, var(--excel-green-dark) 100%);
+  border-radius: var(--radius-lg);
+  padding: 24px 36px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(16, 124, 65, 0.25);
+}
+
+.banner-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat-number {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.banner-divider {
+  width: 1px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* ==========================================================
+   2. MENU MATERI
+   ========================================================== */
+.materi-tabs-nav {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.materi-tab-btn {
+  padding: 12px 22px;
+  background-color: #ffffff;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--text-normal);
+  transition: all var(--transition-fast);
+}
+
+.materi-tab-btn:hover {
+  border-color: var(--excel-green);
+  color: var(--excel-green);
+}
+
+.materi-tab-btn.active {
+  background-color: var(--excel-green);
+  color: #ffffff;
+  border-color: var(--excel-green);
+  box-shadow: 0 4px 12px rgba(16, 124, 65, 0.2);
+}
+
+.materi-panel {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.materi-panel.active {
+  display: block;
+}
+
+.panel-header-badge {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.panel-num {
+  width: 38px;
+  height: 38px;
+  background-color: var(--excel-green);
+  color: #ffffff;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.panel-header-badge h3 {
+  font-size: 1.5rem;
+}
+
+.lead-text {
+  font-size: 1.12rem;
+  color: var(--text-dark);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.normal-text {
+  font-size: 1rem;
+  color: var(--text-normal);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.materi-content-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 36px;
+  align-items: flex-start;
+}
+
+.terms-title {
+  font-size: 1.15rem;
+  margin-bottom: 14px;
+  color: var(--text-dark);
+}
+
+.terms-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.term-box {
+  background-color: var(--bg-body);
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  padding: 14px;
+}
+
+.term-box.full-width {
+  grid-column: 1 / -1;
+  background-color: #f0fdf4;
+  border-color: #86efac;
+}
+
+.term-name {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--excel-green-dark);
+  margin-bottom: 4px;
+}
+
+.term-desc {
+  font-size: 0.88rem;
+  color: var(--text-normal);
+  line-height: 1.4;
+}
+
+/* Excel Window Mockup Visual */
+.excel-window-mockup {
+  background-color: #ffffff;
+  border-radius: var(--radius-md);
+  border: 1px solid #cbd5e1;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.window-titlebar {
+  background-color: #1e293b;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot.red { background-color: #ef4444; }
+.dot.yellow { background-color: #f59e0b; }
+.dot.green { background-color: #10b981; }
+
+.window-title {
+  color: #e2e8f0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+.mockup-ribbon {
+  background-color: var(--excel-green);
+  padding: 6px 14px;
+  display: flex;
+  gap: 12px;
+}
+
+.ribbon-btn {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.ribbon-btn.active {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.mockup-formula-bar {
+  background-color: #f8fafc;
+  border-bottom: 1px solid #cbd5e1;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
+.name-box-mock {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.fx-label {
+  color: var(--excel-green);
+  font-weight: 800;
+}
+
+.fx-content {
+  color: #0f172a;
+}
+
+.mockup-grid {
+  display: grid;
+  grid-template-columns: 35px repeat(3, 1fr);
+  background-color: #cbd5e1;
+  gap: 1px;
+}
+
+.grid-row-header, .grid-data-row {
+  display: contents;
+}
+
+.corner-cell, .col-head, .row-head, .grid-cell {
+  background-color: #ffffff;
+  padding: 6px 10px;
+  font-size: 0.82rem;
+}
+
+.corner-cell, .col-head, .row-head {
+  background-color: #f1f5f9;
+  font-weight: 700;
+  color: #475569;
+  text-align: center;
+}
+
+.col-head.highlight-col, .row-head.highlight-row {
+  background-color: #bbf7d0;
+  color: #166534;
+}
+
+.grid-cell.active-cell {
+  background-color: #e8f5e9;
+  border: 2px solid var(--excel-green);
+  font-weight: 800;
+  color: var(--excel-green-dark);
+  position: relative;
+}
+
+.grid-cell.active-cell .handle {
+  position: absolute;
+  bottom: -3px;
+  right: -3px;
+  width: 6px;
+  height: 6px;
+  background-color: var(--excel-green);
+}
+
+.mockup-caption {
+  background-color: #f8fafc;
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  border-top: 1px solid #cbd5e1;
+}
+
+.badge-success {
+  background-color: #dcfce7;
+  color: #166534;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+/* Interaktif Cell Demo (Tab B) */
+.interactive-cell-demo {
+  margin-top: 24px;
+}
+
+.demo-layout {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.sheet-table-wrapper {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.sheet-toolbar-status {
+  background-color: #f8fafc;
+  border-bottom: 1px solid #cbd5e1;
+  padding: 10px 16px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.box-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.ind-label {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.ind-val, .ind-formula {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 2px 10px;
+  border-radius: 4px;
+  color: var(--excel-green);
+}
+
+.interactive-excel-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.interactive-excel-table th, 
+.interactive-excel-table td {
+  border: 1px solid #cbd5e1;
+  padding: 10px 14px;
+  font-size: 0.92rem;
+  text-align: left;
+}
+
+.th-corner, .th-col, .th-row {
+  background-color: #f1f5f9;
+  color: #475569;
+  font-weight: 700;
+  text-align: center;
+  user-select: none;
+}
+
+.th-col.col-selected, .th-row.row-selected {
+  background-color: #bbf7d0;
+  color: #166534;
+}
+
+.cell-item {
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.cell-item:hover {
+  background-color: #f0fdf4;
+}
+
+.cell-item.selected-cell {
+  background-color: #e8f5e9 !important;
+  outline: 2px solid var(--excel-green);
+  outline-offset: -2px;
+  font-weight: 800;
+  color: var(--excel-green-dark);
+}
+
+.cell-inspector-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.inspector-card {
+  background-color: #f8fafc;
+  border: 2px solid #86efac;
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.inspector-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.ins-badge {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: var(--excel-green-dark);
+}
+
+.ins-live {
+  font-size: 0.75rem;
+  background-color: #22c55e;
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.ins-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+  gap: 12px;
+}
+
+.ins-lbl {
+  font-weight: 700;
+  color: var(--text-muted);
+  width: 90px;
+}
+
+.ins-val-strong {
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  color: var(--excel-green);
+  background-color: #ffffff;
+  padding: 2px 10px;
+  border-radius: 6px;
+  border: 1px solid #86efac;
+}
+
+.ins-chip {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  background-color: #ffffff;
+  padding: 2px 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+}
+
+.ins-desc {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.ins-box-tip {
+  margin-top: 18px;
+  background-color: #ffffff;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--accent-blue);
+  font-size: 0.88rem;
+  color: var(--text-normal);
+  line-height: 1.5;
+}
+
+/* Aturan Emas & Perbandingan Rumus (Tab C) */
+.rule-gold-banner {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border: 2px solid #fcd34d;
+  border-radius: var(--radius-md);
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.rule-icon {
+  font-size: 2rem;
+}
+
+.rule-text {
+  color: #92400e;
+  font-size: 1rem;
+}
+
+.compare-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.compare-card {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-card);
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.compare-header {
+  padding: 14px 20px;
+  color: #ffffff;
+}
+
+.compare-header.bg-blue { background-color: var(--accent-blue); }
+.compare-header.bg-green { background-color: var(--excel-green); }
+
+.compare-body {
+  padding: 20px;
+}
+
+.code-pill {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  background-color: #f1f5f9;
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  margin: 14px 0;
+  border: 1px dashed #cbd5e1;
+}
+
+.compare-notes {
+  list-style: none;
+  font-size: 0.92rem;
+}
+
+.compare-notes li {
+  margin-bottom: 6px;
+}
+
+/* Anatomi Sintaks */
+.syntax-anatomy-box {
+  background-color: #f8fafc;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  text-align: center;
+}
+
+.syntax-anatomy-box h4 {
+  margin-bottom: 16px;
+}
+
+.syntax-diagram {
+  display: inline-flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  border: 2px solid #cbd5e1;
+  font-family: var(--font-mono);
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.syn-equal { color: #ea580c; }
+.syn-name { color: var(--excel-green); }
+.syn-bracket { color: #64748b; }
+.syn-arg { color: var(--accent-blue); }
+
+.syntax-legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.leg-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.color-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.c-equal { background-color: #ea580c; }
+.c-name { background-color: var(--excel-green); }
+.c-arg { background-color: var(--accent-blue); }
+
+/* Kasus Pengolahan Data Sederhana (Tab D) */
+.data-study-case {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.styled-case-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid #cbd5e1;
+}
+
+.styled-case-table th {
+  background-color: var(--excel-green);
+  color: #ffffff;
+  padding: 12px 16px;
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  text-align: left;
+}
+
+.styled-case-table td {
+  padding: 10px 16px;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.95rem;
+}
+
+.styled-case-table tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.case-questions-panel h4 {
+  margin-bottom: 16px;
+  font-size: 1.15rem;
+}
+
+.question-pill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.case-q-item {
+  background-color: var(--bg-body);
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  transition: all var(--transition-fast);
+}
+
+.case-q-item:hover {
+  border-color: var(--excel-green);
+  background-color: #ffffff;
+}
+
+.q-title {
+  font-weight: 700;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
+.q-solution {
+  font-size: 0.9rem;
+  color: var(--text-normal);
+}
+
+.sol-badge {
+  background-color: #dcfce7;
+  color: #166534;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+.cta-banner-materi {
+  background-color: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-weight: 700;
+  color: var(--excel-green-dark);
+}
+
+/* ==========================================================
+   3. MENU RUMUS EXCEL (10 RUMUS UTAMA)
+   ========================================================== */
+.formula-filter-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 8px 18px;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+}
+
+.filter-btn:hover {
+  color: var(--excel-green);
+  border-color: var(--excel-green);
+}
+
+.filter-btn.active {
+  background-color: var(--excel-green);
+  color: #ffffff;
+  border-color: var(--excel-green);
+}
+
+.formulas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.formula-card {
+  background-color: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  border: 2px solid transparent;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  position: relative;
+}
+
+.formula-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--excel-green);
+  box-shadow: var(--shadow-hover);
+}
+
+.formula-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.formula-num {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+.badge-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 20px;
+}
+
+.bg-green-pill { background-color: #dcfce7; color: #166534; }
+.bg-blue-pill { background-color: #e0f2fe; color: #0369a1; }
+.bg-purple-pill { background-color: #ede9fe; color: #6d28d9; }
+
+.formula-name {
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--excel-green);
+  margin-bottom: 8px;
+}
+
+.formula-brief {
+  font-size: 0.88rem;
+  color: var(--text-normal);
+  line-height: 1.4;
+  flex: 1;
+  margin-bottom: 14px;
+}
+
+.formula-syntax-preview {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  margin-bottom: 14px;
+  overflow-x: auto;
+}
+
+.formula-syntax-preview code {
+  background: none;
+  padding: 0;
+  font-size: 0.82rem;
+}
+
+.formula-card-footer {
+  padding-top: 10px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.click-hint {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+}
+
+/* Simulasi VLOOKUP Interaktif */
+.vlookup-interactive-section {
+  margin-top: 40px;
+}
+
+.vlookup-header {
+  margin-bottom: 24px;
+}
+
+.vlookup-badge {
+  display: inline-block;
+  background-color: #fef08a;
+  color: #854d0e;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+.vlookup-body-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.sub-caption {
+  display: block;
+  font-weight: 800;
+  font-size: 0.92rem;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+
+.mini-grid-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.mini-grid-table th {
+  background-color: #f1f5f9;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+  text-align: left;
+}
+
+.mini-grid-table td {
+  padding: 8px 12px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.88rem;
+  background-color: #ffffff;
+}
+
+.mini-grid-table tr.highlight-vrow td {
+  background-color: #e8f5e9;
+  font-weight: 700;
+  border-top: 2px solid var(--excel-green);
+  border-bottom: 2px solid var(--excel-green);
+}
+
+.vlookup-action-box {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.select-code-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.select-code-group label {
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.custom-select {
+  padding: 10px 14px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  border: 2px solid #cbd5e1;
+  background-color: #ffffff;
+  outline: none;
+  cursor: pointer;
+}
+
+.custom-select:focus {
+  border-color: var(--excel-green);
+}
+
+.vlookup-active-formula {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  margin-bottom: 18px;
+}
+
+.vf-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.vf-line:last-child {
+  margin-bottom: 0;
+}
+
+.vf-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  width: 90px;
+}
+
+.vlookup-result-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.res-item {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+
+.res-label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.res-val {
+  font-size: 1.15rem;
+  font-family: var(--font-mono);
+}
+
+.text-green { color: var(--excel-green-dark); }
+.text-blue { color: var(--accent-blue); }
+
+/* ==========================================================
+   MODAL DETAIL RUMUS (POPUP DIALOG)
+   ========================================================== */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-backdrop.active {
+  display: flex;
+}
+
+.modal-dialog {
+  background-color: #ffffff;
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-header {
+  padding: 20px 28px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+  z-index: 10;
+}
+
+.modal-badge {
+  font-size: 0.8rem;
+  font-weight: 800;
+  background-color: var(--excel-green-soft);
+  color: var(--excel-green-dark);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.modal-close-btn {
+  font-size: 1.8rem;
+  color: var(--text-muted);
+  line-height: 1;
+}
+
+.modal-close-btn:hover {
+  color: var(--accent-red);
+}
+
+.modal-body {
+  padding: 28px;
+}
+
+.modal-footer {
+  padding: 16px 28px;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: flex-end;
+  background-color: #f8fafc;
+}
+
+/* Modal Internal Blocks */
+.modal-formula-title {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  color: var(--excel-green);
+  margin-bottom: 8px;
+}
+
+.modal-formula-desc {
+  font-size: 1.05rem;
+  color: var(--text-normal);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.modal-section-block {
+  margin-bottom: 20px;
+}
+
+.modal-block-title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.modal-syntax-box {
+  background-color: #f1f5f9;
+  border-left: 4px solid var(--excel-green);
+  padding: 12px 18px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.modal-example-card {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.modal-common-mistake {
+  background-color: #fff1f2;
+  border: 1px solid #fecdd3;
+  border-left: 4px solid #e11d48;
+  padding: 14px 18px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.mistake-title {
+  color: #9f1239;
+  font-weight: 800;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.mistake-desc {
+  color: #881337;
+  font-size: 0.9rem;
+}
+
+/* ==========================================================
+   4. MENU AKTIVITAS (4 SUB-AKTIVITAS)
+   ========================================================== */
+.sub-nav-tabs {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.sub-tab-btn {
+  padding: 12px 20px;
+  background-color: #ffffff;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-normal);
+  transition: all var(--transition-fast);
+}
+
+.sub-tab-btn:hover {
+  border-color: var(--excel-green);
+  color: var(--excel-green);
+}
+
+.sub-tab-btn.active {
+  background-color: var(--excel-green);
+  color: #ffffff;
+  border-color: var(--excel-green);
+  box-shadow: 0 4px 12px rgba(16, 124, 65, 0.2);
+}
+
+.aktivitas-panel {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.aktivitas-panel.active {
+  display: block;
+}
+
+.akt-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.akt-instruksi {
+  font-size: 0.95rem;
+  color: var(--text-normal);
+  margin-top: 4px;
+}
+
+.akt-score-badge, .akt-progress-badge {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.akt-score-badge strong {
+  color: var(--excel-green);
+  font-size: 1.1rem;
+}
+
+/* AKTIVITAS 1: COCOKKAN RUMUS (MENJODOHKAN) */
+.matching-container {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.matching-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.col-title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+  padding-bottom: 4px;
+  border-bottom: 2px solid var(--border-card);
+}
+
+.match-item-btn, .match-desc-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background-color: var(--bg-body);
+  border: 2px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: left;
+}
+
+.match-letter, .match-number {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.match-item-btn.selected {
+  border-color: var(--accent-blue);
+  background-color: var(--accent-blue-light);
+  color: var(--accent-blue);
+  box-shadow: 0 4px 10px rgba(0, 120, 212, 0.2);
+}
+
+.match-desc-btn.selected {
+  border-color: var(--accent-blue);
+  background-color: var(--accent-blue-light);
+}
+
+.match-item-btn.correct, .match-desc-btn.correct {
+  border-color: #22c55e !important;
+  background-color: #dcfce7 !important;
+  color: #15803d !important;
+}
+
+.match-item-btn.wrong, .match-desc-btn.wrong {
+  border-color: #ef4444 !important;
+  background-color: #fee2e2 !important;
+  color: #b91c1c !important;
+  animation: shakeAnim 0.3s ease;
+}
+
+@keyframes shakeAnim {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+.matching-actions-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.feedback-msg {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+/* AKTIVITAS 2: SUSUN RUMUS (DRAG AND DROP) */
+.drag-question-box {
+  padding: 10px 0;
+}
+
+.puzzle-prompt {
+  background-color: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+
+.puzzle-badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  background-color: var(--excel-green);
+  color: #ffffff;
+  padding: 2px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.puzzle-desc {
+  font-size: 1.1rem;
+  color: var(--text-dark);
+}
+
+.drop-zone-container, .pool-container {
+  margin-bottom: 24px;
+}
+
+.drop-label, .pool-label {
+  font-weight: 800;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.drop-slots-row {
+  min-height: 80px;
+  background-color: #f8fafc;
+  border: 2px dashed var(--excel-green);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  transition: background-color var(--transition-fast);
+}
+
+.drop-slots-row.drag-over {
+  background-color: #dcfce7;
+}
+
+.chip-pool {
+  min-height: 70px;
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.formula-chip {
+  padding: 10px 18px;
+  background-color: #ffffff;
+  border: 2px solid var(--excel-green);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--excel-green-dark);
+  cursor: grab;
+  user-select: none;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.formula-chip:active {
+  cursor: grabbing;
+  transform: scale(0.96);
+}
+
+.formula-chip.in-slot {
+  background-color: var(--excel-green);
+  color: #ffffff;
+}
+
+.drag-actions-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* AKTIVITAS 3: PILIH RUMUS YANG TEPAT */
+.akt-case-table-box {
+  margin-bottom: 24px;
+}
+
+.case-table-title {
+  display: block;
+  font-weight: 800;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+}
+
+.compact-table {
+  max-width: 500px;
+}
+
+.compact-table th, .compact-table td {
+  padding: 8px 14px;
+  font-size: 0.88rem;
+}
+
+.scenario-quiz-container {
+  background-color: #f8fafc;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.sc-badge {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.sc-question {
+  font-size: 1.2rem;
+  margin: 14px 0 20px 0;
+  color: var(--text-dark);
+}
+
+.sc-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.sc-opt-btn {
+  padding: 14px 18px;
+  background-color: #ffffff;
+  border: 2px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sc-opt-btn:hover:not(.disabled) {
+  border-color: var(--excel-green);
+  background-color: #f0fdf4;
+}
+
+.sc-opt-btn.correct {
+  background-color: #dcfce7 !important;
+  border-color: #22c55e !important;
+  color: #15803d;
+}
+
+.sc-opt-btn.wrong {
+  background-color: #fee2e2 !important;
+  border-color: #ef4444 !important;
+  color: #b91c1c;
+}
+
+.sc-feedback-box {
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.sc-feedback-box.correct {
+  background-color: #dcfce7;
+  color: #166534;
+  border-left: 4px solid #22c55e;
+}
+
+.sc-feedback-box.wrong {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border-left: 4px solid #ef4444;
+}
+
+/* AKTIVITAS 4: SIMULASI SPREADSHEET EXCEL */
+.mini-excel-app {
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.app-formula-bar {
+  background-color: #f8fafc;
+  border-bottom: 1px solid #cbd5e1;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+}
+
+.app-name-box {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.app-fx-icon {
+  font-weight: 800;
+  color: var(--excel-green);
+}
+
+.app-formula-input {
+  flex: 1;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: var(--excel-green-dark);
+}
+
+.app-grid-wrapper {
+  overflow-x: auto;
+}
+
+.app-spreadsheet-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.app-spreadsheet-table th, 
+.app-spreadsheet-table td {
+  border: 1px solid #cbd5e1;
+  padding: 8px 14px;
+  text-align: left;
+}
+
+.head-corner, .col-letter, .row-num {
+  background-color: #f1f5f9;
+  text-align: center;
+  font-weight: 700;
+  color: #475569;
+  user-select: none;
+}
+
+.header-data-row th {
+  background-color: #e2e8f0;
+  font-weight: 800;
+}
+
+.cell-cell {
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.cell-cell.range-highlight {
+  background-color: #e8f5e9 !important;
+  color: var(--excel-green-dark);
+  font-weight: 700;
+  border-color: #86efac;
+}
+
+.calc-result-row {
+  background-color: #f0fdf4;
+  border-top: 2px solid var(--excel-green);
+}
+
+.cell-bold {
+  font-weight: 800;
+  color: var(--excel-green-dark);
+}
+
+.cell-calc-result {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  color: var(--excel-green);
+  font-size: 1.05rem;
+}
+
+.sim-buttons-toolbar {
+  padding: 16px 20px;
+  background-color: #f8fafc;
+  border-top: 1px solid #cbd5e1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.tool-label {
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+}
+
+.btn-group-rumus {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn-sim-rumus {
+  padding: 8px 14px;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.btn-sim-rumus:hover {
+  border-color: var(--excel-green);
+  color: var(--excel-green);
+}
+
+.btn-sim-rumus.active {
+  background-color: var(--excel-green);
+  color: #ffffff;
+  border-color: var(--excel-green);
+}
+
+.sim-explanation-box {
+  padding: 16px 20px;
+  background-color: #ffffff;
+  border-top: 1px solid #cbd5e1;
+}
+
+.exp-title-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 6px;
+}
+
+.exp-badge {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  color: var(--excel-green-dark);
+  font-size: 0.95rem;
+}
+
+.exp-result {
+  background-color: var(--excel-green-soft);
+  color: var(--excel-green-dark);
+  font-weight: 800;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.exp-desc {
+  font-size: 0.92rem;
+  color: var(--text-normal);
+}
+
+/* ==========================================================
+   5. MENU KUIS (10 SOAL INTERAKTIF)
+   ========================================================== */
+.quiz-card {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.quiz-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.quiz-q-num {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--excel-green);
+}
+
+.quiz-progress-track {
+  width: 100%;
+  height: 8px;
+  background-color: #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.quiz-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--excel-green), #38ef7d);
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.quiz-question-area {
+  margin-bottom: 24px;
+}
+
+.q-badge-category {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.quiz-question-title {
+  font-size: 1.35rem;
+  line-height: 1.5;
+  color: var(--text-dark);
+}
+
+.quiz-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.quiz-opt-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px;
+  background-color: var(--bg-body);
+  border: 2px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: left;
+}
+
+.quiz-opt-item:hover:not(.disabled) {
+  border-color: var(--excel-green);
+  background-color: #f0fdf4;
+}
+
+.opt-prefix {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.quiz-opt-item.correct {
+  background-color: #dcfce7 !important;
+  border-color: #22c55e !important;
+  color: #15803d;
+}
+
+.quiz-opt-item.correct .opt-prefix {
+  background-color: #22c55e;
+  color: #ffffff;
+  border-color: #22c55e;
+}
+
+.quiz-opt-item.wrong {
+  background-color: #fee2e2 !important;
+  border-color: #ef4444 !important;
+  color: #b91c1c;
+}
+
+.quiz-opt-item.wrong .opt-prefix {
+  background-color: #ef4444;
+  color: #ffffff;
+  border-color: #ef4444;
+}
+
+.quiz-feedback-box {
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.quiz-feedback-box.correct {
+  background-color: #dcfce7;
+  color: #166534;
+  border-left: 4px solid #22c55e;
+}
+
+.quiz-feedback-box.wrong {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border-left: 4px solid #ef4444;
+}
+
+.quiz-nav-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Tampilan Hasil Akhir Kuis */
+.result-summary-box {
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.result-icon-trophy {
+  font-size: 4.5rem;
+  margin-bottom: 12px;
+  animation: bounceTrophy 1.5s ease infinite;
+}
+
+@keyframes bounceTrophy {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.result-title {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.result-subtitle {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 24px;
+}
+
+.result-score-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--excel-green-soft), #ffffff);
+  border: 4px solid var(--excel-green);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+  box-shadow: var(--shadow-md);
+}
+
+.final-score-val {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--excel-green);
+  line-height: 1;
+}
+
+.final-score-lbl {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.result-category-badge {
+  display: inline-block;
+  padding: 8px 24px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  border-radius: 30px;
+  margin-bottom: 16px;
+}
+
+.cat-sangat-baik { background-color: #dcfce7; color: #166534; border: 2px solid #86efac; }
+.cat-baik { background-color: #e0f2fe; color: #0369a1; border: 2px solid #7dd3fc; }
+.cat-cukup { background-color: #fef9c3; color: #854d0e; border: 2px solid #fde047; }
+.cat-belajar { background-color: #fee2e2; color: #991b1b; border: 2px solid #fca5a5; }
+
+.result-feedback-message {
+  font-size: 1.05rem;
+  color: var(--text-normal);
+  max-width: 500px;
+  margin: 0 auto 30px auto;
+  line-height: 1.6;
+}
+
+.result-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================
+   6. MENU RANGKUMAN
+   ========================================================== */
+.summary-points-card {
+  margin-bottom: 30px;
+}
+
+.summary-card-title {
+  font-size: 1.35rem;
+  margin-bottom: 20px;
+  color: var(--excel-green-dark);
+}
+
+.summary-bullets {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 24px;
+}
+
+.summary-bullets li {
+  position: relative;
+  padding-left: 24px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-normal);
+}
+
+.summary-bullets li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--excel-green);
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+.summary-table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 30px;
+}
+
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.summary-table th {
+  background-color: var(--excel-green);
+  color: #ffffff;
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.summary-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.summary-table tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.badge-rumus-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  color: var(--excel-green-dark);
+  background-color: var(--excel-green-soft);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.detective-quote-banner {
+  background: linear-gradient(135deg, #107c41 0%, #0b5a2e 100%);
+  border-radius: var(--radius-lg);
+  padding: 24px 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #ffffff;
+  margin-bottom: 30px;
+  box-shadow: 0 6px 18px rgba(16, 124, 65, 0.2);
+}
+
+.quote-icon {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+.quote-heading {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.quote-sub {
+  font-size: 0.92rem;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.summary-action-center {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 10px;
+}
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+.app-footer {
+  background-color: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  padding: 24px;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-logo {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: var(--excel-green-dark);
+  font-size: 1rem;
+}
+
+/* ==========================================================
+   RESPONSIVE DESIGN (PROYEKTOR, LAPTOP, TABLET, MOBILE)
+   ========================================================== */
+@media (max-width: 1024px) {
+  .hero-card {
+    grid-template-columns: 1fr;
+    padding: 32px;
+  }
+
+  .materi-content-row {
+    grid-template-columns: 1fr;
+  }
+
+  .data-study-case {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .vlookup-body-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cards-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .objectives-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    border-bottom: 2px solid #e2e8f0;
+    box-shadow: var(--shadow-lg);
+    display: none;
+    padding: 16px 24px;
+  }
+
+  .main-nav.show-mobile {
+    display: block;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .nav-link {
+    padding: 12px 16px;
+    font-size: 1rem;
+  }
+
+  .matching-container {
+    grid-template-columns: 1fr;
+  }
+
+  .sc-options-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-bullets {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 2.1rem;
+  }
+
+  .section-heading {
+    font-size: 1.6rem;
+  }
+
+  .compare-row {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-banner {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .banner-divider {
+    display: none;
+  }
+
+  .terms-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================
+   STYLING MODUL TAMBAHAN: FITUR PENTING, MENU BAR, CELL,
+   SHEET, FORMULA BAR & FILL HANDLE
+   ========================================================== */
+.sub-panel-title {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* 1. Simulator Peta Antarmuka Excel (Interface Explorer) */
+.interface-explorer-box {
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+  border: 2px solid #86efac;
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  margin: 24px 0 40px 0;
+  box-shadow: var(--shadow-md);
+}
+
+.explorer-header {
+  margin-bottom: 20px;
+}
+
+.explorer-badge {
+  display: inline-block;
+  background-color: #fef08a;
+  color: #854d0e;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+.explorer-header h4 {
+  font-size: 1.18rem;
+  color: var(--text-dark);
+}
+
+.hotspot-buttons-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.hotspot-btn {
+  padding: 8px 16px;
+  background-color: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--text-normal);
+  transition: all var(--transition-fast);
+}
+
+.hotspot-btn:hover {
+  border-color: var(--excel-green);
+  color: var(--excel-green);
+  transform: translateY(-2px);
+}
+
+.hotspot-btn.active {
+  background-color: var(--excel-green);
+  color: #ffffff;
+  border-color: var(--excel-green);
+  box-shadow: 0 4px 12px rgba(16, 124, 65, 0.25);
+}
+
+.explorer-display-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* Mockup Jendela Excel Interaktif */
+.mockup-screen-card {
+  background-color: #ffffff;
+  border-radius: var(--radius-md);
+  border: 2px solid #cbd5e1;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.mockup-header-top {
+  background-color: #1e293b;
+  padding: 8px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  font-size: 0.82rem;
+  transition: all var(--transition-fast);
+}
+
+.quick-icons {
+  display: flex;
+  gap: 8px;
+}
+
+.q-icon {
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.mock-doc-title {
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  font-size: 0.82rem;
+}
+
+.window-controls {
+  display: flex;
+  gap: 12px;
+  font-size: 0.85rem;
+}
+
+.mockup-ribbon-bar {
+  background-color: #f8fafc;
+  border-bottom: 1px solid #cbd5e1;
+  padding: 8px 12px;
+  transition: all var(--transition-fast);
+}
+
+.ribbon-tabs-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+  overflow-x: auto;
+}
+
+.r-tab {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 4px;
+  color: var(--text-normal);
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+.r-tab.active {
+  background-color: var(--excel-green);
+  color: #ffffff;
+  border-color: var(--excel-green);
+}
+
+.ribbon-tools-preview {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tool-chip {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  color: var(--text-normal);
+}
+
+.mockup-formula-row {
+  background-color: #ffffff;
+  border-bottom: 1px solid #cbd5e1;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
+.mock-namebox {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  padding: 2px 8px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  transition: all var(--transition-fast);
+}
+
+.nb-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.nb-val {
+  color: var(--excel-green-dark);
+}
+
+.mock-fx-area {
+  flex: 1;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  padding: 2px 10px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  transition: all var(--transition-fast);
+}
+
+.fx-symbol {
+  color: var(--excel-green);
+  font-weight: 800;
+  font-style: italic;
+}
+
+.fx-text {
+  color: var(--text-dark);
+}
+
+.mockup-sheet-viewport {
+  background-color: #ffffff;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.mock-grid-row {
+  display: grid;
+  grid-template-columns: 32px 1.2fr 1fr 1fr 1fr;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.head-row {
+  background-color: #f1f5f9;
+  border-bottom: 1px solid #cbd5e1;
+  font-weight: 700;
+  color: #475569;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.col-head-box, .row-num-box {
+  padding: 6px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #cbd5e1;
+}
+
+.hl-col, .hl-row {
+  background-color: #bbf7d0;
+  color: #166534;
+  font-weight: 800;
+}
+
+.cell-box {
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  border-right: 1px solid #e2e8f0;
+  background-color: #ffffff;
+}
+
+.cell-box.head-cell {
+  font-weight: 700;
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+.cell-box.active-cell-mock {
+  border: 2px solid var(--excel-green);
+  background-color: #e8f5e9;
+  font-weight: 800;
+  color: var(--excel-green-dark);
+  position: relative;
+}
+
+.fill-handle-mock {
+  position: absolute;
+  bottom: -3px;
+  right: -3px;
+  width: 7px;
+  height: 7px;
+  background-color: var(--excel-green-dark);
+  border: 1px solid #ffffff;
+  cursor: crosshair;
+}
+
+.mockup-sheet-tabs-row {
+  background-color: #f1f5f9;
+  border-top: 1px solid #cbd5e1;
+  border-bottom: 1px solid #cbd5e1;
+  padding: 4px 10px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  transition: all var(--transition-fast);
+}
+
+.sheet-tab-mock {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-bottom-width: 3px;
+  border-radius: 4px 4px 0 0;
+  padding: 3px 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-normal);
+}
+
+.sheet-tab-mock.active {
+  color: var(--excel-green-dark);
+}
+
+.add-sheet-mock-btn {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  font-size: 0.85rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--excel-green);
+}
+
+.mockup-statusbar-row {
+  background-color: #f8fafc;
+  padding: 5px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.sb-status {
+  background-color: var(--excel-green-soft);
+  color: var(--excel-green-dark);
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-weight: 800;
+}
+
+.sb-middle {
+  display: flex;
+  gap: 12px;
+  color: var(--text-dark);
+}
+
+.sb-right {
+  display: flex;
+  gap: 8px;
+}
+
+/* Highlight animasi zona terpilih */
+.zone-highlight {
+  box-shadow: 0 0 0 3px rgba(16, 124, 65, 0.7) !important;
+  background-color: #dcfce7 !important;
+  transition: all 0.3s ease;
+}
+
+/* Kartu Penjelasan Interaktif */
+.explorer-info-card {
+  background-color: #ffffff;
+  border: 2px solid #86efac;
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.info-card-header {
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+}
+
+.info-tag-badge {
+  display: inline-block;
+  background-color: var(--excel-green-soft);
+  color: var(--excel-green-dark);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 6px;
+}
+
+.info-card-header h3 {
+  font-size: 1.4rem;
+  color: var(--text-dark);
+}
+
+.info-main-desc {
+  font-size: 0.98rem;
+  color: var(--text-normal);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.info-section {
+  margin-bottom: 14px;
+}
+
+.info-subhead {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.info-tip-box {
+  background-color: #f0fdf4;
+  border-left: 4px solid var(--excel-green);
+  padding: 10px 14px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.88rem;
+  color: var(--excel-green-dark);
+}
+
+/* 2. Ribbon Cards Breakdown */
+.ribbon-breakdown-section {
+  margin-top: 36px;
+}
+
+.subhead-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 18px;
+}
+
+.ribbon-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.ribbon-detail-card {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.ribbon-detail-card.full-span {
+  grid-column: 1 / -1;
+}
+
+.ribbon-card-header {
+  padding: 12px 18px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ribbon-card-header h5 {
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.bg-green-head { background-color: var(--excel-green); }
+.bg-blue-head { background-color: var(--accent-blue); }
+.bg-purple-head { background-color: var(--accent-purple); }
+.bg-gray-head { background-color: #334155; }
+
+.ribbon-card-body {
+  padding: 16px 18px;
+  font-size: 0.92rem;
+  flex: 1;
+}
+
+.clean-bullet-list {
+  list-style: none;
+  margin-top: 8px;
+}
+
+.clean-bullet-list li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 8px;
+  line-height: 1.45;
+}
+
+.clean-bullet-list li::before {
+  content: '•';
+  position: absolute;
+  left: 4px;
+  color: var(--excel-green);
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+/* 3. Cell & Fill Handle Styles */
+.cell-concepts-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.concept-card {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  padding: 18px;
+  text-align: center;
+}
+
+.concept-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.concept-card h4 {
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+  color: var(--excel-green-dark);
+}
+
+.concept-card p {
+  font-size: 0.88rem;
+  color: var(--text-normal);
+  line-height: 1.4;
+}
+
+.fill-handle-showcase {
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+  border: 2px solid #86efac;
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  margin-bottom: 30px;
+}
+
+.fh-header {
+  margin-bottom: 20px;
+}
+
+.fh-badge {
+  display: inline-block;
+  background-color: #dcfce7;
+  color: #166534;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 6px;
+}
+
+.fh-content-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.fh-benefit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.fh-benefit-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background-color: #ffffff;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid #e2e8f0;
+}
+
+.fh-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--excel-green);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.fh-benefit-item strong {
+  color: var(--excel-green-dark);
+}
+
+.fh-benefit-item p {
+  font-size: 0.88rem;
+  color: var(--text-normal);
+  margin-top: 2px;
+}
+
+.fh-visual-col {
+  display: flex;
+  justify-content: center;
+}
+
+.fh-demo-card {
+  background-color: #ffffff;
+  border: 2px solid #cbd5e1;
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  width: 100%;
+  max-width: 280px;
+}
+
+.fh-visual-title {
+  display: block;
+  font-weight: 800;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.active-cell-illustration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cell-mock-large {
+  width: 140px;
+  height: 48px;
+  border: 3px solid var(--excel-green);
+  background-color: #e8f5e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--excel-green-dark);
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+.fill-handle-dot {
+  position: absolute;
+  bottom: -6px;
+  right: -6px;
+  width: 12px;
+  height: 12px;
+  background-color: #000000;
+  border: 1.5px solid #ffffff;
+  cursor: crosshair;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulseDot 1.5s infinite;
+}
+
+.fh-cursor-symbol {
+  font-size: 10px;
+  color: #ffffff;
+  line-height: 1;
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+.arrow-down-drag {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--excel-green);
+  margin: 8px 0;
+}
+
+.cell-results-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 140px;
+}
+
+.stream-item {
+  background-color: #f1f5f9;
+  border: 1px dashed #cbd5e1;
+  padding: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+/* Tipe Data Box */
+.data-types-box {
+  margin-top: 24px;
+}
+
+.types-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.type-item {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.type-badge {
+  display: inline-block;
+  font-weight: 800;
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+
+.type-item p {
+  font-size: 0.86rem;
+  color: var(--text-normal);
+  line-height: 1.4;
+}
+
+/* 4. Sheet Management Styles */
+.workbook-compare-card {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 20px;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.wb-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.wb-icon {
+  font-size: 2.5rem;
+}
+
+.wb-text h4 {
+  font-size: 1.15rem;
+  color: var(--excel-green-dark);
+  margin-bottom: 4px;
+}
+
+.wb-text p {
+  font-size: 0.9rem;
+  color: var(--text-normal);
+  line-height: 1.4;
+}
+
+.wb-divider {
+  width: 2px;
+  height: 60px;
+  background-color: #cbd5e1;
+}
+
+.sheet-ops-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.sheet-op-card {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  padding: 18px;
+  box-shadow: var(--shadow-sm);
+}
+
+.op-icon {
+  font-size: 1.8rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.sheet-op-card h5 {
+  font-size: 1rem;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.sheet-op-card p {
+  font-size: 0.86rem;
+  color: var(--text-normal);
+  line-height: 1.4;
+}
+
+/* Sheet Interactive Simulator */
+.sheet-interactive-simulator {
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+  border: 2px solid #86efac;
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  box-shadow: var(--shadow-md);
+}
+
+.sim-sheet-header {
+  margin-bottom: 20px;
+}
+
+.sim-badge {
+  display: inline-block;
+  background-color: #fef08a;
+  color: #854d0e;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+.sheet-controls-bar {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.ctrl-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ctrl-group label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+}
+
+.input-sheet-name {
+  padding: 8px 12px;
+  border: 2px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.input-sheet-name:focus {
+  border-color: var(--excel-green);
+}
+
+.color-palette-picker {
+  display: flex;
+  gap: 8px;
+}
+
+.color-swatch {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 1px #cbd5e1;
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.color-swatch:hover {
+  transform: scale(1.2);
+}
+
+.bg-c-green { background-color: #107c41; }
+.bg-c-blue { background-color: #0078d4; }
+.bg-c-orange { background-color: #ea580c; }
+.bg-c-purple { background-color: #7c3aed; }
+.bg-c-red { background-color: #dc2626; }
+
+.actions-ctrl {
+  margin-left: auto;
+}
+
+.realistic-sheet-bar {
+  background-color: #e2e8f0;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+}
+
+.sheet-scroll-nav {
+  display: flex;
+  gap: 4px;
+  color: #64748b;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.sheet-tabs-list {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.sheet-tab-real {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-bottom: 4px solid #107c41;
+  padding: 8px 16px;
+  border-radius: 6px 6px 0 0;
+  font-weight: 700;
+  font-size: 0.92rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.sheet-tab-real.active {
+  background-color: #ffffff;
+  color: var(--excel-green-dark);
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.06);
+}
+
+.add-sheet-circle-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 2px solid var(--excel-green);
+  color: var(--excel-green);
+  font-weight: 800;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.add-sheet-circle-btn:hover {
+  background-color: var(--excel-green);
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.sheet-hint-caption {
+  margin-top: 12px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* 5. Formula Bar & Name Box Anatomy */
+.formula-anatomy-row {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 24px;
+}
+
+.fb-anatomy-card {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  padding: 20px;
+}
+
+.f-part-header {
+  margin-bottom: 14px;
+}
+
+.f-badge {
+  display: inline-block;
+  background-color: #e2e8f0;
+  color: #475569;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+
+.mock-single-namebox {
+  background-color: #ffffff;
+  border: 2px solid var(--excel-green);
+  border-radius: var(--radius-sm);
+  padding: 6px 14px;
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--excel-green-dark);
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
+.mock-single-formulabar {
+  background-color: #ffffff;
+  border: 2px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  padding: 6px 14px;
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.fx-icon-pill {
+  color: var(--excel-green);
+  font-weight: 900;
+  font-style: italic;
+}
+
+.formula-typing {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+/* Operator Aritmatika Table */
+.operators-table-box {
+  margin-top: 28px;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  padding: 20px;
+}
+
+.op-pills-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.op-item {
+  flex: 1;
+  min-width: 140px;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.op-sym code {
+  font-size: 1.3rem;
+  color: var(--excel-green);
+  margin-bottom: 4px;
+}
+
+.op-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.op-ex {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* Fitur Produktif Freeze Panes */
+.productivity-feature-box {
+  margin-top: 18px;
+  background-color: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+}
+
+.productivity-feature-box h5 {
+  font-size: 1rem;
+  color: var(--excel-green-dark);
+  margin-bottom: 10px;
+}
+
+.pf-item {
+  margin-bottom: 10px;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.pf-item strong {
+  color: #166534;
+}
+
+.pf-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsivitas untuk modul baru */
+@media (max-width: 1024px) {
+  .explorer-display-grid {
+    grid-template-columns: 1fr;
+  }
+  .fh-content-grid {
+    grid-template-columns: 1fr;
+  }
+  .cell-concepts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .types-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ribbon-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .sheet-ops-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .formula-anatomy-row {
+    grid-template-columns: 1fr;
+  }
+  .workbook-compare-card {
+    grid-template-columns: 1fr;
+  }
+  .wb-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .cell-concepts-grid {
+    grid-template-columns: 1fr;
+  }
+  .types-grid {
+    grid-template-columns: 1fr;
+  }
+  .sheet-ops-grid {
+    grid-template-columns: 1fr;
+  }
+  .hotspot-buttons-row {
+    justify-content: center;
+  }
+}
