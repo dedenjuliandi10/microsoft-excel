@@ -2545,11 +2545,61 @@ button {
   margin-bottom: 24px;
 }
 
+.quiz-meta-badges {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
 .q-badge-category {
-  font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
   font-weight: 700;
-  color: var(--text-muted);
-  margin-bottom: 8px;
+  color: var(--text-normal);
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+.q-badge-level {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 5px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
+  box-shadow: var(--shadow-sm);
+}
+
+.q-badge-level.level-low {
+  background-color: #ecfdf5;
+  color: #047857;
+  border: 1.5px solid #6ee7b7;
+}
+
+.q-badge-level.level-mots {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  border: 1.5px solid #93c5fd;
+}
+
+.q-badge-level.level-hots {
+  background-color: #fef2f2;
+  color: #b91c1c;
+  border: 1.5px solid #fca5a5;
+  animation: pulseHots 2s infinite ease-in-out;
+}
+
+@keyframes pulseHots {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.2); }
+  50% { box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.2); }
 }
 
 .quiz-question-title {
@@ -2722,8 +2772,20 @@ button {
   font-size: 1.05rem;
   color: var(--text-normal);
   max-width: 500px;
-  margin: 0 auto 30px auto;
+  margin: 0 auto 20px auto;
   line-height: 1.6;
+}
+
+.quiz-bank-info-note {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  background-color: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: var(--radius-md);
+  padding: 10px 18px;
+  max-width: 520px;
+  margin: 0 auto 28px auto;
+  line-height: 1.5;
 }
 
 .result-actions {
@@ -3082,6 +3144,22 @@ button {
     text-align: center;
     font-size: 0.88rem;
     line-height: 1.45;
+  }
+
+  .quiz-question-title {
+    font-size: 1.15rem;
+    line-height: 1.4;
+  }
+
+  .quiz-opt-item {
+    padding: 12px 14px;
+    font-size: 0.92rem;
+    gap: 10px;
+  }
+
+  .q-badge-category, .q-badge-level {
+    font-size: 0.76rem;
+    padding: 4px 10px;
   }
 
   .hero-title {
