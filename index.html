@@ -776,6 +776,63 @@
               </div>
             </div>
           </div>
+
+          <!-- PINTASAN KEYBOARD, ZOOM SLIDER, STATUS BAR & KONTROL JENDELA -->
+          <div class="materi-subcard-addon" style="margin-top: 32px;">
+            <div class="subcard-header">
+              <span class="subcard-badge bg-blue-pill">FITUR PRODUKTIVITAS &amp; SHORTCUT</span>
+              <h4 class="subhead-title" style="margin: 6px 0 0 0;">⚡ Status Bar, Zoom Slider, Pintasan Keyboard, &amp; Kontrol Jendela</h4>
+            </div>
+            <p style="margin: 10px 0 16px; color: var(--text-muted); font-size: 0.95rem;">
+              Fitur cerdas di sekitar jendela Excel yang mempermudah pemantauan data dan percepatan kerja:
+            </p>
+
+            <div class="info-callout-grid">
+              <!-- Status Bar & Zoom Slider -->
+              <div class="callout-card callout-green">
+                <div class="callout-icon">📊</div>
+                <div class="callout-content">
+                  <h5>Status Bar &amp; Zoom Slider (Bilah Status Bawah)</h5>
+                  <p>
+                    Terletak di bagian paling bawah jendela Excel. Memiliki fitur-fitur istimewa:
+                  </p>
+                  <ul style="margin: 6px 0 0; padding-left: 18px; font-size: 0.9rem; line-height: 1.6;">
+                    <li><strong>Kalkulasi Otomatis Instan:</strong> Cukup blok beberapa sel angka (tanpa mengetik rumus apa pun), Status Bar di pojok kanan bawah akan langsung memperlihatkan nilai <strong>Average (Rata-rata)</strong>, <strong>Count (Jumlah Sel)</strong>, dan <strong>Sum (Total Jumlah)</strong>!</li>
+                    <li><strong>Zoom Slider:</strong> Penggeser perbesaran tampilan lembar kerja di pojok kanan bawah Status Bar untuk memperbesar tampilan sel agar angka terbaca jelas tanpa mengubah ukuran font asli dokumen.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Shortcut Keyboard Esensial -->
+              <div class="callout-card callout-blue">
+                <div class="callout-icon">⌨️</div>
+                <div class="callout-content">
+                  <h5>Daftar Pintasan Keyboard (Shortcut) Wajib</h5>
+                  <ul style="margin: 0; padding-left: 18px; font-size: 0.9rem; line-height: 1.6;">
+                    <li><kbd>Ctrl</kbd> + <kbd>S</kbd> : Menyimpan (Save) lembar kerja aktif berkala agar data tidak hilang saat listrik padam.</li>
+                    <li><kbd>Ctrl</kbd> + <kbd>Z</kbd> : Membatalkan (Undo) tindakan atau kesalahan terakhir.</li>
+                    <li><kbd>Ctrl</kbd> + <kbd>Y</kbd> : Mengulang kembali tindakan yang dibatalkan (Redo).</li>
+                    <li><kbd>Ctrl</kbd> + <kbd>F1</kbd> : Menyembunyikan / Memunculkan kembali pita menu Ribbon (Collapse the Ribbon) untuk memperluas area kerja lembar kerja.</li>
+                    <li><kbd>Ctrl</kbd> + <kbd>`</kbd> (Show Formulas) : Menampilkan teks rumus di seluruh sel (bukan hasil angkanya). Tekan lagi untuk kembali normal.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Troubleshooting Menu & Tombol Close -->
+              <div class="callout-card callout-purple">
+                <div class="callout-icon">💡</div>
+                <div class="callout-content">
+                  <h5>Trik Jendela Kerja &amp; Solusi Masalah Ribbon</h5>
+                  <ul style="margin: 0; padding-left: 18px; font-size: 0.9rem; line-height: 1.6;">
+                    <li><strong>Menu Ribbon Berwarna Abu-Abu Redup (Disabled)?</strong> Jika tombol Ribbon tidak bisa diklik, penyebab utamanya adalah kamu masih dalam mode mengetik/mengedit di dalam sel (kursor berkedip). Cukup tekan tombol <kbd>Enter</kbd> atau <kbd>Tab</kbd> untuk menormalkannya!</li>
+                    <li><strong>Beda Tombol Tutup (Close):</strong> Tombol silang merah (<code>X</code>) di pojok kanan atas jendela menutup seluruh program aplikasi Excel. Sedangkan menu <strong>File &rarr; Close</strong> hanya menutup berkas lembar kerja (workbook) yang sedang aktif tanpa keluar dari aplikasi Excel.</li>
+                    <li><strong>Kustomisasi Quick Access Toolbar (QAT):</strong> Klik tanda panah kecil di ujung bilah untuk mencentang ikon perintah favorit seperti <em>Print Preview and Print</em>, <em>New</em>, atau <em>Open</em>.</li>
+                    <li><strong>Format File Modern:</strong> File Excel versi modern disimpan dengan format ekstensi <code>.xlsx</code> (OpenXML Spreadsheet).</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -814,9 +871,8 @@
             </div>
             <div class="concept-card">
               <span class="concept-icon">🟩</span>
-              <h4>Cell (Sel)</h4>
-              <p>Titik temu kolom dan baris. Penulisan nama diawali huruf kolom lalu nomor baris, contoh: <strong>Cell
-                  B3</strong> (Kolom B, Baris 3).</p>
+              <h4>Cell (Sel) &amp; Active Cell (Sel Aktif)</h4>
+              <p>Titik temu kolom dan baris (contoh: <strong>Cell B3</strong>). Sel yang sedang diklik/dipilih dan ditandai garis batas hijau tebal di sekelilingnya disebut <strong>Active Cell (Sel Aktif)</strong> yang siap menerima data atau rumus.</p>
             </div>
             <div class="concept-card">
               <span class="concept-icon">📐</span>
@@ -1023,6 +1079,290 @@
               </div>
             </div>
           </div>
+
+            <!-- ===================================================== -->
+            <!-- TAMBAHAN MATERI TAB B: SELEKSI SEL & PERHITUNGAN RANGE -->
+            <!-- ===================================================== -->
+            <div class="materi-subcard-addon" style="margin-top: 32px;">
+              <div class="subcard-header">
+                <span class="subcard-badge bg-blue-pill">TEKNIK SELEKSI</span>
+                <h4 class="subhead-title" style="margin: 6px 0 0 0;">🎯 Teknik Seleksi Sel, Navigasi Cepat, &amp; Perhitungan Rentang (Range)</h4>
+              </div>
+              <p style="margin: 10px 0 16px; color: var(--text-muted); font-size: 0.95rem;">
+                Memilih sel dengan cepat dan akurat adalah keterampilan paling mendasar yang membedakan pemula dengan pengguna mahir:
+              </p>
+
+              <div class="shortcut-grid">
+                <div class="shortcut-item">
+                  <div class="shortcut-keys"><kbd>Shift</kbd> + <kbd>Klik</kbd></div>
+                  <div class="shortcut-desc">
+                    <strong>Seleksi Rentang Berurutan (Range):</strong>
+                    <p>Klik sel awal (misal A1), tahan tombol <kbd>Shift</kbd>, lalu klik sel akhir (misal A100). Seluruh area sel dari awal sampai akhir akan terseleksi seketika tanpa perlu mendrag mouse panjang.</p>
+                  </div>
+                </div>
+
+                <div class="shortcut-item">
+                  <div class="shortcut-keys"><kbd>Ctrl</kbd> + <kbd>Klik</kbd></div>
+                  <div class="shortcut-desc">
+                    <strong>Seleksi Sel Terpisah / Acak (Non-Adjacent):</strong>
+                    <p>Pilih sel pertama, lalu tahan tombol <kbd>Ctrl</kbd> sambil mengklik sel-sel lain yang letaknya berjauhan (contoh memilih sel <code>A1</code>, <code>C3</code>, dan <code>E5</code> secara bersamaan).</p>
+                  </div>
+                </div>
+
+                <div class="shortcut-item">
+                  <div class="shortcut-keys"><kbd>Klik Header</kbd></div>
+                  <div class="shortcut-desc">
+                    <strong>Seleksi 1 Baris / 1 Kolom Utuh:</strong>
+                    <p>Klik angka baris di sebelah kiri (misal angka <strong>5</strong>) untuk memilih seluruh baris 5. Klik huruf kolom di atas (misal huruf <strong>B</strong>) untuk memilih seluruh kolom B dari atas hingga bawah.</p>
+                  </div>
+                </div>
+
+                <div class="shortcut-item">
+                  <div class="shortcut-keys"><kbd>Ctrl</kbd> + <kbd>A</kbd></div>
+                  <div class="shortcut-desc">
+                    <strong>Select All (Pilih Seluruh Lembar Kerja):</strong>
+                    <p>Menyeleksi seluruh tabel aktif atau seluruh jutaan sel di lembar kerja dalam satu kali tekan.</p>
+                  </div>
+                </div>
+
+                <div class="shortcut-item">
+                  <div class="shortcut-keys"><kbd>Ctrl</kbd> + <kbd>Home</kbd></div>
+                  <div class="shortcut-desc">
+                    <strong>Melompat Kembali ke Sel A1:</strong>
+                    <p>Dari posisi sel mana pun kamu berada di lembar kerja yang luas, pintasan ini langsung memindahkan kursor sel aktif ke sudut kiri paling atas (Sel <code>A1</code>).</p>
+                  </div>
+                </div>
+
+                <div class="shortcut-item">
+                  <div class="shortcut-keys"><kbd>Enter</kbd> vs <kbd>Tab</kbd></div>
+                  <div class="shortcut-desc">
+                    <strong>Arah Gerak Kursor Sel:</strong>
+                    <p>Menekan <kbd>Enter</kbd> memindahkan sel aktif <strong>satu baris ke bawah</strong>. Menekan <kbd>Tab</kbd> memindahkan sel aktif <strong>satu kolom ke kanan</strong> (misal dari C10 ke D10).</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CARA MENGHITUNG JUMLAH SEL DALAM RANGE -->
+              <div class="callout-card callout-blue" style="margin-top: 20px;">
+                <div class="callout-icon">📐</div>
+                <div class="callout-content">
+                  <h5 style="margin: 0 0 6px 0; font-size: 1.05rem; color: #1e3a8a;">Rumus Menghitung Jumlah Total Sel Dalam Rentang (Range)</h5>
+                  <p style="margin: 0 0 10px 0; font-size: 0.95rem; line-height: 1.6;">
+                    Untuk menghitung berapa total sel di dalam suatu rentang, gunakan rumus perkalian matriks sederhana:<br>
+                    <strong>Jumlah Sel = (Jumlah Kolom yang tercakup) &times; (Jumlah Baris yang tercakup)</strong>
+                  </p>
+                  <div class="formula-example-strip" style="background: rgba(255,255,255,0.85); padding: 12px 16px; border-radius: 8px; border: 1px solid #bfdbfe;">
+                    <div style="margin-bottom: 8px;">
+                      🔹 <strong>Contoh Soal 1: Rentang <code>B3:E8</code></strong><br>
+                      &bull; Kolom yang dilewati: Kolom B, C, D, E &rarr; ada <strong>4 Kolom</strong>.<br>
+                      &bull; Baris yang dilewati: Baris 3, 4, 5, 6, 7, 8 &rarr; ada <strong>6 Baris</strong> (dihitung: 8 - 3 + 1 = 6).<br>
+                      &bull; Total Sel = <code>4 &times; 6 = 24 Sel</code>.
+                    </div>
+                    <div style="margin-bottom: 8px;">
+                      🔹 <strong>Contoh Soal 2: Rentang <code>A1:B4</code></strong><br>
+                      &bull; Kolom: A dan B (2 kolom). Baris: 1, 2, 3, 4 (4 baris). Total = <code>2 &times; 4 = 8 Sel</code>.
+                    </div>
+                    <div>
+                      💡 <strong>Sifat Rentang Diagonal:</strong> Notasi <code>A1:C3</code> dan <code>C3:A1</code> merujuk pada <strong>blok persegi sel yang sama persis</strong>, karena Excel membaca koordinat sudut yang berlawanan.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PERBEDAAN TANDA TITIK DUA (:) DENGAN TANDA KOMA (,) -->
+              <div class="callout-card callout-purple" style="margin-top: 16px;">
+                <div class="callout-icon">⚡</div>
+                <div class="callout-content">
+                  <h5 style="margin: 0 0 6px 0; font-size: 1.05rem; color: #581c87;">Perbedaan Tanda Titik Dua (<code>:</code>) dan Tanda Koma/Titik Koma (<code>,</code> atau <code>;</code>)</h5>
+                  <ul style="margin: 0; padding-left: 20px; font-size: 0.95rem; line-height: 1.6;">
+                    <li><strong>Tanda Titik Dua (<code>:</code>) = Rentang (Range):</strong> Menjumlahkan semua sel secara berurutan. Contoh: <code>=SUM(A1:A5)</code> akan menjumlahkan <strong>5 sel</strong> (A1, A2, A3, A4, dan A5).</li>
+                    <li><strong>Tanda Koma / Titik Koma (<code>;</code>) = Pemisah Argumen / Union:</strong> Hanya memilih sel individual yang disebutkan. Contoh: <code>=SUM(A1; A5)</code> <strong>hanya menjumlahkan 2 sel saja</strong> (sel A1 dan sel A5). Rentang gabungan terpisah ditulis: <code>A1:B2, C3:D4</code> (operator union).</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===================================================== -->
+            <!-- TAMBAHAN MATERI TAB B: FORMAT SEL & PENATAAN TABEL    -->
+            <!-- ===================================================== -->
+            <div class="materi-subcard-addon" style="margin-top: 32px;">
+              <div class="subcard-header">
+                <span class="subcard-badge bg-green-pill">FORMATTING &amp; LAYOUT</span>
+                <h4 class="subhead-title" style="margin: 6px 0 0 0;">🎨 Format Sel, Penataan Teks, Trik Angka 0 di Depan, &amp; Simbol Pagar (######)</h4>
+              </div>
+              <p style="margin: 10px 0 16px; color: var(--text-muted); font-size: 0.95rem;">
+                Mengatur tampilan lembar kerja agar rapi, profesional, dan siap dicetak tanpa merusak nilai asli data:
+              </p>
+
+              <div class="info-callout-grid">
+                <!-- Trik Angka 0 di Depan -->
+                <div class="callout-card callout-green">
+                  <div class="callout-icon">0️⃣</div>
+                  <div class="callout-content">
+                    <h5>Trik Menuliskan Angka Berawalan Nol (NISN, No HP WhatsApp, NIK)</h5>
+                    <p>
+                      <strong>Masalah:</strong> Ketika mengetik nomor telepon <code>0812345678</code>, Excel otomatis menghapus angka nol di depan sehingga menjadi <code>812345678</code>. Hal ini karena Excel menganggapnya sebagai angka matematika biasa.
+                    </p>
+                    <p style="margin-top: 6px;">
+                      <strong>Solusi Cepat:</strong> Awali pengetikan dengan <strong>tanda petik tunggal (<code>'</code>)</strong>, contoh: <code>'0812345678</code>. Tanda petik ini memaksa Excel membaca data sebagai <strong>Teks (Label)</strong> sehingga angka 0 tetap utuh. Tanda petik satu tersebut <strong>tidak akan ikut tampil atau tercetak</strong> di kertas.
+                    </p>
+                    <p style="margin-top: 6px;">
+                      <strong>Solusi Menu:</strong> Blok sel &rarr; ubah tipe format Number di Tab Home dari <em>General</em> menjadi <strong>Text</strong>.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Simbol Pagar ###### -->
+                <div class="callout-card callout-red">
+                  <div class="callout-icon">⚠️</div>
+                  <div class="callout-content">
+                    <h5>Mengapa Muncul Simbol Pagar Penuh (<code>######</code>)?</h5>
+                    <p>
+                      <strong>Penyebab:</strong> Simbol <code>######</code> muncul jika <strong>lebar kolom terlalu sempit</strong> untuk menampilkan data berupa angka panjang atau format tanggal/jam. (Catatan: Jika data berupa teks huruf yang panjang, Excel tidak akan memunculkan pagar, melainkan meluap ke sel sebelah atau terpotong).
+                    </p>
+                    <p style="margin-top: 6px;">
+                      <strong>Solusi Praktis:</strong> Geser batas kanan header kolom ke arah kanan untuk memperlebar kolom, atau lakukan <strong>klik ganda (double-click)</strong> pada batas pemisah kolom agar lebar kolom otomatis menyesuaikan panjang angka (AutoFit).
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Merge & Center vs Wrap Text -->
+                <div class="callout-card callout-blue">
+                  <div class="callout-icon">⚖️</div>
+                  <div class="callout-content">
+                    <h5>Perbedaan Fundamental: Merge &amp; Center vs. Wrap Text</h5>
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 0.9rem;">
+                      <thead>
+                        <tr style="background: rgba(0,0,0,0.05); text-align: left;">
+                          <th style="padding: 6px 10px; border-bottom: 2px solid #cbd5e1;">Fitur</th>
+                          <th style="padding: 6px 10px; border-bottom: 2px solid #cbd5e1;">Cara Kerja &amp; Dampak Data</th>
+                          <th style="padding: 6px 10px; border-bottom: 2px solid #cbd5e1;">Penggunaan Terbaik</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td style="padding: 6px 10px; font-weight: 600; color: #1e40af;">Merge &amp; Center</td>
+                          <td style="padding: 6px 10px;">Menggabungkan 2 atau lebih sel bersebelahan menjadi <strong>1 sel besar</strong> dan memusatkan teks di tengah. <em>⚠️ Peringatan: Hanya data pada sel kiri-atas yang disimpan, data di sel lainnya akan dihapus!</em></td>
+                          <td style="padding: 6px 10px;">Judul utama laporan atau header tabel yang menaungi beberapa kolom.</td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 6px 10px; font-weight: 600; color: #047857;">Wrap Text</td>
+                          <td style="padding: 6px 10px;">Melipat kalimat panjang ke <strong>baris baru ke bawah di dalam sel yang sama</strong> tanpa melebarkan kolom dan tanpa menggabungkan sel lain. Tinggi baris otomatis bertambah.</td>
+                          <td style="padding: 6px 10px;">Header kolom yang kalimatnya panjang (misal: "Keterangan Status Pembayaran").</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Increase & Decrease Decimal + Format Painter + Borders -->
+                <div class="callout-card callout-purple">
+                  <div class="callout-icon">🎛️</div>
+                  <div class="callout-content">
+                    <h5>Format Angka, Format Painter, &amp; Garis Batas Tabel (Borders)</h5>
+                    <ul style="margin: 0; padding-left: 18px; font-size: 0.95rem; line-height: 1.6;">
+                      <li><strong>Increase Decimal (<kbd>.00 &rarr; .000</kbd>):</strong> Menambah jumlah digit angka pecahan di belakang koma untuk tingkat presisi lebih tinggi.</li>
+                      <li><strong>Decrease Decimal (<kbd>.000 &rarr; .00</kbd>):</strong> Mengurangi dan membulatkan tampilan jumlah digit di belakang koma.</li>
+                      <li><strong>Format Painter (Ikon Kuas Cat 🖌️):</strong> Menyalin seluruh gaya format (warna latar, warna teks, jenis font, garis border) dari sel asal dan menerapkannya ke sel tujuan tanpa mengubah isi data aslinya.</li>
+                      <li><strong>All Borders vs Gridlines Bawaan:</strong> Garis kisi abu-abu (gridlines) bawaan Excel di layar <strong>TIDAK AKAN DICETAK</strong> saat diprint di kertas. Untuk mencetak garis tabel yang tegas pada hasil cetakan, wajib memilih menu <strong>Borders &rarr; All Borders</strong>.</li>
+                      <li><strong>Nilai Tampilan vs Nilai Asli:</strong> Memformat angka <code>1250000</code> dengan gaya mata uang menjadi <code>Rp 1.250.000</code> <strong>tidak mengubah nilai aslinya</strong> di memori Excel. Sel tersebut tetap bernilai angka <code>1250000</code> dan tetap bisa dihitung oleh rumus perkalian/penjumlahan.</li>
+                      <li><strong>Aturan Tanda Titik Desimal Regional:</strong> Pada komputer dengan setelan regional bahasa Inggris, tanda titik (<code>.</code>) dibaca sebagai koma desimal. Jangan mengetik angka 1 juta dengan titik manual (<code>1.000.000</code>), karena Excel akan membacanya bernilai <code>1</code> (satu)! Ketik angka murni <code>1000000</code> lalu atur format Number.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===================================================== -->
+            <!-- TAMBAHAN MATERI TAB B: RAHASIA AUTOFILL & ALAMAT SEL  -->
+            <!-- ===================================================== -->
+            <div class="materi-subcard-addon" style="margin-top: 32px;">
+              <div class="subcard-header">
+                <span class="subcard-badge bg-purple-pill">AUTOFILL &amp; ALAMAT SEL</span>
+                <h4 class="subhead-title" style="margin: 6px 0 0 0;">⚡ Rahasia Mahir AutoFill &amp; Memahami Alamat Sel (Relatif vs Absolut $)</h4>
+              </div>
+              <p style="margin: 10px 0 16px; color: var(--text-muted); font-size: 0.95rem;">
+                Kuasai cara kerja Fill Handle dan tanda dolar ($) untuk melipatgandakan kecepatan pengolahan data:
+              </p>
+
+              <div class="shortcut-grid">
+                <div class="shortcut-item">
+                  <div class="shortcut-keys"><kbd>Drag 1 Angka</kbd></div>
+                  <div class="shortcut-desc">
+                    <strong>Tarik 1 Angka Tunggal:</strong>
+                    <p>Jika sel hanya berisi angka <code>1</code> lalu langsung didrag ke bawah, Excel secara default akan <strong>menyalin angka yang sama (1, 1, 1, 1)</strong>.</p>
+                  </div>
+                </div>
+
+                <div class="shortcut-item">
+                  <div class="shortcut-keys"><kbd>Ctrl</kbd> + <kbd>Drag 1 Angka</kbd></div>
+                  <div class="shortcut-desc">
+                    <strong>Tarik 1 Angka + Tahan Ctrl:</strong>
+                    <p>Menahan tombol <kbd>Ctrl</kbd> saat menarik fill handle pada satu angka akan mengubah mode menjadi <strong>deret urutan bertambah satu (+1)</strong>: 1, 2, 3, 4, 5!</p>
+                  </div>
+                </div>
+
+                <div class="shortcut-item">
+                  <div class="shortcut-keys"><kbd>Blok 2 Angka</kbd></div>
+                  <div class="shortcut-desc">
+                    <strong>Deteksi Selisih Pola Loncat:</strong>
+                    <p>Ketik <code>2</code> dan <code>4</code>, blok keduanya lalu tarik &rarr; Excel menghasilkan urutan genap <strong>6, 8, 10</strong>. Ketik <code>5</code> dan <code>10</code> &rarr; menghasilkan deret loncat lima <strong>15, 20, 25</strong>.</p>
+                  </div>
+                </div>
+
+                <div class="shortcut-item">
+                  <div class="shortcut-keys"><kbd>Teks + Angka</kbd></div>
+                  <div class="shortcut-desc">
+                    <strong>Deret Kata Bernomor Otomatis:</strong>
+                    <p>Mengetik <code>Siswa 1</code> lalu mendrag ke bawah otomatis berlanjut menjadi <strong>Siswa 2, Siswa 3, Siswa 4</strong> tanpa perlu mengetik contoh kedua.</p>
+                  </div>
+                </div>
+
+                <div class="shortcut-item">
+                  <div class="shortcut-keys"><kbd>Tanggal Kalender</kbd></div>
+                  <div class="shortcut-desc">
+                    <strong>Deteksi Pergantian Bulan &amp; Tahun:</strong>
+                    <p>Jika sel berisi tanggal <code>2026-01-31</code> dan didrag satu sel ke bawah, Excel secara pintar mengisi tanggal <code>2026-02-01</code> (1 Februari) sesuai kalender resmi.</p>
+                  </div>
+                </div>
+
+                <div class="shortcut-item">
+                  <div class="shortcut-keys"><kbd>Klik Ganda (Double-Click)</kbd></div>
+                  <div class="shortcut-desc">
+                    <strong>AutoFill Kilat ke Bawah:</strong>
+                    <p>Daripada mendrag mouse ke bawah untuk 1.000 baris data siswa, cukup <strong>klik 2 kali pada titik hitam Fill Handle</strong> di sudut sel. Rumus atau deret akan langsung terisi ke bawah sejajar dengan kolom data di sebelahnya!</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- REFERENSI RELATIF VS ABSOLUT -->
+              <div class="callout-card callout-green" style="margin-top: 20px;">
+                <div class="callout-icon">🔒</div>
+                <div class="callout-content">
+                  <h5 style="margin: 0 0 6px 0; font-size: 1.05rem; color: #065f46;">Memahami Alamat Sel: Referensi Relatif vs. Referensi Absolut ($)</h5>
+                  <p style="margin: 0 0 10px 0; font-size: 0.95rem; line-height: 1.6;">
+                    Ketika sebuah rumus disalin ke sel lain menggunakan Fill Handle, Excel memiliki dua cara membaca alamat sel:
+                  </p>
+                  <div class="formula-example-strip" style="background: rgba(255,255,255,0.85); padding: 12px 16px; border-radius: 8px; border: 1px solid #a7f3d0;">
+                    <div style="margin-bottom: 10px;">
+                      📍 <strong>1. Alamat Relatif (Contoh: <code>A2*B2</code>):</strong><br>
+                      Koordinat sel akan otomatis menyesuaikan diri mengikuti arah pergeseran rumus. Jika rumus di sel C2 berbunyi <code>=A2*B2</code> lalu disalin ke C3, maka rumus otomatis berubah menjadi <code>=A3*B3</code>. Sangat cocok untuk menghitung total tiap baris siswa.
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                      🔒 <strong>2. Alamat Absolut Penuh (Contoh: <code>$A$1</code>):</strong><br>
+                      Simbol tanda dolar (<code>$</code>) berfungsi sebagai <strong>Gembok Pengunci</strong> agar koordinat sel tidak bergerak ke mana pun rumus disalin. Jika di sel E2 tertulis rumus <code>=$A$1*B2</code> lalu ditarik ke E3, rumusnya menjadi <code>=$A$1*B3</code> (nilai <code>$A$1</code> tetap terkunci pada sel A1).<br>
+                      💡 <em>Shortcut Cepat:</em> Tekan tombol <kbd>F4</kbd> pada keyboard saat mengetik alamat sel untuk menyisipkan tanda <code>$</code> secara instan!
+                    </div>
+                    <div>
+                      🔀 <strong>3. Alamat Campuran / Semi-Absolut:</strong><br>
+                      &bull; <code>$A1</code> : Mengunci kolom A agar tidak bergeser ke kolom B/C, namun baris 1 bebas bergerak ke baris 2, 3, 4.<br>
+                      &bull; <code>A$1</code> : Mengunci baris 1 agar tidak turun ke bawah, namun kolom A bebas bergerak ke kanan.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
         </div>
       </div>
 
@@ -1153,6 +1493,42 @@
               💡 Klik salah satu tab sheet di atas untuk memilihnya, lalu ganti namanya atau beri warna tab!
             </div>
           </div>
+
+          <!-- ATURAN PENAMAAN SHEET & RUMUS LINTAS SHEET -->
+          <div class="materi-sub-block" style="margin-top: 32px;">
+            <h4 class="subhead-title">📑 Aturan Nama Sheet &amp; Rumus Lintas Lembar Kerja:</h4>
+            <div class="info-callout-grid">
+              <div class="callout-card callout-blue">
+                <div class="callout-head">
+                  <span class="c-icon">⚠️</span>
+                  <strong>Aturan Wajib Penamaan Sheet</strong>
+                </div>
+                <p>Nama sheet wajib minimal 1 karakter dan tidak boleh ada nama yang kembar dalam satu workbook. Excel <strong>MELARANG</strong> penggunaan 7 karakter khusus pada nama sheet: <code>/</code>, <code>\</code>, <code>?</code>, <code>*</code>, <code>[</code>, <code>]</code>, atau <code>:</code> karena bentrok dengan kode sistem.</p>
+              </div>
+              <div class="callout-card callout-purple">
+                <div class="callout-head">
+                  <span class="c-icon">🗑️</span>
+                  <strong>Penghapusan Sheet Bersifat Permanen!</strong>
+                </div>
+                <p>Hati-hati saat mengklik kanan tab sheet lalu memilih <strong>Delete</strong>. Tindakan menghapus sheet <strong>TIDAK BISA DIBATALKAN dengan fitur Undo (Ctrl + Z)</strong>! Seluruh data tabel di dalam sheet yang terhapus akan hilang secara permanen.</p>
+              </div>
+              <div class="callout-card callout-green">
+                <div class="callout-head">
+                  <span class="c-icon">🔗</span>
+                  <strong>Rumus Lintas Sheet (Tanda Seru !)</strong>
+                </div>
+                <p>Kamu bisa menjumlahkan data dari sheet yang berbeda! Gunakan <strong>tanda seru (!)</strong> setelah nama sheet. Contoh: <code>=Sheet1!A1 + Sheet2!B2</code> artinya mengambil nilai sel A1 di Sheet1 dan menjumlahkannya dengan sel B2 di Sheet2.</p>
+              </div>
+              <div class="callout-card callout-blue">
+                <div class="callout-head">
+                  <span class="c-icon">👁️</span>
+                  <strong>Fitur Sembunyikan (Hide &amp; Unhide)</strong>
+                </div>
+                <p>Untuk menyembunyikan lembar kerja rahasia tanpa menghapusnya, klik kanan pada tab sheet lalu pilih <strong>Hide</strong>. Untuk memunculkannya kembali, klik kanan sembarang sheet lalu pilih <strong>Unhide</strong>.</p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -1282,6 +1658,65 @@
               </div>
             </div>
           </div>
+
+          <!-- HUKUM PRIORITAS HITUNG MATEMATIKA (KABATAKU) -->
+          <div class="materi-sub-block" style="margin-top: 32px;">
+            <h4 class="subhead-title">⚖️ Urutan Prioritas Hitung Matematika Excel (KABATAKU / PEMDAS):</h4>
+            <p style="margin-bottom: 14px; font-size: 0.95rem; color: var(--text-normal);">
+              Excel tidak menghitung rumus dari kiri ke kanan secara sembarangan, melainkan mematuhi hierarki derajat matematika:
+            </p>
+            <div class="kabataku-steps-grid">
+              <div class="kabataku-step-card rank-1">
+                <div class="k-rank">1</div>
+                <div class="k-title">Tanda Kurung ( )</div>
+                <p>Operasi di dalam tanda kurung selalu <strong>dieksekusi paling pertama</strong>. Contoh: <code>(10 + 2) * 5 = 60</code>.</p>
+              </div>
+              <div class="kabataku-step-card rank-2">
+                <div class="k-rank">2</div>
+                <div class="k-title">Pangkat (^)</div>
+                <p>Perpangkatan dieksekusi kedua. Contoh: <code>=3^2 + 4</code> (3 pangkat 2 = 9, 9 + 4 = <strong>13</strong>).</p>
+              </div>
+              <div class="kabataku-step-card rank-3">
+                <div class="k-rank">3</div>
+                <div class="k-title">Perkalian (*) &amp; Pembagian (/)</div>
+                <p>Kali dan bagi memiliki derajat lebih tinggi dari tambah/kurang. Contoh: <code>=10 + 2 * 5 = 20</code>.</p>
+              </div>
+              <div class="kabataku-step-card rank-4">
+                <div class="k-rank">4</div>
+                <div class="k-title">Penjumlahan (+) &amp; Pengurangan (-)</div>
+                <p>Penjumlahan dan pengurangan dieksekusi pada urutan paling akhir dari kiri ke kanan.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- NAME BOX & DISPLAY VALUE VS UNDERLYING FORMULA -->
+          <div class="materi-sub-block" style="margin-top: 28px;">
+            <h4 class="subhead-title">🎯 Trik Cepat Name Box &amp; Rahasia di Balik Sel:</h4>
+            <div class="info-callout-grid">
+              <div class="callout-card callout-green">
+                <div class="callout-head">
+                  <span class="c-icon">🚀</span>
+                  <strong>Melompat Kilat dengan Name Box</strong>
+                </div>
+                <p>Ingin menuju sel <code>Z500</code> tanpa capek menggulir mouse? Cukup klik kotak <strong>Name Box</strong> di sebelah kiri Formula Bar, ketik <code>Z500</code>, lalu tekan <strong>Enter</strong>. Kamu langsung tiba di sel tujuan seketika!</p>
+              </div>
+              <div class="callout-card callout-blue">
+                <div class="callout-head">
+                  <span class="c-icon">🎭</span>
+                  <strong>Display Value vs Underlying Formula</strong>
+                </div>
+                <p>Kotak sel di lembar kerja menampilkan <em>Display Value</em> (hasil akhir angka yang dilihat mata). Namun jika sel diklik, <strong>Formula Bar</strong> memperlihatkan <em>Underlying Formula</em> (rumus perhitungan asli di baliknya, misal <code>=A1*B1</code>).</p>
+              </div>
+              <div class="callout-card callout-purple">
+                <div class="callout-head">
+                  <span class="c-icon">⚠️</span>
+                  <strong>Wajib Diawali Tanda Sama Dengan (=)</strong>
+                </div>
+                <p>Jika kamu lupa mengetik tanda sama dengan di awal sel (misal hanya mengetik <code>10 + 5</code>), Excel tidak akan menghitungnya melainkan menganggapnya sebagai teks biasa!</p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -1408,6 +1843,81 @@
               </div>
             </div>
           </div>
+
+          <!-- KAMUS 6 PESAN ERROR EXCEL PALING SERING TERJADI -->
+          <div class="materi-sub-block" style="margin-top: 32px;">
+            <h4 class="subhead-title">🚨 Kamus 6 Pesan Error Excel (Penyebab &amp; Solusinya):</h4>
+            <p style="margin-bottom: 14px; font-size: 0.95rem; color: var(--text-normal);">
+              Setiap kali rumus mengalami kendala, Excel memberikan kode error khusus. Kenali penyebabnya agar kamu bisa langsung memperbaikinya:
+            </p>
+            <div class="error-cards-grid">
+              <div class="error-item-card">
+                <div class="error-code-badge">#DIV/0!</div>
+                <div class="error-name">Division by Zero</div>
+                <p class="error-cause"><strong>Penyebab:</strong> Rumus membagi sebuah angka dengan angka <strong>0 (nol)</strong> atau sel kosong yang belum diisi.</p>
+                <p class="error-solution"><strong>Solusi:</strong> Pastikan sel pembagi berisi angka lebih dari nol (bukan 0 atau kosong).</p>
+              </div>
+              <div class="error-item-card">
+                <div class="error-code-badge">#VALUE!</div>
+                <div class="error-name">Wrong Data Type</div>
+                <p class="error-cause"><strong>Penyebab:</strong> Operasi matematika mencoba menghitung tipe data teks (misal <code>='Buku'*5000</code>).</p>
+                <p class="error-solution"><strong>Solusi:</strong> Pastikan sel yang dihitung hanya berisi angka murni tanpa huruf.</p>
+              </div>
+              <div class="error-item-card">
+                <div class="error-code-badge">#NAME?</div>
+                <div class="error-name">Unrecognized Name</div>
+                <p class="error-cause"><strong>Penyebab:</strong> Nama fungsi salah ketik (misal <code>=SOM()</code>) atau teks keluaran formula lupa diberi tanda petik ganda <code>""</code>.</p>
+                <p class="error-solution"><strong>Solusi:</strong> Periksa ejaan nama rumus dan apit teks keluaran dengan petik dua (misal <code>"Lulus"</code>).</p>
+              </div>
+              <div class="error-item-card">
+                <div class="error-code-badge">#REF!</div>
+                <div class="error-name">Invalid Reference</div>
+                <p class="error-cause"><strong>Penyebab:</strong> Sel yang dirujuk rumus sudah terhapus secara permanen, atau nomor kolom VLOOKUP melebihi batas tabel.</p>
+                <p class="error-solution"><strong>Solusi:</strong> Perbaiki rujukan sel atau pastikan nomor kolom VLOOKUP sesuai jumlah kolom tabel acuan.</p>
+              </div>
+              <div class="error-item-card">
+                <div class="error-code-badge">#N/A</div>
+                <div class="error-name">Not Available</div>
+                <p class="error-cause"><strong>Penyebab:</strong> Rumus VLOOKUP tidak berhasil menemukan data kunci pencarian di kolom pertama tabel acuan.</p>
+                <p class="error-solution"><strong>Solusi:</strong> Pastikan kode kunci yang dicari benar-benar ada pada tabel acuan referensi.</p>
+              </div>
+              <div class="error-item-card">
+                <div class="error-code-badge">######</div>
+                <div class="error-name">Column Too Narrow</div>
+                <p class="error-cause"><strong>Penyebab:</strong> Lebar kolom sel terlalu sempit untuk menampilkan angka atau format tanggal yang panjang.</p>
+                <p class="error-solution"><strong>Solusi:</strong> Geser pembatas kolom ke kanan atau klik ganda garis header kolom agar melebar otomatis.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- INTEGRASI ALUR PENGOLAHAN NILAI RAPOR KELAS -->
+          <div class="materi-sub-block" style="margin-top: 28px;">
+            <h4 class="subhead-title">🏆 Integrasi Alur Pengolahan Rapor Siswa Terpadu:</h4>
+            <div class="info-callout-grid">
+              <div class="callout-card callout-green">
+                <div class="callout-head">
+                  <span class="c-icon">📊</span>
+                  <strong>1. Total &amp; Rata-Rata</strong>
+                </div>
+                <p>Gunakan rumus <code>=SUM(B2:D2)</code> untuk menghitung total nilai tugas, UTS, dan UAS. Lanjutkan dengan <code>=AVERAGE(B2:D2)</code> untuk menghitung nilai rata-rata akhir siswa.</p>
+              </div>
+              <div class="callout-card callout-blue">
+                <div class="callout-head">
+                  <span class="c-icon">🎓</span>
+                  <strong>2. Kelulusan &amp; Peringkat</strong>
+                </div>
+                <p>Tentukan status kelulusan dengan rumus logika <code>=IF(E2>=75; "Lulus"; "Remedial")</code>. Selanjutnya tentukan juara kelas dengan rumus ranking <code>=RANK(E2; $E$2:$E$31; 0)</code>.</p>
+              </div>
+              <div class="callout-card callout-purple">
+                <div class="callout-head">
+                  <span class="c-icon">🔎</span>
+                  <strong>3. Predikat Otomatis VLOOKUP</strong>
+                </div>
+                <p>Ambil predikat huruf (A/B/C) atau nama siswa secara otomatis dari tabel standar nilai menggunakan rumus <code>=VLOOKUP(E2; TabelStandar; 2; FALSE)</code> secara akurat.</p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -1657,6 +2167,211 @@
             </div>
           </div>
         </div>
+
+      <!-- ===================================================== -->
+      <!-- TAMBAHAN MATERI RUMUS: PENDALAMAN LENGKAP PENGAYAAN    -->
+      <!-- ===================================================== -->
+      <div class="rumus-deepdive-container" style="margin-top: 40px;">
+        <div class="section-title-wrap" style="text-align: left; margin-bottom: 24px;">
+          <div class="badge-tag">PENDALAMAN RUMUS &amp; LOGIKA</div>
+          <h3 class="section-heading" style="font-size: 1.6rem;">💡 Pendalaman Rumus Excel: Aturan Emas, Jebakan Soal, &amp; Kasus Nyata</h3>
+          <p class="section-subtext" style="text-align: left; margin: 0;">
+            Pelajari konsep kunci berikut agar kamu dapat menjawab seluruh soal kuis dan ujian tanpa ragu-ragu:
+          </p>
+        </div>
+
+        <!-- 1. TRIO RUMUS PENCACAH: COUNT, COUNTA, COUNTBLANK -->
+        <div class="card-white shadow-card" style="margin-bottom: 24px;">
+          <div class="subcard-header">
+            <span class="subcard-badge bg-blue-pill">TRIO PENCACAH</span>
+            <h4 class="subhead-title" style="margin: 6px 0 0 0;">🔢 Trio Rumus Pencacah Sel: COUNT vs. COUNTA vs. COUNTBLANK</h4>
+          </div>
+          <p style="margin: 10px 0 16px; color: var(--text-muted); font-size: 0.95rem;">
+            Ketiga fungsi ini sama-sama digunakan untuk mencacah (menghitung banyaknya kotak sel), namun kriteria isinya sangat berbeda:
+          </p>
+
+          <div class="comparison-trio-grid">
+            <div class="comparison-trio-card card-blue-tint">
+              <div class="trio-icon">🔢</div>
+              <h5 class="trio-title">=COUNT(rentang)</h5>
+              <div class="trio-badge">HANYA ANGKA (NUMERIK)</div>
+              <p class="trio-desc">
+                Hanya menghitung sel yang berisi data <strong>ANGKA (numerik)</strong>, termasuk tanggal dan angka nol (0). Sel berisi teks huruf, nama, simbol, atau sel kosong <strong>akan diabaikan</strong>.
+              </p>
+              <div class="trio-example">
+                Contoh: <code>=COUNT(10; "Apel"; 25; "Jeruk"; 40)</code><br>
+                &rarr; Hasilnya: <strong>3</strong> (hanya menghitung angka 10, 25, dan 40).
+              </div>
+            </div>
+
+            <div class="comparison-trio-card card-green-tint">
+              <div class="trio-icon">📝</div>
+              <h5 class="trio-title">=COUNTA(rentang)</h5>
+              <div class="trio-badge">SEMUA SEL TIDAK KOSONG</div>
+              <p class="trio-desc">
+                <em>Count All</em> &mdash; Menghitung semua sel yang <strong>TERISI data apa pun</strong> (baik berisi angka, teks nama siswa, huruf, kata, simbol, ataupun tanda baca). Hanya sel kosong yang diabaikan.
+              </p>
+              <div class="trio-example">
+                Contoh: Sangat tepat untuk menghitung jumlah total siswa terdaftar pada kolom Nama Siswa.
+              </div>
+            </div>
+
+            <div class="comparison-trio-card card-purple-tint">
+              <div class="trio-icon">🔲</div>
+              <h5 class="trio-title">=COUNTBLANK(rentang)</h5>
+              <div class="trio-badge">KHUSUS SEL KOSONG</div>
+              <p class="trio-desc">
+                Menghitung banyaknya sel yang <strong>KOSONG (blank)</strong> / belum diisi data apa pun pada suatu rentang sel.
+              </p>
+              <div class="trio-example">
+                Contoh: <code>=COUNTBLANK(D2:D41)</code> untuk menghitung berapa banyak siswa yang <strong>belum mengumpulkan tugas</strong>.
+              </div>
+            </div>
+          </div>
+
+          <!-- STUDI KASUS KOMPARASI 5 SEL -->
+          <div class="callout-card callout-blue" style="margin-top: 20px;">
+            <div class="callout-icon">🧪</div>
+            <div class="callout-content">
+              <h5 style="margin: 0 0 6px 0; font-size: 1.05rem; color: #1e3a8a;">Simulasi Perbandingan: 5 Sel Uji Coba</h5>
+              <p style="margin: 0 0 10px 0; font-size: 0.95rem;">
+                Misalkan terdapat 5 sel di kolom A: <code>A1 = 10</code>, <code>A2 = 20</code>, <code>A3 = "Budi"</code>, <code>A4 = [KOSONG]</code>, <code>A5 = 30</code>.
+              </p>
+              <div class="formula-example-strip" style="background: rgba(255,255,255,0.9); padding: 12px 16px; border-radius: 8px; border: 1px solid #bfdbfe; font-size: 0.95rem; line-height: 1.7;">
+                &bull; <code>=COUNT(A1:A5)</code> &rarr; Menghasilkan <strong>3</strong> (hanya A1, A2, dan A5 yang berupa angka numerik).<br>
+                &bull; <code>=COUNTA(A1:A5)</code> &rarr; Menghasilkan <strong>4</strong> (A1, A2, A3, dan A5 terisi data; hanya A4 yang kosong).<br>
+                &bull; <code>=COUNTBLANK(A1:A5)</code> &rarr; Menghasilkan <strong>1</strong> (hanya sel A4 yang kosong).
+              </div>
+              <div style="margin-top: 10px; font-size: 0.95rem; color: #991b1b; background: #fee2e2; padding: 10px 14px; border-radius: 6px;">
+                ⚠️ <strong>JEBAKAN SOAL KUIS (HOTS - Angka 0):</strong> Jika di sel A1 terdapat angka <code>0</code> (nol), apakah sel itu dianggap kosong? <strong>BUKAN!</strong> Angka 0 adalah data numerik yang sah. Sel berisi angka 0 <strong>tetap dihitung oleh COUNT dan COUNTA</strong>, serta <strong>TIDAK dihitung oleh COUNTBLANK</strong>!
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. ATURAN KRITERIA COUNTIF, SUMIF & PENGENALAN SUMIFS -->
+        <div class="card-white shadow-card" style="margin-bottom: 24px;">
+          <div class="subcard-header">
+            <span class="subcard-badge bg-green-pill">ATURAN KRITERIA</span>
+            <h4 class="subhead-title" style="margin: 6px 0 0 0;">🎯 Aturan Emas Kriteria pada COUNTIF, SUMIF, &amp; Mengenal SUMIFS</h4>
+          </div>
+          <p style="margin: 10px 0 16px; color: var(--text-muted); font-size: 0.95rem;">
+            Memahami aturan tanda petik, operator pembanding logika, karakter wildcard, dan struktur argumen:
+          </p>
+
+          <div class="info-callout-grid">
+            <!-- Aturan Tanda Petik & Operator Pembanding -->
+            <div class="callout-card callout-green">
+              <div class="callout-icon">💬</div>
+              <div class="callout-content">
+                <h5>Aturan Tanda Petik Dua (<code>"</code>) &amp; Operator Pembanding</h5>
+                <p>
+                  Pada fungsi <code>COUNTIF</code> dan <code>SUMIF</code>, kriteria yang berupa <strong>teks</strong> (misal <code>"Lulus"</code>, <code>"L"</code>) ataupun yang mengandung <strong>operator pembanding logika</strong> (misal <code>">75"</code>, <code>"<=100"</code>, <code>"<>0"</code>) <strong>WAJIB diapit tanda petik dua</strong>!
+                </p>
+                <div style="margin-top: 8px; font-size: 0.9rem; line-height: 1.6;">
+                  &bull; <strong>Operator Pembanding:</strong> <code>></code> (lebih besar), <code><</code> (lebih kecil), <code>>=</code> (lebih besar sama dengan), <code><=</code> (kurang dari sama dengan).<br>
+                  &bull; <strong>Simbol Tidak Sama Dengan:</strong> Di Excel dilambangkan dengan kurung sudut berlawanan: <code><></code>. Contoh: <code>=COUNTIF(C2:C30; "<>100")</code> menghitung siswa yang nilainya <em>bukan 100</em>.<br>
+                  &bull; ⚠️ <em>Peringatan:</em> Jika kamu mengetik <code>=COUNTIF(B2:B20; >75)</code> tanpa tanda petik dua, Excel akan memunculkan <strong>Formula Error (pesan kesalahan rumus)</strong>.
+                </div>
+              </div>
+            </div>
+
+            <!-- Karakter Wildcard & Persentase Kehadiran -->
+            <div class="callout-card callout-blue">
+              <div class="callout-icon">🌟</div>
+              <div class="callout-content">
+                <h5>Karakter Wildcard Bintang (<code>*</code>) &amp; Rasio Absensi</h5>
+                <p>
+                  <strong>Karakter Bintang (<code>*</code>):</strong> Berfungsi sebagai <em>wildcard</em> yang mewakili sembarang huruf atau kalimat bebas.
+                </p>
+                <div style="margin-top: 6px; font-size: 0.9rem; line-height: 1.6;">
+                  &bull; <code>=COUNTIF(A2:A10; "B*")</code> &rarr; Menghitung semua siswa yang namanya diawali huruf <strong>B</strong> (Budi, Bambang, Bayu).<br>
+                  &bull; <code>=SUMIF(A2:A10; "Buku*"; B2:B10)</code> &rarr; Menjumlahkan penjualan semua produk yang diawali kata "Buku" (Buku Tulis, Buku Gambar, Buku Kotak).<br>
+                  &bull; <strong>Menghitung Persentase Kehadiran:</strong> Dalam rekap absensi 30 hari (misal Hadir 25 kali), persentase kehadiran dihitung dengan rumus: <code>=COUNTIF(B2:B31; "Hadir") / 30</code>.
+                </div>
+              </div>
+            </div>
+
+            <!-- Struktur SUMIF & Perbedaan Dimensi Range -->
+            <div class="callout-card callout-purple">
+              <div class="callout-icon">∑</div>
+              <div class="callout-content">
+                <h5>Struktur Lengkap SUMIF: <code>=SUMIF(range; criteria; [sum_range])</code></h5>
+                <ul style="margin: 0; padding-left: 18px; font-size: 0.9rem; line-height: 1.6;">
+                  <li><strong>Argumen 1 (<code>range</code>):</strong> Rentang sel yang akan dievaluasi/diuji terhadap syarat.</li>
+                  <li><strong>Argumen 2 (<code>criteria</code>):</strong> Syarat/kondisi penentu (misal <code>"Minuman"</code> atau <code>">=80"</code>).</li>
+                  <li><strong>Argumen 3 (<code>[sum_range]</code>):</strong> Rentang sel angka yang akan dijumlahkan. Bersifat <strong>opsional</strong>: jika kolom penguji dan kolom penjumlahan sama, argumen ketiga boleh dikosongkan. Contoh: <code>=SUMIF(A1:A5; ">10")</code>.</li>
+                  <li><strong>Keseimbangan Rentang:</strong> Ukuran baris antara <code>range</code> dan <code>sum_range</code> harus seimbang (sama panjang, misal A2:A10 dengan B2:B10). Jika A2:A10 dipasangkan dengan B2:B5, kalkulasi berisiko salah atau tidak konsisten.</li>
+                  <li><strong>Mengenal SUMIFS (Multi Kriteria):</strong> Fungsi <code>SUMIF</code> standar hanya mendukung 1 kriteria tunggal. Jika membutuhkan 2 kriteria atau lebih sekaligus (contoh: Kota Bandung DAN transaksi di atas 100.000), Excel menyediakan fungsi khusus yaitu <code>=SUMIFS(...)</code>.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. LOGIKA IF BERTINGKAT & ATURAN KUNCI RANK SERTA VLOOKUP -->
+        <div class="card-white shadow-card">
+          <div class="subcard-header">
+            <span class="subcard-badge bg-purple-pill">LOGIKA &amp; PENCARIAN TINGKAT LANJUT</span>
+            <h4 class="subhead-title" style="margin: 6px 0 0 0;">🧠 IF Bertingkat (Nested IF), Kunci Sukses RANK, &amp; 3 Aturan Emas VLOOKUP</h4>
+          </div>
+          <p style="margin: 10px 0 16px; color: var(--text-muted); font-size: 0.95rem;">
+            Mengintegrasikan logika bertingkat, penentuan ranking kelas, dan pencarian data tabel otomatis:
+          </p>
+
+          <div class="info-callout-grid">
+            <!-- IF Bertingkat -->
+            <div class="callout-card callout-blue">
+              <div class="callout-icon">🔀</div>
+              <div class="callout-content">
+                <h5>IF Bertingkat (Nested IF) &amp; Jebakan Teks Tanpa Petik</h5>
+                <p>
+                  Jika kondisi pilihan lebih dari 2 (misal konversi nilai A, B, C, D atau predikat Sangat Baik, Baik, Cukup), gunakan <strong>Nested IF</strong> yang diurutkan dari batas nilai tertinggi ke terendah:
+                </p>
+                <div style="background: rgba(255,255,255,0.85); padding: 10px 12px; border-radius: 6px; font-family: monospace; font-size: 0.88rem; margin: 8px 0; border: 1px solid #bfdbfe;">
+                  =IF(A2>=90; "Sangat Baik"; IF(A2>=75; "Baik"; "Cukup"))
+                </div>
+                <div style="font-size: 0.9rem; line-height: 1.6;">
+                  &bull; <strong>Simulasi Eksekusi:</strong> Jika A2 bernilai 85, kondisi pertama (85 >= 90) bernilai FALSE. Excel lanjut ke uji kedua (85 >= 75) bernilai TRUE, sehingga menghasilkan <strong>"Baik"</strong>.<br>
+                  &bull; ⚠️ <strong>Jebakan Error #NAME?:</strong> Jika teks status diketik tanpa tanda petik seperti <code>=IF(B2>=75; Lulus; Remedial)</code>, Excel memunculkan error <strong>#NAME?</strong> karena mengira kata Lulus adalah nama fungsi tak dikenal!<br>
+                  &bull; <strong>Case-Insensitive:</strong> Operator pembanding teks standar di Excel tidak membedakan huruf besar/kecil. Jadi <code>=IF(A1="ya"; "Setuju"; "Batal")</code> tetap menghasilkan Setuju meski di sel A1 diketik huruf kapital <code>"YA"</code>.
+                </div>
+              </div>
+            </div>
+
+            <!-- Kunci Sukses RANK -->
+            <div class="callout-card callout-green">
+              <div class="callout-icon">🏆</div>
+              <div class="callout-content">
+                <h5>Kunci Sukses RANK: <code>=RANK(angka; $referensi$; [order])</code></h5>
+                <p>
+                  Fungsi <code>RANK</code> digunakan untuk menentukan peringkat nilai seorang siswa di antara nilai seluruh teman sekelasnya.
+                </p>
+                <div style="font-size: 0.9rem; line-height: 1.6; margin-top: 6px;">
+                  &bull; <strong>Rumus Baku di Sel D2:</strong> <code>=RANK(D2; $D$2:$D$31; 0)</code><br>
+                  &bull; 🔒 <strong>Mengapa WAJIB Dikunci Dollar (<code>$</code>):</strong> Rentang seluruh siswa (<code>$D$2:$D$31</code>) wajib berstatus <strong>Absolut Penuh</strong>. Jika tidak diberi <code>$</code>, saat rumus ditarik ke bawah dengan AutoFill, rentang kelas akan bergeser turun (D3:D32, D4:D33), menyebabkan siswa di bawah hanya dibandingkan dengan sisa teman di bawahnya saja sehingga peringkat menjadi salah fatal!<br>
+                  &bull; <strong>Parameter Order:</strong> Angka <code>0</code> (atau dikosongkan) = <strong>Descending</strong> (nilai terbesar ranking 1 &mdash; standar nilai rapor). Angka <code>1</code> = <strong>Ascending</strong> (nilai terkecil ranking 1 &mdash; contoh: waktu lari tercepat pada lomba atletik).
+                </div>
+              </div>
+            </div>
+
+            <!-- 3 Aturan Emas VLOOKUP & Rapor Terpadu -->
+            <div class="callout-card callout-purple">
+              <div class="callout-icon">📑</div>
+              <div class="callout-content">
+                <h5>3 Aturan Emas VLOOKUP &amp; Integrasi Rapor Digital Kelas VIII</h5>
+                <ul style="margin: 0; padding-left: 18px; font-size: 0.9rem; line-height: 1.6;">
+                  <li><strong>1. Kolom Kunci Wajib di Kolom Paling Kiri:</strong> Nilai pencarian (lookup_value) wajib berada di kolom ke-1 dari tabel acuan. VLOOKUP tidak bisa mencari ke arah kiri.</li>
+                  <li><strong>2. Exact Match (FALSE atau 0):</strong> Mengatur pencarian sama persis. Jika kode kunci (misal NIS siswa) tidak ditemukan di tabel induk, Excel memunculkan error <strong>#N/A</strong>.</li>
+                  <li><strong>3. Batas Indeks Kolom:</strong> Jika tabel acuan hanya memiliki 3 kolom (G2:I10) namun rumus meminta kolom ke-4 (<code>=VLOOKUP(A2; G2:I10; 4; FALSE)</code>), rumus menghasilkan error <strong>#REF!</strong> karena kolom ke-4 tidak ada.</li>
+                  <li><strong>Kekuatan Rapor Digital Terpadu:</strong> Mengapa buku rapor digital memanfaatkan <code>SUM</code> (total nilai), <code>AVERAGE</code> (rata-rata), <code>IF</code> (ketuntasan kelulusan), <code>RANK</code> (juara kelas), dan <code>VLOOKUP</code> (ambil profil siswa otomatis)? Karena seluruh proses komputasi akademis menjadi otomatis, cepat, akurat, bebas dari salah hitung manusiawi, dan siap dicetak secara profesional!</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       </div>
     </section>
 
